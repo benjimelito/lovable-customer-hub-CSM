@@ -137,10 +137,10 @@ const EnterprisePage: React.FC = () => {
 
           <BlurFade delay={0.4} inView>
             <div className="mb-16 flex gap-2.5 flex-row">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90">Start building</Button>
               </a>
-              <a href="#" className="inline-block">
+              <a href="https://lovable.dev/enterprise-landing" target="_blank" rel="noopener noreferrer" className="inline-block">
                 <Button variant="outline" size="lg" className="rounded-[20px] border border-white bg-transparent text-white hover:bg-white/10">
                   Contact sales
                   <svg width="9" height="9" viewBox="0 0 9 9" fill="none" className="ml-0.5">
