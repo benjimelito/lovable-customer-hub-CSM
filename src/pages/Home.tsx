@@ -164,7 +164,7 @@ const EnterprisePage: React.FC = () => {
       <div className="flex flex-col z-10">
 
       {/* Carousel Section */}
-      <section className="pt-48 pb-24 z-10 bg-background rounded-3xl">
+      <section className="pt-64 pb-24 z-10 bg-background rounded-3xl">
         <div className="mx-auto w-full px-4 md:px-8 lg:px-16">
           <div className="mb-10 flex flex-col gap-6">
             <BlurFade delay={0.2} inView>

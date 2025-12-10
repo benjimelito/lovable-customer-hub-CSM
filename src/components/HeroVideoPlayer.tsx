@@ -19,7 +19,7 @@ const HeroVideoPlayer: React.FC<HeroVideoPlayerProps> = ({
   };
 
   return (
-    <div className="relative z-20 mx-auto w-full max-w-5xl px-4 -mt-32">
+    <div className="relative z-30 mx-auto w-full max-w-5xl px-4 -mt-16 mb-[-180px]">
       <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-slate-900 to-slate-800 shadow-2xl">
         {/* Video/Thumbnail Container */}
         <div className="relative aspect-video w-full overflow-hidden">
