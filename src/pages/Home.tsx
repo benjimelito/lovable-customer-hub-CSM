@@ -13,6 +13,7 @@ import lovableDark from "@/assets/lovable-dark.png";
 import gradientWaves from "@/assets/gradient-waves.png";
 import gradientCircles from "@/assets/gradient-circles.png";
 import Navigation from "@/components/Navigation";
+import HeroVideoPlayer from "@/components/HeroVideoPlayer";
 import React, { useState, useEffect } from "react";
 const EnterprisePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -153,6 +154,9 @@ const EnterprisePage: React.FC = () => {
 
         </div>
       </section>
+      
+      {/* Video Player - Overlapping Hero and Content */}
+      <HeroVideoPlayer />
     </div>
     </div>
 
@@ -160,7 +164,7 @@ const EnterprisePage: React.FC = () => {
       <div className="flex flex-col z-10">
 
       {/* Carousel Section */}
-      <section className="py-24 z-10 bg-background rounded-3xl">
+      <section className="pt-48 pb-24 z-10 bg-background rounded-3xl">
         <div className="mx-auto w-full px-4 md:px-8 lg:px-16">
           <div className="mb-10 flex flex-col gap-6">
             <BlurFade delay={0.2} inView>
