@@ -13,3 +13,5 @@ export { default as SimpleCTASection } from "./SimpleCTASection";
 export { default as EnterpriseSupportSection } from "./EnterpriseSupportSection";
 export { default as SectionHeader } from "./SectionHeader";
 export { default as Footer } from "./Footer";
+export { default as ContentCarousel } from "./ContentCarousel";
+export { default as ExpandingCardsSection } from "./ExpandingCardsSection";
