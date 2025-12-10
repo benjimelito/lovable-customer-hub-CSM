@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Play } from "lucide-react";
+import videoThumbnail from "@/assets/video-thumbnail.png";
 
 interface HeroVideoPlayerProps {
   thumbnailUrl?: string;
@@ -7,7 +8,7 @@ interface HeroVideoPlayerProps {
 }
 
 const HeroVideoPlayer: React.FC<HeroVideoPlayerProps> = ({
-  thumbnailUrl = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop",
+  thumbnailUrl = videoThumbnail,
   videoUrl,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
