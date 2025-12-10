@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Play } from "lucide-react";
 import videoThumbnail from "@/assets/video-thumbnail.png";
+import lovableLogo from "@/assets/lovable-logo-light.png";
 
 interface HeroVideoPlayerProps {
   thumbnailUrl?: string;
@@ -59,13 +60,8 @@ const HeroVideoPlayer: React.FC<HeroVideoPlayerProps> = ({
 
               {/* Content Preview */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 2L2 5V11L8 14L14 11V5L8 2Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span className="text-sm font-medium text-white/90">LOVABLE</span>
+                <div className="flex items-center mb-3">
+                  <img src={lovableLogo} alt="Lovable" className="h-6 w-auto" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-1">
                   See Lovable in action
