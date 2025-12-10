@@ -19,6 +19,8 @@ import SimpleCTASection from "@/components/showcase/SimpleCTASection";
 import EnterpriseSupportSection from "@/components/showcase/EnterpriseSupportSection";
 import SectionHeader from "@/components/showcase/SectionHeader";
 import Footer from "@/components/showcase/Footer";
+import ContentCarousel from "@/components/showcase/ContentCarousel";
+import ExpandingCardsSection from "@/components/showcase/ExpandingCardsSection";
 
 const ComponentShowcase: React.FC = () => {
   return (
@@ -330,6 +332,33 @@ const ComponentShowcase: React.FC = () => {
                 "Enterprise security",
                 "Unlimited scalability",
               ]}
+            />
+          </section>
+
+          {/* Content Carousel Demo */}
+          <section className="py-16 border-t border-border">
+            <div className="px-4 md:px-8 lg:px-16 mb-4">
+              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-4">Component: ContentCarousel</p>
+              <p className="text-muted-foreground text-sm">Import: <code className="bg-muted px-2 py-1 rounded">{"import ContentCarousel from '@/components/showcase/ContentCarousel'"}</code></p>
+            </div>
+            
+            <ContentCarousel 
+              title="Your AI cofounder and dev team"
+              subtitle="Your idea doesn't need a technical cofounder. Lovable is your technical partner."
+              autoPlayInterval={5000}
+            />
+          </section>
+
+          {/* Expanding Cards Demo */}
+          <section className="py-16 border-t border-border">
+            <div className="px-4 md:px-8 lg:px-16 mb-4">
+              <p className="text-sm uppercase tracking-wide text-muted-foreground mb-4">Component: ExpandingCardsSection</p>
+              <p className="text-muted-foreground text-sm">Import: <code className="bg-muted px-2 py-1 rounded">{"import ExpandingCardsSection from '@/components/showcase/ExpandingCardsSection'"}</code></p>
+            </div>
+            
+            <ExpandingCardsSection 
+              autoPlayInterval={5000}
+              initialActiveIndex={1}
             />
           </section>
 
