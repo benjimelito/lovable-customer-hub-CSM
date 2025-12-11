@@ -240,7 +240,6 @@ const ChatBot: React.FC = () => {
             <MessageBubble key={message.id} message={message} />
           ))}
           {isThinking && <TypingIndicator phase="thinking" />}
-          {isStreaming && <TypingIndicator phase="responding" />}
         </div>
       </ScrollArea>
 
