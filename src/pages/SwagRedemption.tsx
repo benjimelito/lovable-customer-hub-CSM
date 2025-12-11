@@ -9,6 +9,15 @@ import { useRewards } from "@/contexts/RewardsContext";
 import { toast } from "sonner";
 import { Gift, Sparkles } from "lucide-react";
 
+// Import swag images
+import capImage from "@/assets/swag/cap.png";
+import bottleImage from "@/assets/swag/bottle.png";
+import notebookImage from "@/assets/swag/notebook.png";
+import mugImage from "@/assets/swag/mug.png";
+import tshirtImage from "@/assets/swag/tshirt.png";
+import usbHubImage from "@/assets/swag/usb-hub.png";
+import hoodieImage from "@/assets/swag/hoodie.png";
+
 // Enhanced swag catalog with categories
 const swagItems: SwagItem[] = [
   {
@@ -25,7 +34,7 @@ const swagItems: SwagItem[] = [
     name: "Developer Notebook",
     description: "Premium hardcover notebook with dot grid pages, perfect for sketching ideas",
     pointsCost: 50,
-    image: "/placeholder.svg",
+    image: notebookImage,
     available: true,
     category: "accessories",
   },
@@ -34,7 +43,7 @@ const swagItems: SwagItem[] = [
     name: "Ceramic Mug",
     description: "Elegant ceramic mug with gradient design. Microwave and dishwasher safe",
     pointsCost: 75,
-    image: "/placeholder.svg",
+    image: mugImage,
     available: true,
     category: "accessories",
   },
@@ -43,7 +52,7 @@ const swagItems: SwagItem[] = [
     name: "Lovable T-Shirt",
     description: "Premium 100% organic cotton t-shirt with subtle Lovable embroidery",
     pointsCost: 100,
-    image: "/placeholder.svg",
+    image: tshirtImage,
     available: true,
     category: "apparel",
     sizes: ["S", "M", "L", "XL"],
@@ -53,7 +62,7 @@ const swagItems: SwagItem[] = [
     name: "Insulated Bottle",
     description: "Stainless steel insulated bottle. Keeps drinks cold 24h or hot 12h",
     pointsCost: 125,
-    image: "/placeholder.svg",
+    image: bottleImage,
     available: true,
     category: "tech",
   },
@@ -62,7 +71,7 @@ const swagItems: SwagItem[] = [
     name: "Developer Cap",
     description: "Classic baseball cap with embroidered Lovable logo. Adjustable strap",
     pointsCost: 75,
-    image: "/placeholder.svg",
+    image: capImage,
     available: true,
     category: "apparel",
   },
@@ -71,7 +80,7 @@ const swagItems: SwagItem[] = [
     name: "USB-C Hub",
     description: "4-port USB-C hub with Lovable branding. Essential for any developer setup",
     pointsCost: 150,
-    image: "/placeholder.svg",
+    image: usbHubImage,
     available: true,
     category: "tech",
   },
@@ -80,7 +89,7 @@ const swagItems: SwagItem[] = [
     name: "Premium Hoodie",
     description: "Cozy premium hoodie with embroidered logo. Limited edition colorway",
     pointsCost: 200,
-    image: "/placeholder.svg",
+    image: hoodieImage,
     available: true,
     category: "limited",
     sizes: ["S", "M", "L", "XL", "XXL"],
