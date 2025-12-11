@@ -36,16 +36,24 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
   const hasAnimated = useRef(false);
+  const previousValue = useRef(value);
 
   useEffect(() => {
-    if (isInView && !hasAnimated.current) {
+    // Animate on initial view or when value changes after initial animation
+    const shouldAnimate = (isInView && !hasAnimated.current) || 
+                          (hasAnimated.current && value !== previousValue.current);
+    
+    if (shouldAnimate) {
+      const startValue = hasAnimated.current ? previousValue.current : 0;
       hasAnimated.current = true;
+      previousValue.current = value;
+      
       const startTime = Date.now();
-      const startValue = 0;
+      const animDuration = hasAnimated.current ? Math.min(duration, 500) : duration;
 
       const animate = () => {
         const now = Date.now();
-        const progress = Math.min((now - startTime) / duration, 1);
+        const progress = Math.min((now - startTime) / animDuration, 1);
         
         // Ease out function
         const easeOut = 1 - Math.pow(1 - progress, 3);
