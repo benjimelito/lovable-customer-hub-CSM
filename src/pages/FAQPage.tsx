@@ -147,7 +147,7 @@ const FAQPage: React.FC = () => {
   return (
     <HubLayout sectionId="faq" showBackground={false}>
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-background rounded-3xl">
-        <div className="mx-auto w-full max-w-6xl px-4 md:px-8 lg:px-16 space-y-8">
+        <div className="mx-auto w-full px-4 md:px-8 lg:px-16 space-y-12">
           {/* Header */}
           <BlurFade delay={0.1}>
             <div className="max-w-2xl">

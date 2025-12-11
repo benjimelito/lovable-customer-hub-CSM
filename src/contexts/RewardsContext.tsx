@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface Achievement {
   id: string;
@@ -18,9 +18,11 @@ interface Unlock {
 
 interface RewardsContextType {
   points: number;
+  maxPoints: number;
   achievements: Achievement[];
   unlocks: Unlock[];
   addPoints: (amount: number) => void;
+  removePoints: (amount: number) => void;
   earnAchievement: (achievementId: string) => void;
   unlockReward: (unlockId: string) => void;
   redeemUnlock: (unlockId: string) => void;
@@ -44,15 +46,32 @@ const defaultUnlocks: Unlock[] = [
   { id: "case_study", name: "Exclusive Case Studies", type: "content", redeemed: false },
 ];
 
+// Total points available from action items (matches ActionItems.tsx tasks)
+const MAX_POINTS = 210;
+
+const POINTS_STORAGE_KEY = "customer-hub-points";
+
 const RewardsContext = createContext<RewardsContextType | undefined>(undefined);
 
 export const RewardsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [points, setPoints] = useState(150);
+  const [points, setPoints] = useState(() => {
+    const saved = localStorage.getItem(POINTS_STORAGE_KEY);
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const [achievements, setAchievements] = useState<Achievement[]>(defaultAchievements);
   const [unlocks, setUnlocks] = useState<Unlock[]>(defaultUnlocks);
 
+  // Persist points to localStorage
+  useEffect(() => {
+    localStorage.setItem(POINTS_STORAGE_KEY, points.toString());
+  }, [points]);
+
   const addPoints = (amount: number) => {
-    setPoints((prev) => prev + amount);
+    setPoints((prev) => Math.min(prev + amount, MAX_POINTS));
+  };
+
+  const removePoints = (amount: number) => {
+    setPoints((prev) => Math.max(prev - amount, 0));
   };
 
   const earnAchievement = (achievementId: string) => {
@@ -92,9 +111,11 @@ export const RewardsProvider: React.FC<{ children: ReactNode }> = ({ children })
     <RewardsContext.Provider
       value={{
         points,
+        maxPoints: MAX_POINTS,
         achievements,
         unlocks,
         addPoints,
+        removePoints,
         earnAchievement,
         unlockReward,
         redeemUnlock,
