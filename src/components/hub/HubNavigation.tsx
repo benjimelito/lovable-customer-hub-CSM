@@ -30,9 +30,9 @@ const HubNavigation: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.3 }}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed bottom-6 left-0 right-0 z-50 flex flex-col items-center pointer-events-none"
     >
-      <div className="flex items-center gap-2 bg-card/95 backdrop-blur-xl border border-border rounded-full px-2 py-2 shadow-lg shadow-black/10">
+      <div className="flex items-center gap-2 bg-card/95 backdrop-blur-xl border border-border rounded-full px-2 py-2 shadow-lg shadow-black/10 pointer-events-auto">
         {/* Previous Button */}
         <Link
           to={prevPage?.path || "/"}
@@ -73,7 +73,7 @@ const HubNavigation: React.FC = () => {
       </div>
       
       {/* Progress dots */}
-      <div className="flex items-center justify-center gap-1.5 mt-3">
+      <div className="flex items-center justify-center gap-1.5 mt-3 pointer-events-auto">
         {hubPages.map((page, index) => (
           <Link
             key={page.path}
