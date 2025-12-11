@@ -127,11 +127,6 @@ const CustomerHubHome: React.FC = () => {
           
           {/* Video Player */}
           <HeroVideoPlayer />
-          
-          {/* Account Executive Section */}
-          <div className="relative z-30 mx-auto w-full max-w-5xl px-4 mt-8">
-            <AEInfoCard ae={mockAccountExecutive} />
-          </div>
         </div>
       </div>
 
@@ -169,6 +164,13 @@ const CustomerHubHome: React.FC = () => {
                   ))}
                 </div>
               </BlurFade>
+            </div>
+          </section>
+
+          {/* Account Executive Section */}
+          <section className="py-16 z-10">
+            <div className="mx-auto w-full max-w-5xl px-4 md:px-8 lg:px-16">
+              <AEInfoCard ae={mockAccountExecutive} />
             </div>
           </section>
 
