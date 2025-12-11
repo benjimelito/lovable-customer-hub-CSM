@@ -23,6 +23,7 @@ interface RewardsContextType {
   unlocks: Unlock[];
   addPoints: (amount: number) => void;
   removePoints: (amount: number) => void;
+  setPoints: (amount: number) => void;
   earnAchievement: (achievementId: string) => void;
   unlockReward: (unlockId: string) => void;
   redeemUnlock: (unlockId: string) => void;
@@ -50,13 +51,45 @@ const defaultUnlocks: Unlock[] = [
 const MAX_POINTS = 210;
 
 const POINTS_STORAGE_KEY = "customer-hub-points";
+const TASKS_STORAGE_KEY = "customer-hub-tasks";
+
+// Task points mapping - must match ActionItems.tsx
+const TASK_POINTS: Record<string, number> = {
+  design_system: 50,
+  data_integrations: 40,
+  sso_config: 30,
+  invite_tech_lead: 20,
+  demo_ideas: 25,
+  security_docs: 15,
+  watch_demo: 15,
+  invite_stakeholders: 15,
+};
+
+// Calculate points from completed tasks
+const calculatePointsFromTasks = (): number => {
+  const saved = localStorage.getItem(TASKS_STORAGE_KEY);
+  if (saved) {
+    try {
+      const tasksState = JSON.parse(saved);
+      return Object.entries(tasksState).reduce((sum, [taskId, task]: [string, any]) => {
+        if (task.completed && TASK_POINTS[taskId]) {
+          return sum + TASK_POINTS[taskId];
+        }
+        return sum;
+      }, 0);
+    } catch {
+      return 0;
+    }
+  }
+  return 0;
+};
 
 const RewardsContext = createContext<RewardsContextType | undefined>(undefined);
 
 export const RewardsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Initialize points from completed tasks for consistency
   const [points, setPoints] = useState(() => {
-    const saved = localStorage.getItem(POINTS_STORAGE_KEY);
-    return saved ? parseInt(saved, 10) : 0;
+    return calculatePointsFromTasks();
   });
   const [achievements, setAchievements] = useState<Achievement[]>(defaultAchievements);
   const [unlocks, setUnlocks] = useState<Unlock[]>(defaultUnlocks);
@@ -72,6 +105,10 @@ export const RewardsProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   const removePoints = (amount: number) => {
     setPoints((prev) => Math.max(prev - amount, 0));
+  };
+
+  const setPointsValue = (amount: number) => {
+    setPoints(Math.max(0, Math.min(amount, MAX_POINTS)));
   };
 
   const earnAchievement = (achievementId: string) => {
@@ -116,6 +153,7 @@ export const RewardsProvider: React.FC<{ children: ReactNode }> = ({ children })
         unlocks,
         addPoints,
         removePoints,
+        setPoints: setPointsValue,
         earnAchievement,
         unlockReward,
         redeemUnlock,
