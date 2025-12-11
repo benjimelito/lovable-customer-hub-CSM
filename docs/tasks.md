@@ -111,34 +111,37 @@
 
 ---
 
-## Phase 4: AI Research Insights (/research)
+## Phase 4: AI Research Insights (/research) ✅ COMPLETED
 
 **PRD Reference:** `prd-ai-research-insights.md`
 
 ### Core Features
 
+- [x] Create `src/pages/ResearchInsights.tsx`
+- [x] Create `src/components/hub/StrategyCard.tsx`
+- [x] Create `src/components/hub/PainPointCard.tsx`
+- [x] Create `src/components/hub/QuestionCard.tsx`
+- [x] Add mock data for research (enhanced in mockData.ts)
+- [x] Test responsive behavior
+
+### Research Transparency
+
+- [x] Create `src/components/hub/ResearchSourcesList.tsx`
+- [x] Create `src/components/hub/ConfidenceIndicator.tsx`
+- [x] Add "How this was generated" expandable section
+- [x] Add source citations with links (earnings calls, job postings, etc.)
+- [x] Add methodology explanation
+- [x] Add confidence score display
+- [x] Add "last generated" timestamp
+- [x] Add mock data for research metadata
+
+### Deferred (Requires Lovable Cloud)
+
 - [ ] Enable Lovable Cloud (if not already enabled)
 - [ ] Create `supabase/functions/generate-research/index.ts`
-- [ ] Create `src/pages/ResearchInsights.tsx`
-- [ ] Create `src/components/hub/StrategyCard.tsx`
-- [ ] Create `src/components/hub/PainPointCard.tsx`
-- [ ] Create `src/components/hub/QuestionCard.tsx`
 - [ ] Add AI generation with loading states
-- [ ] Add regenerate functionality
+- [ ] Add regenerate functionality with actual AI
 - [ ] Add localStorage caching
-- [ ] Add mock data fallback
-- [ ] Test responsive behavior
-
-### Research Transparency (NEW)
-
-- [ ] Create `src/components/hub/ResearchSourcesList.tsx`
-- [ ] Create `src/components/hub/ConfidenceIndicator.tsx`
-- [ ] Add "How this was generated" expandable section
-- [ ] Add source citations with links (earnings calls, job postings, etc.)
-- [ ] Add methodology explanation
-- [ ] Add confidence score display
-- [ ] Add "last generated" timestamp
-- [ ] Add mock data for research metadata
 
 ---
 

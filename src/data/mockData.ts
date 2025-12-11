@@ -181,42 +181,145 @@ export const mockAgenda = [
 ];
 
 // AI Research Insights Data
-export const aiResearchInsights = {
-  companyStrategy: {
-    title: "AI Strategy Analysis",
-    summary: "Based on public information and industry trends, here's our analysis of your company's AI positioning.",
-    insights: [
-      "Strong focus on developer productivity tools",
-      "Increasing investment in AI/ML capabilities",
-      "Emphasis on enterprise-grade security",
+export const mockResearch = {
+  strategy: {
+    summary: "Acme Corp is positioning itself as a technology leader with strong investments in AI-powered productivity tools. Recent initiatives suggest a focus on developer enablement and reducing time-to-market for internal products.",
+    aiInitiatives: [
+      "ML-powered internal recommendation systems",
+      "Automated testing and CI/CD pipelines",
+      "AI-assisted code review processes",
+      "Natural language interfaces for internal tools"
     ],
+    technologyFocus: [
+      "Cloud-native architecture",
+      "Microservices migration",
+      "Real-time data processing",
+      "Mobile-first development"
+    ],
+    marketPosition: "Mid-market enterprise with ambitions to compete with larger players through technology differentiation",
+    competitiveAdvantages: [
+      "Strong engineering culture",
+      "Rapid iteration capability",
+      "Customer-centric product development"
+    ]
   },
   painPoints: [
     {
-      title: "Development Velocity",
-      description: "Teams struggle to ship features fast enough to meet market demands.",
-      source: "Industry analysis",
-      severity: "high",
+      id: "pp-1",
+      category: "engineering" as const,
+      title: "Slow Development Cycles",
+      description: "Engineering velocity mentioned as key challenge in recent leadership communications. Average feature delivery time exceeds industry benchmarks by 40%.",
+      source: "Q3 2024 Earnings Call",
+      relevanceScore: 92
     },
     {
-      title: "Technical Debt",
-      description: "Legacy systems slow down innovation and require significant maintenance.",
-      source: "Common enterprise challenge",
-      severity: "medium",
+      id: "pp-2",
+      category: "product" as const,
+      title: "Prototyping Bottlenecks",
+      description: "Product teams waiting 2-3 weeks for engineering resources to validate concepts. Opportunity cost of delayed validation estimated at $200K/quarter.",
+      source: "Job Postings Analysis",
+      relevanceScore: 87
     },
     {
-      title: "Talent Acquisition",
-      description: "Difficulty hiring and retaining skilled developers.",
-      source: "Market trends",
-      severity: "high",
+      id: "pp-3",
+      category: "cost" as const,
+      title: "Rising Development Costs",
+      description: "Engineering headcount grew 45% YoY while output metrics show only 20% improvement. Cost per feature has increased significantly.",
+      source: "Industry Analysis",
+      relevanceScore: 78
     },
+    {
+      id: "pp-4",
+      category: "operations" as const,
+      title: "Tool Fragmentation",
+      description: "Multiple teams using different tools for similar purposes. Lack of standardization creating inefficiencies and security blind spots.",
+      source: "LinkedIn Posts",
+      relevanceScore: 71
+    }
   ],
-  researchQuestions: [
-    "What's your current development cycle time from idea to production?",
-    "How do you currently handle prototyping and validation?",
-    "What percentage of developer time is spent on maintenance vs. new features?",
-    "How do you ensure consistent quality across projects?",
+  questions: [
+    {
+      id: "q-1",
+      question: "How are you currently handling rapid prototyping needs?",
+      context: "Based on job postings for frontend developers emphasizing 'quick iteration' skills",
+      category: "technical" as const
+    },
+    {
+      id: "q-2",
+      question: "What's your current dev cycle time from idea to production?",
+      context: "Industry benchmarks suggest 2-4 weeks for your company size; understanding your baseline helps quantify Lovable's impact",
+      category: "technical" as const
+    },
+    {
+      id: "q-3",
+      question: "Who owns the decision for adopting new development tools?",
+      context: "Understanding the buying committee structure helps tailor our proposal",
+      category: "business" as const
+    },
+    {
+      id: "q-4",
+      question: "How do non-technical stakeholders currently participate in product development?",
+      context: "Lovable enables PMs and designers to build directly; understanding current workflows highlights value",
+      category: "adoption" as const
+    },
+    {
+      id: "q-5",
+      question: "What security and compliance requirements must new tools meet?",
+      context: "Enterprise customers often have SOC2, SSO, and audit log requirements",
+      category: "business" as const
+    },
+    {
+      id: "q-6",
+      question: "Are there specific use cases where you've struggled to get engineering resources?",
+      context: "Internal tools and dashboards are common examples where Lovable excels",
+      category: "adoption" as const
+    }
   ],
+  metadata: {
+    generatedAt: "2024-12-10T14:30:00Z",
+    sources: [
+      {
+        type: "earnings_call" as const,
+        title: "Q3 2024 Earnings Call Transcript",
+        url: "https://example.com/earnings-q3-2024",
+        date: "2024-10-15",
+        excerpt: "CEO emphasized engineering velocity as a top strategic priority for the coming year..."
+      },
+      {
+        type: "job_posting" as const,
+        title: "Senior Frontend Engineer - Rapid Prototyping",
+        url: "https://careers.acmecorp.com/senior-frontend",
+        date: "2024-12-01"
+      },
+      {
+        type: "job_posting" as const,
+        title: "Staff Engineer - Developer Productivity",
+        url: "https://careers.acmecorp.com/staff-devprod",
+        date: "2024-11-28"
+      },
+      {
+        type: "press_release" as const,
+        title: "Acme Corp Announces AI Development Initiative",
+        url: "https://acmecorp.com/press/ai-initiative",
+        date: "2024-09-20",
+        excerpt: "Investing $10M in AI-powered internal tools over the next 18 months..."
+      },
+      {
+        type: "linkedin" as const,
+        title: "CTO Post on Engineering Culture",
+        url: "https://linkedin.com/posts/cto-acme",
+        date: "2024-11-15"
+      },
+      {
+        type: "news" as const,
+        title: "Acme Corp Named Top Workplace for Engineers",
+        url: "https://technews.com/acme-workplace",
+        date: "2024-08-10"
+      }
+    ],
+    methodology: "AI analysis combining public company filings, job posting patterns, press releases, social media activity, and industry benchmarks. Cross-referenced with similar company profiles to identify common pain points.",
+    confidenceScore: 82
+  }
 };
 
 // Social Proof Data
