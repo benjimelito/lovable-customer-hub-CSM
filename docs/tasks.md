@@ -63,33 +63,33 @@
 
 ---
 
-## Phase 2: Usage Dashboard (/usage)
+## Phase 2: Usage Dashboard (/usage) ✅ COMPLETED
 
 **PRD Reference:** `prd-usage-dashboard.md`
 
 ### Core Features
 
-- [ ] Create `src/pages/UsageDashboard.tsx`
-- [ ] Create `src/components/hub/AnimatedCounter.tsx`
-- [ ] Create `src/components/hub/StatCard.tsx`
-- [ ] Create `src/components/hub/TrendChart.tsx` using Recharts
-- [ ] Build stats cards grid (5 metrics)
-- [ ] Add trend charts section (3 charts)
-- [ ] Add loading skeleton states
-- [ ] Wrap with HubLayout
-- [ ] Test responsive behavior
+- [x] Create `src/pages/UsageDashboard.tsx`
+- [x] Create `src/components/hub/AnimatedCounter.tsx`
+- [x] Create `src/components/hub/UsageStatCard.tsx`
+- [x] Create `src/components/hub/TrendChart.tsx` using Recharts
+- [x] Build stats cards grid (5 metrics)
+- [x] Add trend charts section (3 charts)
+- [x] Add loading skeleton states
+- [x] Wrap with HubLayout
+- [x] Test responsive behavior
 
-### Internal Usage Discovery (NEW)
+### Internal Usage Discovery
 
-- [ ] Create `src/components/hub/OrganizationUsage.tsx`
-- [ ] Create `src/components/hub/DepartmentBreakdown.tsx`
-- [ ] Create `src/components/hub/TopProjectsGrid.tsx`
-- [ ] Create `src/components/hub/ProjectPreviewCard.tsx`
-- [ ] Add organization usage summary card (workspaces, users, ARR)
-- [ ] Add department breakdown visualization
-- [ ] Add top projects by department grid
-- [ ] Add "Remix this project" functionality
-- [ ] Add mock data for organization usage
+- [x] Create `src/components/hub/OrganizationUsage.tsx`
+- [x] Create `src/components/hub/DepartmentBreakdown.tsx`
+- [x] Create `src/components/hub/TopProjectsGrid.tsx`
+- [x] Create `src/components/hub/ProjectPreviewCard.tsx`
+- [x] Add organization usage summary card (workspaces, users, ARR)
+- [x] Add department breakdown visualization
+- [x] Add top projects by department grid
+- [x] Add "Remix this project" functionality
+- [x] Add mock data for organization usage
 
 ---
 
