@@ -438,7 +438,7 @@ const Slide6WhyDifferent = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 1, type: "spring" }}
           className="absolute w-12 h-12 rounded-full bg-background flex items-center justify-center z-10 shadow-lg border border-border/30"
-          style={{ top: "50%", left: "45%", transform: "translate(-50%, -50%)" }}
+          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
         >
           <img src={lovableIcon} alt="Lovable" className="w-8 h-8 object-contain" />
         </motion.div>
