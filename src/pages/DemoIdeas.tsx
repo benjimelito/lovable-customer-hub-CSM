@@ -224,10 +224,6 @@ const DemoIdeas: React.FC = () => {
           {/* Page Header */}
           <BlurFade delay={0.05}>
             <div className="max-w-2xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
-                <Wand2 className="w-4 h-4" />
-                AI-Powered Suggestions
-              </div>
               <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
                 What should we build for you?
               </h1>
