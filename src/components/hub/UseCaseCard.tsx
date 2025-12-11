@@ -38,7 +38,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
   return (
     <div
       className={cn(
-        "relative bg-[#F7F4ED] dark:bg-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1",
+        "relative bg-[#F7F4ED] dark:bg-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col",
         suggestion.selected
           ? "ring-2 ring-primary shadow-lg"
           : "border border-[#ECEAE4] dark:border-border hover:shadow-md"
@@ -47,7 +47,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
       {/* Top Row: Icon + Checkbox */}
       <div className="flex items-start justify-between mb-4">
         <div 
-          className="w-12 h-12 rounded-xl flex items-center justify-center border"
+          className="w-12 h-12 rounded-xl flex items-center justify-center border flex-shrink-0"
           style={{ 
             backgroundColor: complexity.bgColor, 
             borderColor: complexity.borderColor 
@@ -58,20 +58,20 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
         <Checkbox
           checked={suggestion.selected}
           onCheckedChange={(checked) => onSelect(suggestion.id, !!checked)}
-          className="h-5 w-5"
+          className="h-5 w-5 flex-shrink-0"
         />
       </div>
 
-      {/* Title & Role */}
-      <div className="mb-3">
-        <h4 className="text-lg font-medium text-foreground leading-tight mb-1">
+      {/* Title & Role - Fixed height */}
+      <div className="mb-3 min-h-[52px]">
+        <h4 className="text-lg font-medium text-foreground leading-tight mb-1 line-clamp-2">
           {suggestion.title}
         </h4>
         <p className="text-sm text-muted-foreground">{suggestion.role}</p>
       </div>
 
-      {/* Description */}
-      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+      {/* Description - Fixed height with line clamp */}
+      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 min-h-[40px]">
         {suggestion.description}
       </p>
 
@@ -93,8 +93,8 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
         </div>
       </div>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-5">
+      {/* Tags - Fixed height */}
+      <div className="flex flex-wrap gap-2 mb-5 min-h-[28px]">
         {suggestion.tags.slice(0, 3).map((tag) => (
           <span
             key={tag}
@@ -105,13 +105,15 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
         ))}
       </div>
 
-      {/* Action Button */}
-      <button
-        onClick={() => onCustomize(suggestion)}
-        className="w-full py-2.5 text-center text-sm text-primary hover:bg-primary/5 font-medium transition-all rounded-xl border border-primary/20"
-      >
-        Customize this idea →
-      </button>
+      {/* Action Button - Push to bottom */}
+      <div className="mt-auto">
+        <button
+          onClick={() => onCustomize(suggestion)}
+          className="w-full py-2.5 text-center text-sm text-primary hover:bg-primary/5 font-medium transition-all rounded-xl border border-primary/20"
+        >
+          Customize this idea →
+        </button>
+      </div>
 
       {/* Selected indicator */}
       {suggestion.selected && (
