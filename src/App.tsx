@@ -9,6 +9,7 @@ import CustomerHubHome from "./pages/CustomerHubHome";
 import UsageDashboard from "./pages/UsageDashboard";
 import SalesProcess from "./pages/SalesProcess";
 import ResearchInsights from "./pages/ResearchInsights";
+import SocialProof from "./pages/SocialProof";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
@@ -42,7 +43,7 @@ const App = () => (
                 <Route path="/usage" element={<UsageDashboard />} />
                 <Route path="/process" element={<SalesProcess />} />
                 <Route path="/research" element={<ResearchInsights />} />
-                <Route path="/social" element={<PlaceholderPage title="Social Proof" />} />
+                <Route path="/social" element={<SocialProof />} />
                 <Route path="/actions" element={<PlaceholderPage title="Action Items" />} />
                 <Route path="/faq" element={<PlaceholderPage title="FAQ & Chat" />} />
                 <Route path="/swag" element={<PlaceholderPage title="Swag Redemption" />} />
