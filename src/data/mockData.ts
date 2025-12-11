@@ -1062,3 +1062,47 @@ export const mockInternalSuccessStories: Array<{
     image: "/src/assets/projects/customer-portal.png",
   },
 ];
+
+// Leaderboard Data - Top Prototype Publishers
+export const mockLeaderboard = [
+  {
+    id: "leader-1",
+    rank: 1,
+    name: "Alex Rivera",
+    photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
+    team: "Product Engineering",
+    prototypesPublished: 34,
+  },
+  {
+    id: "leader-2",
+    rank: 2,
+    name: "Maya Patel",
+    photoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
+    team: "Design Systems",
+    prototypesPublished: 28,
+  },
+  {
+    id: "leader-3",
+    rank: 3,
+    name: "Jordan Kim",
+    photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+    team: "Growth Team",
+    prototypesPublished: 23,
+  },
+  {
+    id: "leader-4",
+    rank: 4,
+    name: "Sam Thompson",
+    photoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
+    team: "Internal Tools",
+    prototypesPublished: 19,
+  },
+  {
+    id: "leader-5",
+    rank: 5,
+    name: "Casey Morgan",
+    photoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face",
+    team: "Customer Success",
+    prototypesPublished: 15,
+  },
+];
