@@ -33,13 +33,15 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
     optional: "bg-slate-100 text-slate-600 border-slate-200",
   };
 
+  const completedBadgeStyle = "bg-emerald-100 text-emerald-700 border-emerald-200";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className={`group relative bg-[#F7F4ED] border border-[#D8D6CF] rounded-2xl p-5 transition-all duration-300 hover:shadow-md ${
-        task.completed ? "opacity-75" : ""
+      className={`group relative bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border rounded-2xl p-5 transition-all duration-300 hover:shadow-md ${
+        task.completed ? "bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200/50 dark:border-emerald-800/30" : ""
       }`}
     >
       <div className="flex items-start gap-4">
@@ -49,7 +51,11 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
             id={task.id}
             checked={task.completed}
             onCheckedChange={() => onToggle(task.id)}
-            className="h-5 w-5 border-2 border-[#D8D6CF] data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+            className={`h-5 w-5 border-2 transition-colors ${
+              task.completed 
+                ? "border-emerald-500 bg-emerald-500 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500" 
+                : "border-[#D8D6CF] data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+            }`}
           />
         </div>
 
@@ -57,21 +63,21 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-3 mb-2">
             <h3
-              className={`font-medium text-foreground leading-tight ${
-                task.completed ? "line-through text-muted-foreground" : ""
+              className={`font-medium leading-tight transition-colors ${
+                task.completed ? "text-emerald-700 dark:text-emerald-400" : "text-foreground"
               }`}
             >
               {task.title}
             </h3>
             <Badge
               variant="outline"
-              className={`shrink-0 text-xs ${priorityStyles[task.priority]}`}
+              className={`shrink-0 text-xs ${task.completed ? completedBadgeStyle : priorityStyles[task.priority]}`}
             >
-              {task.priority}
+              {task.completed ? "✓ completed" : task.priority}
             </Badge>
           </div>
 
-          <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+          <p className={`text-sm mb-3 leading-relaxed ${task.completed ? "text-emerald-600/70 dark:text-emerald-400/70" : "text-muted-foreground"}`}>
             {task.description}
           </p>
 
@@ -87,13 +93,13 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               {task.estimatedTime && (
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <div className={`flex items-center gap-1.5 text-xs ${task.completed ? "text-emerald-600/60 dark:text-emerald-400/60" : "text-muted-foreground"}`}>
                   <Clock className="w-3.5 h-3.5" />
                   <span>{task.estimatedTime}</span>
                 </div>
               )}
               <div className="flex items-center gap-1.5">
-                <span className="text-xs font-medium text-primary">
+                <span className={`text-xs font-medium ${task.completed ? "text-emerald-600 dark:text-emerald-400" : "text-primary"}`}>
                   +{task.points} pts
                 </span>
               </div>
@@ -120,37 +126,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
 
           {/* Completed timestamp */}
           {task.completed && task.completedAt && (
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-xs text-emerald-600/60 dark:text-emerald-400/60 mt-2">
               Completed {new Date(task.completedAt).toLocaleDateString()}
             </p>
           )}
         </div>
       </div>
-
-      {/* Completion overlay animation */}
-      {task.completed && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute top-3 right-3"
-        >
-          <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-            <svg
-              className="w-4 h-4 text-green-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-        </motion.div>
-      )}
     </motion.div>
   );
 };
