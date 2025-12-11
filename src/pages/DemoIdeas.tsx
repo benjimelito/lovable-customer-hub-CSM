@@ -220,16 +220,6 @@ const DemoIdeas: React.FC = () => {
     <HubLayout sectionId="demo-ideas" showBackground={false}>
       <section className="bg-background rounded-3xl pt-24 md:pt-32 pb-16 md:pb-24">
         <div className="mx-auto w-full px-4 md:px-8 lg:px-16">
-          {/* Back Link */}
-          <BlurFade delay={0}>
-            <Link 
-              to="/demo" 
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Quote Generator
-            </Link>
-          </BlurFade>
 
           {/* Page Header */}
           <BlurFade delay={0.05}>
