@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -26,11 +26,13 @@ import {
   findOptimalCommitment,
   calculatePerUserPricing,
   decodeQuoteParams,
+  encodeQuoteParams,
   QuoteParams,
+  getCreditRate,
 } from "@/lib/pricing";
 
 const DemoPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { profile } = useCustomer();
   const { addPoints } = useRewards();
   const [hasGeneratedQuote, setHasGeneratedQuote] = useState(false);
@@ -41,7 +43,7 @@ const DemoPage: React.FC = () => {
       return decodeQuoteParams(searchParams.toString());
     }
     return null;
-  }, [searchParams]);
+  }, []);
 
   // State
   const [mode, setMode] = useState<"simple" | "advanced">(initialParams?.mode || "simple");
@@ -78,18 +80,13 @@ const DemoPage: React.FC = () => {
   // Per-user pricing
   const perUserPricing = calculatePerUserPricing(totalUsers);
 
-  // Award points for generating a quote (once)
-  useEffect(() => {
-    if (!hasGeneratedQuote && (users !== 100 || commitment !== 0 || platformFee !== PRICING.platformFee.default)) {
-      setHasGeneratedQuote(true);
-      addPoints(15);
-    }
-  }, [users, commitment, platformFee, hasGeneratedQuote, addPoints]);
+  // Get tier info for PDF
+  const tierInfo = getCreditRate(commitment);
 
   // Build quote params for sharing
-  const quoteParams: QuoteParams = {
+  const quoteParams: QuoteParams = useMemo(() => ({
     company: profile.companyName,
-    domain: undefined, // CustomerProfile doesn't have domain
+    domain: undefined,
     platformFee,
     mode,
     users: mode === "simple" ? users : undefined,
@@ -98,7 +95,25 @@ const DemoPage: React.FC = () => {
     casualUsers: mode === "advanced" ? breakdown.casual : undefined,
     enablePerUser,
     commitment,
-  };
+  }), [profile.companyName, platformFee, mode, users, breakdown, enablePerUser, commitment]);
+
+  // Update URL when params change (debounced)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const encoded = encodeQuoteParams(quoteParams);
+      setSearchParams(encoded, { replace: true });
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [quoteParams, setSearchParams]);
+
+  // Award points for generating a quote (once)
+  useEffect(() => {
+    if (!hasGeneratedQuote && (users !== 100 || commitment !== 0 || platformFee !== PRICING.platformFee.default)) {
+      setHasGeneratedQuote(true);
+      addPoints(15);
+    }
+  }, [users, commitment, platformFee, hasGeneratedQuote, addPoints]);
 
   return (
     <HubLayout sectionId="demo" showBackground={false}>
@@ -191,6 +206,23 @@ const DemoPage: React.FC = () => {
             <QuoteActions
               quoteParams={quoteParams}
               totalAnnual={enablePerUser ? perUserPricing.annual : totalAnnual}
+              pdfData={{
+                companyName: profile.companyName,
+                totalUsers,
+                annualCredits,
+                monthlyCredits,
+                platformFee,
+                creditCost,
+                totalAnnual: enablePerUser ? perUserPricing.annual : totalAnnual,
+                monthlyEquivalent: enablePerUser ? Math.round(perUserPricing.annual / 12) : monthlyEquivalent,
+                costPerUser,
+                savings,
+                tierLabel: tierInfo.tier,
+                tierRate: tierInfo.rate,
+                enablePerUser,
+                mode,
+                breakdown: mode === "advanced" ? breakdown : undefined,
+              }}
             />
           </div>
         </div>
