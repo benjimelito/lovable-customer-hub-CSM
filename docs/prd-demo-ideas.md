@@ -4,6 +4,44 @@
 
 The Demo Ideas page (`/demo-ideas`) allows prospects to submit use case ideas for their personalized AI demo. It provides AI-generated industry-relevant suggestions and a form to submit 1-3 custom ideas.
 
+## Engagement Goals
+
+**Primary THINK:** Impact, Unlock
+**Primary FEEL:** Inspired, Enabled
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Impact** | Ideas become reality; "tell us your challenge, we'll build it live" |
+| **Unlock** | AI suggestions reveal possibilities they hadn't considered |
+| **Inspired** | AI-generated suggestions show product intelligence; "this knows my industry" |
+| **Enabled** | Simple form, clear outcome; "submit ideas, see them built" |
+
+### Key Messaging
+- Header: "What should we build for you?"
+- Subtext: "Submit your ideas and watch them come to life in your demo"
+- AI Suggestions: "Based on companies like yours, here's what works"
+- Form: "Tell us your toughest internal tool challenge"
+
+### Inspiration Triggers
+- AI suggestions demonstrate industry knowledge
+- Show complexity estimates = "yes, we can build that"
+- Related use cases expand thinking
+- "Companies like yours built X" examples
+
+### Enablement Design
+- Pre-filled suggestions reduce friction
+- Priority field helps AE prep appropriately
+- Estimated demo time sets expectations
+- Immediate confirmation with next steps
+
+### Impact Framing
+- Every idea submitted = voice in their demo
+- "Your AE will review and prepare to build these live"
+- Follow-up shows ideas were taken seriously
+- Points reward reinforces value of contribution
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

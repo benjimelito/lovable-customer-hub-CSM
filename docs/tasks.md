@@ -2,7 +2,23 @@
 
 > **Reference PRDs:** All tasks reference their corresponding PRD files in `/docs/`
 
+> **⚠️ ENGAGEMENT GOALS:** Before implementing each phase, review the Engagement Goals section in the corresponding PRD. Every feature should be designed to trigger the specified THINK and FEEL outcomes. See `prd-customer-hub-overview.md` for the master framework.
+
 ---
+
+## Engagement Goals Quick Reference
+
+| Page | THINK | FEEL | Key Question to Ask |
+|------|-------|------|---------------------|
+| Landing | Impact, Future | Inspired, Trust | "Does this make them feel like they're seeing the future?" |
+| Usage | Speed, Unlock | FOMO, Enabled | "Does this create urgency by revealing hidden usage?" |
+| Process | Future | Trust, Future-proof | "Does this feel like partnership, not a transaction?" |
+| Research | Impact, Unlock | Inspired, Trust | "Does this demonstrate AI capability while building trust?" |
+| Social | Speed | FOMO, Future-proof | "Does this make them feel like they're falling behind?" |
+| Actions | Unlock | Enabled | "Is every task clearly removing a constraint?" |
+| FAQ | All | Trust, Enabled | "Does this remove objections and build confidence?" |
+| Swag | - | Inspired, Enabled | "Does this feel like a gift, not a gimmick?" |
+| Demo Ideas | Impact, Unlock | Inspired, Enabled | "Does this make them excited about what's possible?" |
 
 ## Phase 0: Foundation Setup ✅ COMPLETED
 **PRD Reference:** `prd-customer-hub-overview.md`

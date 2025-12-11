@@ -4,6 +4,38 @@
 
 The Social Proof page (`/social`) displays AI-matched similar companies, case study previews, and testimonials. It helps prospects see how companies like theirs are succeeding with Lovable.
 
+## Engagement Goals
+
+**Primary THINK:** Speed
+**Primary FEEL:** FOMO, Future-proof
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Speed** | Case study metrics showing time-to-value; "X went from idea to production in Y days" |
+| **FOMO** | "X similar companies chose Lovable this quarter"; AI-matched urgency |
+| **Future-proof** | Show diverse successful implementations; prove platform stability |
+| **Trust** | Real company names, real metrics, verifiable results |
+
+### Key Messaging
+- Header: "Companies like yours are already winning with Lovable"
+- AI Match: "Curated specifically for {companyName}'s profile"
+- FOMO: "{X} similar companies adopted Lovable this quarter"
+- Case Studies: "From evaluation to production in weeks, not months"
+
+### FOMO Amplification
+- Dynamic counter: "X companies similar to you chose Lovable this quarter"
+- Match percentages: "94% similar to {top match company}"
+- Competitor awareness: "Your industry peers are already building"
+- AI transparency: "This was matched using your profile to maximize relevance"
+
+### Trust Through Proof
+- Real company names and logos
+- Specific, verifiable metrics
+- Named individuals with titles
+- Links to full case studies
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

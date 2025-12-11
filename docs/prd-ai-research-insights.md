@@ -4,6 +4,38 @@
 
 The AI Research Insights page (`/research`) provides AI-generated company-specific analysis, pain points identification, and pre-call research questions. This page leverages Lovable AI (Lovable Cloud) for dynamic content generation.
 
+## Engagement Goals
+
+**Primary THINK:** Impact, Unlock
+**Primary FEEL:** Inspired, Trust
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Impact** | Show strategic understanding of their business; AI demonstrates "we get you" |
+| **Unlock** | Identify pain points they might not have articulated; connect dots they missed |
+| **Inspired** | AI research quality demonstrates Lovable's AI capabilities; "imagine this for your tools" |
+| **Trust** | Full transparency on sources and methodology; confidence scores show honesty |
+
+### Key Messaging
+- Header: "We've done our homework"
+- Subtext: "AI-powered insights tailored to {companyName}'s strategic priorities"
+- Pain Points: "Challenges we've identified that Lovable can address"
+- Questions: "Let's discuss what matters most to you"
+
+### Inspiration Triggers
+- Quality of AI research demonstrates product capabilities
+- "This is what AI can do for YOUR research and analysis"
+- Show methodology to prove sophistication
+- Regenerate feature shows real-time AI power
+
+### Trust Elements
+- Source citations with links
+- Confidence scores (don't overclaim)
+- "Last updated" timestamp
+- Methodology transparency
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**
