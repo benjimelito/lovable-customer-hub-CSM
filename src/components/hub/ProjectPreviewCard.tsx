@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -56,7 +56,6 @@ const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
             className="w-full mt-2 gap-2"
             onClick={() => window.open(remixUrl, "_blank")}
           >
-            <Sparkles className="w-3 h-3" />
             Remix this project
             <ExternalLink className="w-3 h-3" />
           </Button>
