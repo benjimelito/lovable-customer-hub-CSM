@@ -52,14 +52,14 @@
 - [x] Add progress indicator to hero section (ProgressBadge component)
 - [x] Test responsive layout (4-col → 2-col → 1-col)
 
-### Phase 1.5: Landing Page Enhancements (NEW)
+### Phase 1.5: Landing Page Enhancements ✅ COMPLETED
 
 **PRD Reference:** `prd-landing-page.md` (updated)
 
-- [ ] Create `src/components/hub/AEInfoCard.tsx` (Account Executive card)
-- [ ] Add AE information section with contact buttons
-- [ ] Add mock data for AE
-- [ ] Add "Book a call" Calendly integration (link)
+- [x] Create `src/components/hub/AEInfoCard.tsx` (Account Executive card)
+- [x] Add AE information section with contact buttons
+- [x] Add mock data for AE (in mockData.ts)
+- [x] Add "Book a call" Calendly integration (link)
 
 ---
 
