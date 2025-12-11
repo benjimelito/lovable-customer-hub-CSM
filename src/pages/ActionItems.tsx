@@ -200,100 +200,101 @@ const ActionItems: React.FC = () => {
     }, 0);
 
   return (
-    <HubLayout>
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <BlurFade delay={0.1}>
-          <div className="mb-8">
-            <h1 className="text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground mb-4">
-              Action Items
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Prepare for a transformative conversation. Complete these tasks to maximize the value of your demo call with {profile.companyName}.
-            </p>
-          </div>
-        </BlurFade>
-
-        {/* Progress Section */}
-        <BlurFade delay={0.2}>
-          <div className="bg-[#F7F4ED] border border-[#D8D6CF] rounded-3xl p-6 mb-8">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              {/* Progress Ring */}
-              <ProgressRing progress={progress} size={120} />
-
-              {/* Stats Grid */}
-              <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-muted-foreground">Completed</span>
-                  </div>
-                  <p className="text-2xl font-semibold text-foreground">
-                    {completedCount}/{tasks.length}
-                  </p>
-                </div>
-
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                    <Sparkles className="w-4 h-4 text-primary" />
-                    <span className="text-sm text-muted-foreground">Points</span>
-                  </div>
-                  <p className="text-2xl font-semibold text-foreground">
-                    {earnedPoints}/{totalPoints}
-                  </p>
-                </div>
-
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                    <Clock className="w-4 h-4 text-amber-600" />
-                    <span className="text-sm text-muted-foreground">Time Left</span>
-                  </div>
-                  <p className="text-2xl font-semibold text-foreground">
-                    {totalTime} min
-                  </p>
-                </div>
-
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                    <Target className="w-4 h-4 text-rose-600" />
-                    <span className="text-sm text-muted-foreground">Required</span>
-                  </div>
-                  <p className="text-2xl font-semibold text-foreground">
-                    {tasks.filter((t) => t.priority === "required" && !t.completed).length}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Motivational message */}
-            <div className="mt-4 pt-4 border-t border-[#D8D6CF]">
-              <p className="text-sm text-muted-foreground text-center md:text-left">
-                {progress === 100
-                  ? "🎉 You're fully prepared for your call!"
-                  : progress >= 50
-                  ? "Great progress! You're more than halfway there."
-                  : "15 minutes now saves hours later. Let's get started!"}
+    <HubLayout sectionId="actions" showBackground={false}>
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-background rounded-3xl">
+        <div className="mx-auto w-full max-w-4xl px-4 md:px-8 lg:px-16 space-y-8">
+          {/* Header */}
+          <BlurFade delay={0.1}>
+            <div className="max-w-2xl">
+              <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
+                Action Items
+              </h1>
+              <p className="text-lg text-muted-foreground mt-4">
+                Prepare for a transformative conversation. Complete these tasks to maximize the value of your demo call with {profile.companyName}.
               </p>
             </div>
-          </div>
-        </BlurFade>
+          </BlurFade>
 
-        {/* Category Tabs */}
-        <BlurFade delay={0.3}>
-          <div className="mb-6">
+          {/* Progress Section */}
+          <BlurFade delay={0.2}>
+            <div className="bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border rounded-3xl p-6">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                {/* Progress Ring */}
+                <ProgressRing progress={progress} size={120} />
+
+                {/* Stats Grid */}
+                <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                      <span className="text-sm text-muted-foreground">Completed</span>
+                    </div>
+                    <p className="text-2xl font-semibold text-foreground">
+                      {completedCount}/{tasks.length}
+                    </p>
+                  </div>
+
+                  <div className="text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                      <Sparkles className="w-4 h-4 text-primary" />
+                      <span className="text-sm text-muted-foreground">Points</span>
+                    </div>
+                    <p className="text-2xl font-semibold text-foreground">
+                      {earnedPoints}/{totalPoints}
+                    </p>
+                  </div>
+
+                  <div className="text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                      <Clock className="w-4 h-4 text-amber-600" />
+                      <span className="text-sm text-muted-foreground">Time Left</span>
+                    </div>
+                    <p className="text-2xl font-semibold text-foreground">
+                      {totalTime} min
+                    </p>
+                  </div>
+
+                  <div className="text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
+                      <Target className="w-4 h-4 text-rose-600" />
+                      <span className="text-sm text-muted-foreground">Required</span>
+                    </div>
+                    <p className="text-2xl font-semibold text-foreground">
+                      {tasks.filter((t) => t.priority === "required" && !t.completed).length}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Motivational message */}
+              <div className="mt-4 pt-4 border-t border-[#D8D6CF] dark:border-border">
+                <p className="text-sm text-muted-foreground text-center md:text-left">
+                  {progress === 100
+                    ? "🎉 You're fully prepared for your call!"
+                    : progress >= 50
+                    ? "Great progress! You're more than halfway there."
+                    : "15 minutes now saves hours later. Let's get started!"}
+                </p>
+              </div>
+            </div>
+          </BlurFade>
+
+          {/* Category Tabs */}
+          <BlurFade delay={0.3}>
             <CategoryTabs
               categories={categories}
               activeCategory={activeCategory}
               onCategoryChange={setActiveCategory}
             />
-          </div>
-        </BlurFade>
+          </BlurFade>
 
-        {/* Task List */}
-        <BlurFade delay={0.4}>
-          <TaskList tasks={filteredTasks} onTaskToggle={handleTaskToggle} />
-        </BlurFade>
-      </div>
+
+          {/* Task List */}
+          <BlurFade delay={0.4}>
+            <TaskList tasks={filteredTasks} onTaskToggle={handleTaskToggle} />
+          </BlurFade>
+        </div>
+      </section>
     </HubLayout>
   );
 };
