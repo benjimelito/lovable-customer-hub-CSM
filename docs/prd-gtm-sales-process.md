@@ -4,6 +4,32 @@
 
 The Sales Process page (`/process`) displays the deal timeline, current stage, and pre-call preparation content. It helps prospects understand where they are in the sales journey and what to expect next.
 
+## Engagement Goals
+
+**Primary THINK:** Future
+**Primary FEEL:** Trust, Future-proof
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Future** | Show partnership journey, not transaction; emphasize long-term relationship |
+| **Trust** | Transparency in process; no surprises; clear expectations |
+| **Future-proof** | Demonstrate Lovable's commitment to enterprise; show what success looks like |
+| **Enabled** | Clear next steps at each stage; preparation materials readily available |
+
+### Key Messaging
+- Header: "Your partnership journey"
+- Current Stage: "Here's what to expect and how to prepare"
+- Next Steps: "We're in this together - here's how we'll proceed"
+- Agenda: "A collaborative conversation, not a sales pitch"
+
+### Trust-Building Elements
+- Complete transparency on timeline and process
+- Show what Lovable will deliver at each stage
+- Highlight customer success support post-sale
+- No hidden steps or surprise requirements
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

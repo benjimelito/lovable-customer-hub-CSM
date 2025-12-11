@@ -4,6 +4,38 @@
 
 The Action Items page (`/actions`) provides a task checklist for pre-call preparation. It gamifies the onboarding process by tracking completion and integrating with the rewards system.
 
+## Engagement Goals
+
+**Primary THINK:** Unlock
+**Primary FEEL:** Enabled
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Unlock** | Each task removes a constraint: design system = brand consistency, data = realistic demos |
+| **Enabled** | Clear, actionable tasks with time estimates; low friction completion |
+| **Speed** | Tasks prepare for faster, more productive calls; "15 min now saves hours later" |
+| **Impact** | High-value tasks (design system, data) show enterprise-grade preparation |
+
+### Key Messaging
+- Header: "Prepare for a transformative conversation"
+- Subtext: "Complete these tasks to maximize the value of your demo call"
+- Task Cards: "X minutes now = Y hours saved later"
+- Progress: "You're X% ready for your call"
+
+### Enablement Principles
+- Every task has clear time estimate
+- No task takes more than 20 minutes
+- Dependencies are clearly marked
+- Completion is rewarded immediately (points, progress)
+
+### Unlock Messaging per Task
+- Design System: "Unlock brand-consistent outputs from day one"
+- Data Sources: "Unlock realistic demos with your actual data"
+- SSO: "Unlock enterprise security for your team"
+- Demo Ideas: "Unlock a personalized demo that addresses YOUR challenges"
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

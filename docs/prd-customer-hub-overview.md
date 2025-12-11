@@ -12,6 +12,54 @@ The Customer Hub is a personalized, interactive portal designed for Enterprise s
 4. Gamify the experience to increase engagement
 5. Enable self-service research and discovery
 
+---
+
+## Engagement Goals Framework
+
+> **CRITICAL:** Every page and interaction must be designed to achieve these emotional and cognitive outcomes. Reference this framework when building each feature.
+
+### THINK Goals (Cognitive Outcomes)
+
+| Goal | Key Message | Implementation Guidance |
+|------|-------------|------------------------|
+| **Speed** | "If we adopt this, we move faster than any competitor." | Show time-to-value metrics, deployment speeds, comparison to traditional dev cycles. Use animated counters, before/after timelines. |
+| **Impact** | "This gives me strategic leverage." | Demonstrate how engineers focus on core systems, business teams build safely, IT keeps control. Show role-based value propositions. |
+| **Unlock** | "This solves my biggest constraints." | Address backlogs, talent shortages, slow internal tools directly. Connect pain points to Lovable solutions with specific examples. |
+| **Future** | "This is the new operating model for software." | Position Lovable as a platform, not a tool. Show AI operationalization across the enterprise. Emphasize long-term vision. |
+
+### FEEL Goals (Emotional Outcomes)
+
+| Goal | Desired Emotion | Implementation Guidance |
+|------|-----------------|------------------------|
+| **FOMO** | "I need to act now." | Show similar companies adopting, usage across their own org in silos, AI-matched social proof with urgency messaging. |
+| **Inspired** | "AI finally becomes something I can operationalize." | Interactive demos, personalized use cases, show the art of the possible with their specific context. |
+| **Enabled** | "I can see how Lovable helps me today." | Clear next steps, low-friction actions, immediate value demonstrations, actionable tasks. |
+| **Future-proof** | "I'm betting on the right partner." | Roadmap hints, platform stability, enterprise-grade features, long-term partnership positioning. |
+| **Trust** | "I have the controls to manage each risk." | Security transparency, compliance info, role-based access, governance features. |
+
+### Goal-to-Page Mapping
+
+| Page | Primary THINK | Primary FEEL | Secondary Goals |
+|------|---------------|--------------|-----------------|
+| **Landing** | Impact, Future | Inspired, Trust | All (entry point) |
+| **Usage Dashboard** | Speed, Unlock | FOMO, Enabled | Impact |
+| **Sales Process** | Future | Trust, Future-proof | Enabled |
+| **AI Research** | Impact, Unlock | Inspired, Trust | Speed |
+| **Social Proof** | Speed | FOMO, Future-proof | Trust |
+| **Action Items** | Unlock | Enabled | Speed |
+| **FAQ & Chat** | All | Trust, Enabled | Future-proof |
+| **Swag** | - | Inspired, Enabled | FOMO |
+| **Demo Ideas** | Impact, Unlock | Inspired, Enabled | Speed |
+
+### Implementation Principles
+
+1. **Lead with outcomes, not features** - Every section should answer "So what?" for the prospect
+2. **Personalize relentlessly** - Use CustomerContext to make every data point feel tailored
+3. **Create urgency without pressure** - FOMO through information, not manipulation
+4. **Build confidence progressively** - Each interaction should increase trust
+5. **Enable immediate action** - Low-friction next steps throughout
+6. **Demonstrate, don't describe** - Show Lovable's capabilities by using them in the hub itself
+
 ## Target User Persona
 
 - **Role:** Enterprise decision-maker (CTO, VP Engineering, Head of Product)

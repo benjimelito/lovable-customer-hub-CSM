@@ -4,6 +4,37 @@
 
 The Swag Redemption page (`/swag`) allows prospects to browse and redeem swag items using points earned through engagement. It gamifies the customer hub experience and provides tangible rewards.
 
+## Engagement Goals
+
+**Primary THINK:** - (reward page, not strategic)
+**Primary FEEL:** Inspired, Enabled
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Inspired** | Premium quality items reflect Lovable brand; "this company cares about details" |
+| **Enabled** | Easy redemption; no hoops; immediate gratification |
+| **FOMO** | Limited edition items; stock counters; "unlock" mechanics |
+
+### Key Messaging
+- Header: "Claim your rewards"
+- Subtext: "Thanks for exploring. Here's something to remember us by."
+- Items: "Premium quality, just like our product"
+- Limited: "Exclusive to enterprise prospects"
+
+### Emotional Design
+- Swag quality reflects product quality
+- Redemption should feel like a gift, not a transaction
+- Limited items create exclusivity
+- Notifications should feel celebratory, not pushy
+
+### Gamification Psychology
+- Progress toward next item is always visible
+- "Just X points away from Y" messaging
+- Milestone celebrations
+- First-login gift creates positive first impression
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

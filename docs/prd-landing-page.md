@@ -4,6 +4,26 @@
 
 The landing page serves as the central hub for the Customer Hub application. It welcomes prospects with a personalized greeting and provides navigation to all 8 hub sections through an interactive card grid.
 
+## Engagement Goals
+
+**Primary THINK:** Impact, Future
+**Primary FEEL:** Inspired, Trust
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Impact** | Personalized video shows strategic value; AE section establishes partnership |
+| **Future** | HeyGen video demonstrates AI innovation; hub itself is "the future of sales" |
+| **Inspired** | Personalized welcome creates "wow" moment; see what's possible with AI |
+| **Trust** | Direct AE contact; professional, polished experience; transparent about personalization |
+
+### Key Messaging
+- Hero: "Welcome to your personalized enterprise experience"
+- Video: Show AI capabilities that feel magical yet achievable
+- AE Card: "Your dedicated partner" framing, not "salesperson"
+- Progress: "Your journey to faster development starts here"
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

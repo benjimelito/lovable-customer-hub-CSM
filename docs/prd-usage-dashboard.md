@@ -4,6 +4,32 @@
 
 The Usage Dashboard (`/usage`) displays project statistics and account metrics with animated counters and trend visualizations. It showcases the value Lovable has delivered to the prospect's organization.
 
+## Engagement Goals
+
+**Primary THINK:** Speed, Unlock
+**Primary FEEL:** FOMO, Enabled
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Speed** | Animated metrics showing velocity; trend charts demonstrating acceleration |
+| **Unlock** | Reveal existing org usage they didn't know about; show what's possible at scale |
+| **FOMO** | "Usage happens in silos without support" - they're already behind; competitors are ahead |
+| **Enabled** | Clear path to consolidate and amplify existing usage |
+
+### Key Messaging
+- Header: "Your organization is already building with Lovable"
+- Subtext: "But without enterprise support, governance, or visibility"
+- Internal Discovery: "X projects across Y departments - imagine what's possible with coordination"
+- CTA: "Unify your Lovable usage under enterprise governance"
+
+### FOMO Triggers
+- Show departments they didn't know were using Lovable
+- Highlight "unsupported" usage creating shadow IT risk
+- Display potential ARR consolidation opportunity
+- "Without enterprise: siloed. With enterprise: strategic."
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**

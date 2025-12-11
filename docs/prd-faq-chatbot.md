@@ -4,6 +4,39 @@
 
 The FAQ page (`/faq`) combines a traditional FAQ accordion with an AI-powered chatbot. Users can browse common questions or ask the chatbot for personalized answers.
 
+## Engagement Goals
+
+**Primary THINK:** All (service page)
+**Primary FEEL:** Trust, Enabled
+
+### Goal Implementation
+
+| Goal | How to Achieve |
+|------|----------------|
+| **Trust** | Transparent, honest answers; acknowledge limitations; security/compliance clarity |
+| **Enabled** | Instant answers to blockers; remove objections in real-time |
+| **Future-proof** | Enterprise roadmap questions; platform stability concerns addressed |
+| **Speed** | Self-service answers mean faster evaluation cycles |
+
+### Key Messaging
+- Header: "Get answers, move forward"
+- Chatbot: "Ask me anything about Lovable - I'm here to help"
+- FAQ: "Common questions from enterprise evaluators like you"
+- CTA: "Still have questions? Your AE is just a click away"
+
+### Trust-Building in Q&A
+- Never oversell or make claims that can't be backed up
+- Acknowledge when something isn't supported yet
+- Provide roadmap context when relevant
+- Link to detailed documentation for deep dives
+- Security/compliance answers should be comprehensive
+
+### Enablement Focus
+- Answer objections before they become blockers
+- Suggested questions based on deal stage
+- Link to relevant hub sections from answers
+- "This answer earns you X points" for engagement
+
 ## Design Constraints
 
 ⚠️ **DO NOT MODIFY:**
