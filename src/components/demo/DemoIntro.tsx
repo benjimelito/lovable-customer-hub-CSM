@@ -1,21 +1,15 @@
 import React from "react";
-import { Play, Sparkles, Clock } from "lucide-react";
+import { Play, Clock } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import videoThumbnail from "@/assets/video-thumbnail.png";
-
 const DemoIntro: React.FC = () => {
-  return (
-    <BlurFade delay={0.1}>
+  return <BlurFade delay={0.1}>
       <div className="bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border rounded-3xl p-6 md:p-8">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Video Thumbnail */}
           <div className="relative flex-shrink-0 lg:w-[320px]">
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-background/50 border border-border/50">
-              <img 
-                src={videoThumbnail} 
-                alt="Lovable demo" 
-                className="w-full h-full object-cover"
-              />
+              <img src={videoThumbnail} alt="Lovable demo" className="w-full h-full object-cover" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <button className="w-16 h-16 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center transition-all hover:scale-110 shadow-lg">
                   <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
@@ -29,7 +23,7 @@ const DemoIntro: React.FC = () => {
             <div className="flex flex-wrap items-center gap-3 mb-4">
               {/* Built with Lovable Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
-                <Sparkles className="w-4 h-4 text-primary" />
+                
                 <span className="text-sm font-medium text-primary">Built with Lovable</span>
               </div>
               
@@ -51,8 +45,6 @@ const DemoIntro: React.FC = () => {
           </div>
         </div>
       </div>
-    </BlurFade>
-  );
+    </BlurFade>;
 };
-
 export default DemoIntro;
