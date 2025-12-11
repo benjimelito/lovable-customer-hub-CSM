@@ -12,6 +12,7 @@ import ResearchInsights from "./pages/ResearchInsights";
 import SocialProof from "./pages/SocialProof";
 import ActionItems from "./pages/ActionItems";
 import FAQPage from "./pages/FAQPage";
+import SwagRedemption from "./pages/SwagRedemption";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
@@ -48,7 +49,7 @@ const App = () => (
                 <Route path="/social" element={<SocialProof />} />
                 <Route path="/actions" element={<ActionItems />} />
                 <Route path="/faq" element={<FAQPage />} />
-                <Route path="/swag" element={<PlaceholderPage title="Swag Redemption" />} />
+                <Route path="/swag" element={<SwagRedemption />} />
                 
                 {/* Utility Routes */}
                 <Route path="/original" element={<Home />} />
