@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Calendar, Linkedin } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
-
 export interface AccountExecutive {
   id: string;
   name: string;
@@ -15,26 +14,18 @@ export interface AccountExecutive {
   linkedInUrl?: string;
   bio: string;
 }
-
 interface AEInfoCardProps {
   ae: AccountExecutive;
 }
-
-const AEInfoCard: React.FC<AEInfoCardProps> = ({ ae }) => {
-  const initials = ae.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
-
-  return (
-    <BlurFade delay={0.5} inView>
+const AEInfoCard: React.FC<AEInfoCardProps> = ({
+  ae
+}) => {
+  const initials = ae.name.split(" ").map(n => n[0]).join("").toUpperCase();
+  return <BlurFade delay={0.5} inView>
       <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card p-6 transition-all duration-500 hover:border-border hover:shadow-lg">
         {/* Trust Badge */}
         <div className="absolute right-4 top-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            Your Dedicated Partner
-          </span>
+          
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6">
@@ -63,62 +54,36 @@ const AEInfoCard: React.FC<AEInfoCardProps> = ({ ae }) => {
 
             {/* Contact Actions */}
             <div className="flex flex-wrap gap-2">
-              <Button
-                variant="default"
-                size="sm"
-                className="gap-2"
-                asChild
-              >
+              <Button variant="default" size="sm" className="gap-2" asChild>
                 <a href={ae.calendlyUrl} target="_blank" rel="noopener noreferrer">
                   <Calendar className="h-4 w-4" />
                   Book a Call
                 </a>
               </Button>
 
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-2"
-                asChild
-              >
+              <Button variant="outline" size="sm" className="gap-2" asChild>
                 <a href={`mailto:${ae.email}`}>
                   <Mail className="h-4 w-4" />
                   Email
                 </a>
               </Button>
 
-              {ae.phone && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-2"
-                  asChild
-                >
+              {ae.phone && <Button variant="outline" size="sm" className="gap-2" asChild>
                   <a href={`tel:${ae.phone}`}>
                     <Phone className="h-4 w-4" />
                     Call
                   </a>
-                </Button>
-              )}
+                </Button>}
 
-              {ae.linkedInUrl && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="gap-2"
-                  asChild
-                >
+              {ae.linkedInUrl && <Button variant="ghost" size="sm" className="gap-2" asChild>
                   <a href={ae.linkedInUrl} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-4 w-4" />
                   </a>
-                </Button>
-              )}
+                </Button>}
             </div>
           </div>
         </div>
       </div>
-    </BlurFade>
-  );
+    </BlurFade>;
 };
-
 export default AEInfoCard;
