@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import { Lightbulb, ArrowRight } from "lucide-react";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
 import {
@@ -224,6 +225,30 @@ const DemoPage: React.FC = () => {
                 breakdown: mode === "advanced" ? breakdown : undefined,
               }}
             />
+
+            {/* Demo Ideas CTA */}
+            <BlurFade delay={0.6}>
+              <Link to="/demo-ideas" className="block">
+                <div className="bg-gradient-to-r from-[#F7F4ED] to-[#F0EDE4] dark:from-card dark:to-card/80 border border-[#D8D6CF] dark:border-border rounded-3xl p-6 hover:shadow-lg transition-all duration-300 group">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border border-amber-200 dark:border-amber-700 flex items-center justify-center">
+                        <Lightbulb className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                          Have your own demo idea?
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          Submit custom ideas and get AI-powered suggestions tailored to your industry
+                        </p>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
+                </div>
+              </Link>
+            </BlurFade>
           </div>
         </div>
       </section>
