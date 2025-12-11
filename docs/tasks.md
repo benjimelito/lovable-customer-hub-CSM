@@ -249,7 +249,7 @@
 
 ---
 
-## Phase 8.5: Demo Page - Enterprise Quote Generator (/demo)
+## Phase 8.5: Demo Page - Enterprise Quote Generator (/demo) ✅ COMPLETED
 
 **PRD Reference:** `prd-demo-page.md`
 **Pricing Logic:** `src/lib/pricing.ts`
@@ -259,30 +259,32 @@ Dual-purpose demo page that:
 1. Showcases what can be built with Lovable (meta-demo)
 2. Provides interactive enterprise pricing calculator
 
-### Phase 8.5.1: Core Calculator
-- [ ] Create `src/pages/DemoPage.tsx`
-- [ ] Create `src/components/demo/DemoIntro.tsx` (video + "built with Lovable" badge)
-- [ ] Create `src/components/demo/UsageEstimator.tsx` (simple mode slider)
-- [ ] Create `src/components/demo/CommitmentSelector.tsx` (tier radio group)
-- [ ] Create `src/components/demo/QuoteSummary.tsx` (results card with AnimatedCounter)
-- [ ] Wire up pricing calculations from `src/lib/pricing.ts`
-- [ ] Add CustomerContext integration for company name
+### Phase 8.5.1: Core Calculator ✅
+- [x] Create `src/pages/DemoPage.tsx`
+- [x] Create `src/components/demo/DemoIntro.tsx` (video + "built with Lovable" badge)
+- [x] Create `src/components/demo/UsageEstimator.tsx` (simple mode slider)
+- [x] Create `src/components/demo/CommitmentSelector.tsx` (tier radio group)
+- [x] Create `src/components/demo/QuoteSummary.tsx` (results card with AnimatedCounter)
+- [x] Wire up pricing calculations from `src/lib/pricing.ts`
+- [x] Add CustomerContext integration for company name
 
-### Phase 8.5.2: Advanced Features
-- [ ] Add advanced mode with user breakdown sliders
-- [ ] Create `src/components/demo/PlatformFeeSlider.tsx`
-- [ ] Add per-user pricing toggle
-- [ ] Create `src/components/demo/CostBreakdown.tsx` (expandable details)
-- [ ] Add optimal tier recommendation indicator
-- [ ] Add savings display
+### Phase 8.5.2: Advanced Features ✅
+- [x] Add advanced mode with user breakdown sliders
+- [x] Create `src/components/demo/PlatformFeeSlider.tsx`
+- [x] Add per-user pricing toggle
+- [x] Create `src/components/demo/CostBreakdown.tsx` (expandable details)
+- [x] Add optimal tier recommendation indicator
+- [x] Add savings display
 
-### Phase 8.5.3: Polish & Actions
-- [ ] Create `src/components/demo/ROICalculator.tsx` (3 scenarios)
-- [ ] Create `src/components/demo/QuoteActions.tsx` (copy link, share, book call)
-- [ ] Implement URL param encoding/decoding for shareable quotes
-- [ ] Add animations (number transitions, tier selection)
-- [ ] Integrate with RewardsContext (points for generating quote)
-- [ ] Test responsive behavior (two-column → stacked)
+### Phase 8.5.3: Polish & Actions ✅
+- [x] Create `src/components/demo/ROICalculator.tsx` (3 scenarios)
+- [x] Create `src/components/demo/QuoteActions.tsx` (copy link, share, book call)
+- [x] Implement URL param encoding/decoding for shareable quotes
+- [x] Add animations (number transitions, tier selection)
+- [x] Integrate with RewardsContext (points for generating quote)
+- [x] Test responsive behavior (two-column → stacked)
+- [x] Add PDF download feature for enterprise quotes
+- [x] Fix AnimatedCounter to update on value changes (ROI calculator)
 
 ### Test Cases
 | Scenario | Expected |
@@ -294,23 +296,26 @@ Dual-purpose demo page that:
 
 ---
 
-## Phase 8.6: AI Demo Ideas (/demo-ideas)
+## Phase 8.6: AI Demo Ideas (/demo-ideas) ✅ COMPLETED
 
 **PRD Reference:** `prd-demo-ideas.md`
 
-- [ ] Create `src/pages/DemoIdeas.tsx`
-- [ ] Create `src/components/hub/UseCaseSuggestionCard.tsx`
-- [ ] Create `src/components/hub/DemoIdeaForm.tsx`
-- [ ] Create `src/components/hub/IdeasSummary.tsx`
-- [ ] Create `supabase/functions/generate-use-cases/index.ts`
-- [ ] Build AI-generated suggestions grid
-- [ ] Build custom idea submission form (1-3 ideas)
-- [ ] Add idea validation (min 1, max 3)
-- [ ] Add AI enhancement for submitted ideas
-- [ ] Add submission confirmation flow
-- [ ] Integrate with RewardsContext for points
-- [ ] Add mock data for use case suggestions
-- [ ] Test responsive behavior
+- [x] Create `src/pages/DemoIdeas.tsx`
+- [x] Create `src/components/hub/UseCaseCard.tsx` (renamed from UseCaseSuggestionCard)
+- [x] Create `src/components/hub/DemoIdeaForm.tsx`
+- [x] Create `src/components/hub/IdeasSummary.tsx`
+- [x] Create `supabase/functions/generate-use-cases/index.ts`
+- [x] Build AI-generated suggestions grid
+- [x] Build custom idea submission form (1-3 ideas)
+- [x] Add idea validation (min 1, max 3)
+- [x] Add submission confirmation flow
+- [x] Integrate with RewardsContext for points
+- [x] Add mock data fallback for use case suggestions
+- [x] Test responsive behavior
+- [x] Add regenerate suggestions button
+- [x] Add back link to Demo page
+- [x] Add Demo Ideas card to homepage hub grid
+- [x] Add "Have your own idea?" CTA on Demo page linking to Demo Ideas
 
 ---
 
