@@ -164,25 +164,23 @@ const CustomerHubHome: React.FC = () => {
                   ))}
                 </div>
               </BlurFade>
-            </div>
-          </section>
 
-          {/* Account Executive Section */}
-          <section className="py-16 z-10">
-            <div className="mx-auto w-full max-w-5xl px-4 md:px-8 lg:px-16">
-              <div className="mb-8 flex flex-col gap-3">
-                <BlurFade delay={0.2} inView>
-                  <h2 className="text-left text-3xl font-semibold leading-[110%] tracking-[-0.02em] text-foreground">
-                    Your Dedicated Partner
-                  </h2>
-                </BlurFade>
-                <BlurFade delay={0.3} inView>
-                  <p className="text-left text-base leading-[22px] tracking-[-0.01em] text-muted-foreground max-w-[500px]">
-                    Ready to help you transform how {companyName} builds software.
-                  </p>
-                </BlurFade>
+              {/* Account Executive Section */}
+              <div className="mt-20">
+                <div className="mb-8 flex flex-col gap-3">
+                  <BlurFade delay={0.2} inView>
+                    <h2 className="text-left text-3xl font-semibold leading-[110%] tracking-[-0.02em] text-foreground">
+                      Your Dedicated Partner
+                    </h2>
+                  </BlurFade>
+                  <BlurFade delay={0.3} inView>
+                    <p className="text-left text-base leading-[22px] tracking-[-0.01em] text-muted-foreground max-w-[500px]">
+                      Ready to help you transform how {companyName} builds software.
+                    </p>
+                  </BlurFade>
+                </div>
+                <AEInfoCard ae={mockAccountExecutive} />
               </div>
-              <AEInfoCard ae={mockAccountExecutive} />
             </div>
           </section>
 
