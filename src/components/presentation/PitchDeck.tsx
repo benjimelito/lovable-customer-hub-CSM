@@ -119,7 +119,7 @@ const Slide1Title = () => {
           <motion.img
             src={lovableLight}
             alt="Lovable"
-            className="h-12 md:h-16 w-auto object-contain"
+            className="h-8 md:h-11 w-auto object-contain"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 }}
