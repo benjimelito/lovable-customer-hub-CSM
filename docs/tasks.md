@@ -8,19 +8,20 @@
 
 ## Engagement Goals Quick Reference
 
-| Page | THINK | FEEL | Key Question to Ask |
-|------|-------|------|---------------------|
-| Landing | Impact, Future | Inspired, Trust | "Does this make them feel like they're seeing the future?" |
-| Usage | Speed, Unlock | FOMO, Enabled | "Does this create urgency by revealing hidden usage?" |
-| Process | Future | Trust, Future-proof | "Does this feel like partnership, not a transaction?" |
-| Research | Impact, Unlock | Inspired, Trust | "Does this demonstrate AI capability while building trust?" |
-| Social | Speed | FOMO, Future-proof | "Does this make them feel like they're falling behind?" |
-| Actions | Unlock | Enabled | "Is every task clearly removing a constraint?" |
-| FAQ | All | Trust, Enabled | "Does this remove objections and build confidence?" |
-| Swag | - | Inspired, Enabled | "Does this feel like a gift, not a gimmick?" |
-| Demo Ideas | Impact, Unlock | Inspired, Enabled | "Does this make them excited about what's possible?" |
+| Page       | THINK          | FEEL                | Key Question to Ask                                         |
+| ---------- | -------------- | ------------------- | ----------------------------------------------------------- |
+| Landing    | Impact, Future | Inspired, Trust     | "Does this make them feel like they're seeing the future?"  |
+| Usage      | Speed, Unlock  | FOMO, Enabled       | "Does this create urgency by revealing hidden usage?"       |
+| Process    | Future         | Trust, Future-proof | "Does this feel like partnership, not a transaction?"       |
+| Research   | Impact, Unlock | Inspired, Trust     | "Does this demonstrate AI capability while building trust?" |
+| Social     | Speed          | FOMO, Future-proof  | "Does this make them feel like they're falling behind?"     |
+| Actions    | Unlock         | Enabled             | "Is every task clearly removing a constraint?"              |
+| FAQ        | All            | Trust, Enabled      | "Does this remove objections and build confidence?"         |
+| Swag       | -              | Inspired, Enabled   | "Does this feel like a gift, not a gimmick?"                |
+| Demo Ideas | Impact, Unlock | Inspired, Enabled   | "Does this make them excited about what's possible?"        |
 
 ## Phase 0: Foundation Setup ✅ COMPLETED
+
 **PRD Reference:** `prd-customer-hub-overview.md`
 
 - [x] Create `src/data/` folder for mock data files
@@ -41,6 +42,7 @@
 ---
 
 ## Phase 1: Landing Page Transformation ✅ COMPLETED
+
 **PRD Reference:** `prd-landing-page.md`
 
 - [x] Create `src/components/hub/HubCard.tsx` component
@@ -51,21 +53,22 @@
 - [x] Test responsive layout (4-col → 2-col → 1-col)
 
 ### Phase 1.5: Landing Page Enhancements (NEW)
+
 **PRD Reference:** `prd-landing-page.md` (updated)
 
-- [ ] Create `src/components/hub/WelcomeVideo.tsx` (HeyGen placeholder)
 - [ ] Create `src/components/hub/AEInfoCard.tsx` (Account Executive card)
-- [ ] Add HeyGen video player with personalization badge
 - [ ] Add AE information section with contact buttons
-- [ ] Add mock data for AE and welcome video
+- [ ] Add mock data for AE
 - [ ] Add "Book a call" Calendly integration (link)
 
 ---
 
 ## Phase 2: Usage Dashboard (/usage)
+
 **PRD Reference:** `prd-usage-dashboard.md`
 
 ### Core Features
+
 - [ ] Create `src/pages/UsageDashboard.tsx`
 - [ ] Create `src/components/hub/AnimatedCounter.tsx`
 - [ ] Create `src/components/hub/StatCard.tsx`
@@ -77,6 +80,7 @@
 - [ ] Test responsive behavior
 
 ### Internal Usage Discovery (NEW)
+
 - [ ] Create `src/components/hub/OrganizationUsage.tsx`
 - [ ] Create `src/components/hub/DepartmentBreakdown.tsx`
 - [ ] Create `src/components/hub/TopProjectsGrid.tsx`
@@ -90,6 +94,7 @@
 ---
 
 ## Phase 3: GTM Sales Process (/process)
+
 **PRD Reference:** `prd-gtm-sales-process.md`
 
 - [ ] Create `src/pages/SalesProcess.tsx`
@@ -106,9 +111,11 @@
 ---
 
 ## Phase 4: AI Research Insights (/research)
+
 **PRD Reference:** `prd-ai-research-insights.md`
 
 ### Core Features
+
 - [ ] Enable Lovable Cloud (if not already enabled)
 - [ ] Create `supabase/functions/generate-research/index.ts`
 - [ ] Create `src/pages/ResearchInsights.tsx`
@@ -122,6 +129,7 @@
 - [ ] Test responsive behavior
 
 ### Research Transparency (NEW)
+
 - [ ] Create `src/components/hub/ResearchSourcesList.tsx`
 - [ ] Create `src/components/hub/ConfidenceIndicator.tsx`
 - [ ] Add "How this was generated" expandable section
@@ -134,9 +142,11 @@
 ---
 
 ## Phase 5: Social Proof (/social)
+
 **PRD Reference:** `prd-social-proof.md`
 
 ### Core Features
+
 - [ ] Create `src/pages/SocialProof.tsx`
 - [ ] Create `src/components/hub/CompanyCard.tsx`
 - [ ] Create `src/components/hub/AIMatchedBadge.tsx`
@@ -148,6 +158,7 @@
 - [ ] Test responsive behavior
 
 ### FOMO Messaging (NEW)
+
 - [ ] Add AI-generated transparency callout
 - [ ] Add dynamic FOMO messaging ("X similar companies chose Lovable this quarter")
 - [ ] Add personalized badge with company name
@@ -156,9 +167,11 @@
 ---
 
 ## Phase 6: Action Items (/actions)
+
 **PRD Reference:** `prd-action-items.md`
 
 ### Core Features
+
 - [ ] Create `src/pages/ActionItems.tsx`
 - [ ] Create `src/components/hub/TaskItem.tsx`
 - [ ] Create `src/components/hub/TaskList.tsx`
@@ -172,6 +185,7 @@
 - [ ] Test responsive behavior
 
 ### High-Value Enterprise Tasks (NEW)
+
 - [ ] Add "Upload Design System" task with Figma link
 - [ ] Add "Connect Data Sources" task with upload flow
 - [ ] Add "Configure SSO" task
@@ -182,6 +196,7 @@
 ---
 
 ## Phase 7: FAQ with AI Chatbot (/faq)
+
 **PRD Reference:** `prd-faq-chatbot.md`
 
 - [ ] Create `src/pages/FAQPage.tsx`
@@ -200,9 +215,11 @@
 ---
 
 ## Phase 8: Swag Redemption (/swag)
+
 **PRD Reference:** `prd-swag-redemption.md`
 
 ### Core Features
+
 - [ ] Create `src/pages/SwagRedemption.tsx`
 - [ ] Create `src/components/hub/SwagCard.tsx`
 - [ ] Create `src/components/hub/SwagGrid.tsx`
@@ -218,6 +235,7 @@
 - [ ] Test responsive behavior
 
 ### Proactive Reward Notifications (NEW)
+
 - [ ] Create `src/components/hub/RewardToast.tsx`
 - [ ] Add first-login reward notification ("Welcome! Claim your free gift")
 - [ ] Add milestone notifications (100 points, etc.)
@@ -228,6 +246,7 @@
 ---
 
 ## Phase 8.5: AI Demo Ideas (/demo-ideas) (NEW)
+
 **PRD Reference:** `prd-demo-ideas.md`
 
 - [ ] Create `src/pages/DemoIdeas.tsx`
@@ -247,6 +266,7 @@
 ---
 
 ## Phase 9: Integration & Polish
+
 **PRD Reference:** `prd-customer-hub-overview.md`
 
 - [ ] Connect all contexts across pages
@@ -265,23 +285,24 @@
 ## Design System & Component Mapping
 
 ### Critical Design Tokens (DO NOT CHANGE)
+
 ```
 Cards:
   - Background: bg-[#F7F4ED] or bg-[#FCFBF8]
   - Border: border-[#D8D6CF] or border-[#ECEAE4]
   - Radius: rounded-3xl (24px)
   - Padding: p-6
-  
+
 Typography:
   - Page heading: text-[48px] font-semibold leading-[110%] tracking-[-0.03em]
   - Card heading: text-2xl font-medium leading-[110%] tracking-[-0.01em]
   - Body text: text-base leading-[22px] tracking-[-0.01em]
   - Muted text: text-muted-foreground
-  
+
 Icons:
   - Container: w-12 h-12 rounded-[9.6px]
   - With colored bg + border (e.g., bg-[#D4E0F9] border-[#9CAEFF])
-  
+
 Animations:
   - BlurFade for scroll reveal
   - transition-all duration-500 for state changes
@@ -290,20 +311,22 @@ Animations:
 
 ### Component Mapping by Phase
 
-| Phase | Reuse from `/showcase` | Reuse from `/ui` |
-|-------|------------------------|------------------|
-| **Phase 1.5: Landing Enhancements** | `FeatureShowcaseCard` | `Avatar`, `Button`, `BlurFade` |
-| **Phase 2: Usage Dashboard** | `StatCard`, `FeatureShowcaseCard`, `SectionHeader` | `BlurFade`, `Skeleton` |
-| **Phase 3: Sales Process** | `ExpandingCardsSection` pattern, `UseCaseCard` icon box pattern | `BlurFade`, `Collapsible` |
-| **Phase 4: AI Research** | `UseCaseCard`, `FeatureShowcaseCard` | `BlurFade`, `Skeleton`, `Button`, `Collapsible` |
-| **Phase 5: Social Proof** | `TestimonialCard` ✅, `UseCaseCard`, `ContentCarousel` pattern | `BlurFade`, `Avatar`, `Badge` |
-| **Phase 6: Action Items** | `UseCaseCard` pattern | `Checkbox`, `Progress`, `Tabs`, `Badge` |
-| **Phase 7: FAQ & Chatbot** | `FAQSection` ✅ (direct reuse) | `Accordion`, `ScrollArea`, `Input` |
-| **Phase 8: Swag Redemption** | `FeatureShowcaseCard` | `Dialog`, `Form`, `Button`, `Badge` |
-| **Phase 8.5: Demo Ideas** | `UseCaseCard`, `FeatureShowcaseCard` | `Form`, `Checkbox`, `Badge`, `Textarea` |
+| Phase                               | Reuse from `/showcase`                                          | Reuse from `/ui`                                |
+| ----------------------------------- | --------------------------------------------------------------- | ----------------------------------------------- |
+| **Phase 1.5: Landing Enhancements** | `FeatureShowcaseCard`                                           | `Avatar`, `Button`, `BlurFade`                  |
+| **Phase 2: Usage Dashboard**        | `StatCard`, `FeatureShowcaseCard`, `SectionHeader`              | `BlurFade`, `Skeleton`                          |
+| **Phase 3: Sales Process**          | `ExpandingCardsSection` pattern, `UseCaseCard` icon box pattern | `BlurFade`, `Collapsible`                       |
+| **Phase 4: AI Research**            | `UseCaseCard`, `FeatureShowcaseCard`                            | `BlurFade`, `Skeleton`, `Button`, `Collapsible` |
+| **Phase 5: Social Proof**           | `TestimonialCard` ✅, `UseCaseCard`, `ContentCarousel` pattern  | `BlurFade`, `Avatar`, `Badge`                   |
+| **Phase 6: Action Items**           | `UseCaseCard` pattern                                           | `Checkbox`, `Progress`, `Tabs`, `Badge`         |
+| **Phase 7: FAQ & Chatbot**          | `FAQSection` ✅ (direct reuse)                                  | `Accordion`, `ScrollArea`, `Input`              |
+| **Phase 8: Swag Redemption**        | `FeatureShowcaseCard`                                           | `Dialog`, `Form`, `Button`, `Badge`             |
+| **Phase 8.5: Demo Ideas**           | `UseCaseCard`, `FeatureShowcaseCard`                            | `Form`, `Checkbox`, `Badge`, `Textarea`         |
 
 ### Showcase Components Reference
+
 Located in `src/components/showcase/`:
+
 - **StatCard** - Large number display with description
 - **UseCaseCard** - Icon box + title + description pattern
 - **TestimonialCard** - Quote with avatar and attribution
@@ -318,6 +341,7 @@ Located in `src/components/showcase/`:
 ## Notes
 
 ### Implementation Order Rationale
+
 1. **Phase 0** must be complete before any other phase
 2. **Phase 1** provides navigation to all other pages
 3. **Phases 2-3** are simpler, build momentum
@@ -326,7 +350,9 @@ Located in `src/components/showcase/`:
 6. **Phase 9** is final integration
 
 ### Design Constraint Reminder
+
 ⚠️ **DO NOT MODIFY** existing UI elements, colors, animations, or component styles. Focus ONLY on functionality.
 
 ### Mock Data Approach
+
 All data is mock/configurable. No real APIs. Data files in `src/data/` can be easily swapped for real API calls later.
