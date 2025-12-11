@@ -51,15 +51,17 @@ const SwagCard: React.FC<SwagCardProps> = ({
       }`}
     >
       {/* Image Area */}
-      <div className="aspect-square bg-[#F7F4ED] dark:bg-muted/30 relative flex items-center justify-center p-8">
+      <div className="aspect-square bg-[#F7F4ED] dark:bg-muted/30 relative overflow-hidden">
         {item.image && item.image !== "/placeholder.svg" ? (
           <img 
             src={item.image} 
             alt={item.name} 
-            className="max-w-full max-h-full object-contain"
+            className="w-full h-full object-cover"
           />
         ) : (
-          <Package className="w-20 h-20 text-muted-foreground/30" />
+          <div className="w-full h-full flex items-center justify-center">
+            <Package className="w-20 h-20 text-muted-foreground/30" />
+          </div>
         )}
 
         {/* Badges */}
