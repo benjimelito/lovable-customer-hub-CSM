@@ -1,4 +1,5 @@
-import { LifeBuoy, Users, BookOpen, Ticket, Calendar } from "lucide-react";
+import { LifeBuoy, Users, BookOpen, Ticket, Calendar, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
 import TeamMemberCard from "@/components/hub/TeamMemberCard";
@@ -11,6 +12,17 @@ const EnablementSupport = () => {
   return (
     <HubLayout sectionId="enablement-support">
       <div className="space-y-16">
+        {/* Back Button */}
+        <BlurFade delay={0.05}>
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Hub
+          </Link>
+        </BlurFade>
+
         {/* Header */}
         <BlurFade delay={0.1}>
           <div className="text-center max-w-3xl mx-auto">

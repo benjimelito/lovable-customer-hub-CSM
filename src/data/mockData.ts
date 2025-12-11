@@ -854,6 +854,7 @@ export const mockAchievements: Array<{
   title: string;
   description: string;
   user: string;
+  userPhotoUrl?: string;
   team: string;
   date: string;
   badge: LucideIcon;
@@ -864,6 +865,7 @@ export const mockAchievements: Array<{
     title: "Power Builder",
     description: "Created 10+ projects in the first month",
     user: "Emily Rodriguez",
+    userPhotoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
     team: "Marketing",
     date: "2024-11-15",
     badge: Trophy,
@@ -874,6 +876,7 @@ export const mockAchievements: Array<{
     title: "Innovation Champion",
     description: "Built a tool that saved 40+ hours per week for the team",
     user: "Marcus Johnson",
+    userPhotoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
     team: "Product",
     date: "2024-11-22",
     badge: Sparkles,
@@ -884,6 +887,7 @@ export const mockAchievements: Array<{
     title: "Community Catalyst",
     description: "Onboarded 15 team members to the platform",
     user: "David Kim",
+    userPhotoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
     team: "Customer Success",
     date: "2024-11-28",
     badge: Users,
@@ -894,6 +898,7 @@ export const mockAchievements: Array<{
     title: "Speed Demon",
     description: "Shipped a production-ready tool in under 2 hours",
     user: "Alex Chen",
+    userPhotoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
     team: "Engineering",
     date: "2024-12-01",
     badge: Zap,
@@ -904,6 +909,7 @@ export const mockAchievements: Array<{
     title: "Impact Driver",
     description: "Tool achieved 95% adoption rate across department",
     user: "Jennifer Walsh",
+    userPhotoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face",
     team: "Sales Ops",
     date: "2024-12-05",
     badge: TrendingUp,
@@ -916,6 +922,7 @@ export const mockCustomerQuotes: Array<{
   id: string;
   quote: string;
   author: string;
+  authorPhotoUrl?: string;
   role: string;
   source: "call" | "interview" | "feedback";
   impactArea: string;
@@ -925,6 +932,7 @@ export const mockCustomerQuotes: Array<{
     id: "quote-1",
     quote: "We went from a 6-week alpha cycle to just 5 days. That's not incremental improvement—that's a fundamental shift in how we work.",
     author: "Marcus Johnson",
+    authorPhotoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
     role: "VP of Product",
     source: "call",
     impactArea: "Speed to Market",
@@ -934,6 +942,7 @@ export const mockCustomerQuotes: Array<{
     id: "quote-2",
     quote: "For the first time, my team doesn't have to wait in the engineering queue. We can validate ideas the same day we have them.",
     author: "Emily Rodriguez",
+    authorPhotoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
     role: "Director of Marketing Ops",
     source: "interview",
     impactArea: "Team Autonomy",
@@ -943,6 +952,7 @@ export const mockCustomerQuotes: Array<{
     id: "quote-3",
     quote: "The security review was surprisingly smooth. SOC 2 compliance out of the box removed our biggest blocker.",
     author: "Robert Chen",
+    authorPhotoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
     role: "Head of IT Security",
     source: "feedback",
     impactArea: "Enterprise Readiness",
@@ -952,6 +962,7 @@ export const mockCustomerQuotes: Array<{
     id: "quote-4",
     quote: "We're now building internal tools that would have taken months, in a matter of days. The ROI is undeniable.",
     author: "Jennifer Walsh",
+    authorPhotoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face",
     role: "VP of Sales Operations",
     source: "call",
     impactArea: "Cost Savings",
@@ -961,6 +972,7 @@ export const mockCustomerQuotes: Array<{
     id: "quote-5",
     quote: "Lovable isn't just a tool—it's changed how we think about what's possible for non-technical teams.",
     author: "Sarah Thompson",
+    authorPhotoUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face",
     role: "Chief of Staff",
     source: "interview",
     impactArea: "Digital Transformation",
@@ -972,7 +984,7 @@ export const mockCustomerQuotes: Array<{
 export const mockInternalSuccessStories: Array<{
   id: string;
   projectName: string;
-  leader: { name: string; title: string };
+  leader: { name: string; title: string; photoUrl?: string };
   estimatedActiveUsers: number;
   userType: string;
   primaryUseCases: string[];
@@ -986,6 +998,7 @@ export const mockInternalSuccessStories: Array<{
     leader: {
       name: "Marcus Johnson",
       title: "VP of Product",
+      photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
     },
     estimatedActiveUsers: 18,
     userType: "Product Managers",
@@ -1008,6 +1021,7 @@ export const mockInternalSuccessStories: Array<{
     leader: {
       name: "Emily Rodriguez",
       title: "Director of Marketing Ops",
+      photoUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
     },
     estimatedActiveUsers: 24,
     userType: "Marketing Team Members",
@@ -1030,6 +1044,7 @@ export const mockInternalSuccessStories: Array<{
     leader: {
       name: "David Kim",
       title: "Head of Customer Success",
+      photoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
     },
     estimatedActiveUsers: 15,
     userType: "CS Representatives",

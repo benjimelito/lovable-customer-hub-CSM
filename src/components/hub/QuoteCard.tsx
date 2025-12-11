@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 interface QuoteCardProps {
   quote: string;
   author: string;
+  authorPhotoUrl?: string;
   role: string;
   source: "call" | "interview" | "feedback";
   impactArea: string;
@@ -13,6 +14,7 @@ interface QuoteCardProps {
 const QuoteCard = ({
   quote,
   author,
+  authorPhotoUrl,
   role,
   source,
   impactArea,
@@ -34,9 +36,22 @@ const QuoteCard = ({
       </div>
 
       <div className="flex items-center justify-between">
-        <div>
-          <p className="font-medium text-foreground">{author}</p>
-          <p className="text-sm text-muted-foreground">{role}</p>
+        <div className="flex items-center gap-3">
+          {authorPhotoUrl ? (
+            <img 
+              src={authorPhotoUrl} 
+              alt={author} 
+              className="w-10 h-10 rounded-full object-cover"
+            />
+          ) : (
+            <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-sm font-medium text-primary">
+              {author.charAt(0)}
+            </div>
+          )}
+          <div>
+            <p className="font-medium text-foreground">{author}</p>
+            <p className="text-sm text-muted-foreground">{role}</p>
+          </div>
         </div>
         
         <div className="flex flex-col items-end gap-2">

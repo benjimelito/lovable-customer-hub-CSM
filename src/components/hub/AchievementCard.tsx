@@ -4,6 +4,7 @@ interface AchievementCardProps {
   title: string;
   description: string;
   user: string;
+  userPhotoUrl?: string;
   team: string;
   date: string;
   badge: LucideIcon;
@@ -14,6 +15,7 @@ const AchievementCard = ({
   title,
   description,
   user,
+  userPhotoUrl,
   team,
   date,
   badge: Badge,
@@ -39,9 +41,17 @@ const AchievementCard = ({
           
           <div className="flex items-center gap-3 mt-3">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary">
-                {user.charAt(0)}
-              </div>
+              {userPhotoUrl ? (
+                <img 
+                  src={userPhotoUrl} 
+                  alt={user} 
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary">
+                  {user.charAt(0)}
+                </div>
+              )}
               <span className="text-sm font-medium text-foreground">{user}</span>
             </div>
             <span className="text-sm text-muted-foreground">•</span>
