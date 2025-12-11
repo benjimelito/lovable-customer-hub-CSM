@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, Heart, Zap, Users, Shield, Rocket, Brain, Target, Clock, Check, Sparkles, Bot, Wrench, LineChart, Building2, ArrowRight, Coins, Database, Key, FileText, HardDrive, AlertCircle, Lightbulb, GitBranch } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Zap, Users, Shield, Rocket, Brain, Target, Clock, Check, Sparkles, Bot, Wrench, LineChart, Building2, ArrowRight, Coins, Database, Key, FileText, HardDrive, AlertCircle, Lightbulb, GitBranch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TypewriterText, ParticleEffect, AnimatedGradientBackground, SlotMachineCounter, TiltCard } from './effects';
 import { useCustomer } from '@/contexts/CustomerContext';
+import lovableIcon from '@/assets/lovable-icon.png';
+import lovableLogoFull from '@/assets/lovable-logo-full.png';
 
 // Slide Layout Component
 const SlideLayout = ({ 
@@ -55,9 +57,8 @@ const SlideLayout = ({
       </div>
 
       {/* Logo watermark */}
-      <div className="absolute bottom-6 left-8 flex items-center gap-2">
-        <Heart className="w-5 h-5 text-primary fill-primary" />
-        <span className="font-semibold text-primary">Lovable</span>
+      <div className="absolute bottom-6 left-8">
+        <img src={lovableLogoFull} alt="Lovable" className="h-6 w-auto" />
       </div>
     </motion.div>
   );
@@ -83,7 +84,7 @@ const Slide1Title = () => {
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <Heart className="w-20 h-20 text-primary fill-primary" />
+          <img src={lovableIcon} alt="Lovable" className="w-20 h-20" />
         </motion.div>
       </motion.div>
 
@@ -218,11 +219,11 @@ const Slide3BigIdea = () => {
         className="mt-10"
       >
         <TiltCard className="bg-[#F7F4ED] dark:bg-card rounded-3xl p-8 border border-[#D8D6CF] dark:border-border max-w-3xl shadow-lg">
-          <p className="text-2xl md:text-3xl font-semibold">
-            <span className="text-foreground">That's </span>
-            <span className="text-primary">Lovable</span>
+          <div className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-semibold">
+            <span className="text-foreground">That's</span>
+            <img src={lovableLogoFull} alt="Lovable" className="h-8 md:h-10 w-auto" />
             <span className="text-foreground">.</span>
-          </p>
+          </div>
         </TiltCard>
       </motion.div>
     </div>
@@ -395,9 +396,9 @@ const Slide6WhyDifferent = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 1, type: 'spring' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center z-10 shadow-lg"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-background flex items-center justify-center z-10 shadow-lg border border-border/30"
         >
-          <Heart className="w-10 h-10 text-primary-foreground fill-primary-foreground" />
+          <img src={lovableIcon} alt="Lovable" className="w-16 h-16" />
         </motion.div>
 
         {capabilities.map((cap, index) => {
@@ -583,7 +584,7 @@ const Slide10Closing = () => {
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         className="mb-8"
       >
-        <Heart className="w-24 h-24 text-primary fill-primary" />
+        <img src={lovableIcon} alt="Lovable" className="w-24 h-24" />
       </motion.div>
 
       <motion.h2
