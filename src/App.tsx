@@ -14,6 +14,7 @@ import ActionItems from "./pages/ActionItems";
 import FAQPage from "./pages/FAQPage";
 import SwagRedemption from "./pages/SwagRedemption";
 import DemoPage from "./pages/DemoPage";
+import DemoIdeas from "./pages/DemoIdeas";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
@@ -41,6 +42,7 @@ const App = () => (
                 <Route path="/actions" element={<ActionItems />} />
                 <Route path="/faq" element={<FAQPage />} />
                 <Route path="/swag" element={<SwagRedemption />} />
+                <Route path="/demo-ideas" element={<DemoIdeas />} />
                 
                 {/* Utility Routes */}
                 <Route path="/original" element={<Home />} />
