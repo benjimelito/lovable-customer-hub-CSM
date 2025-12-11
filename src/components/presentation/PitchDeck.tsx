@@ -6,6 +6,8 @@ import { TypewriterText, ParticleEffect, AnimatedGradientBackground, SlotMachine
 import { useCustomer } from '@/contexts/CustomerContext';
 import lovableIcon from '@/assets/lovable-icon.png';
 import lovableLogoFull from '@/assets/lovable-logo-full.png';
+import acmeLogo from '@/assets/acme-logo.png';
+import lovableLight from '@/assets/lovable-light.png';
 
 // Slide Layout Component
 const SlideLayout = ({ 
@@ -75,29 +77,29 @@ const Slide1Title = () => {
       <ParticleEffect count={40} />
       
       <motion.div
-        initial={{ scale: 0, rotate: -180 }}
-        animate={{ scale: 1, rotate: 0 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.2 }}
-        className="mb-8"
-      >
-        <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <img src={lovableIcon} alt="Lovable" className="w-20 h-20" />
-        </motion.div>
-      </motion.div>
-
-      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-        className="mb-6"
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="mb-8"
       >
-        <div className="flex items-center justify-center gap-4 mb-2">
-          <span className="text-2xl md:text-3xl font-semibold text-foreground">{profile.companyName}</span>
-          <span className="text-2xl text-muted-foreground">×</span>
-          <span className="text-2xl md:text-3xl font-semibold text-primary">Lovable</span>
+        <div className="flex items-center justify-center gap-6">
+          <motion.img 
+            src={acmeLogo} 
+            alt={profile.companyName}
+            className="h-16 md:h-20 w-auto object-contain"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+          />
+          <span className="text-3xl md:text-4xl text-muted-foreground font-light">×</span>
+          <motion.img 
+            src={lovableLight} 
+            alt="Lovable"
+            className="h-12 md:h-16 w-auto object-contain"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 }}
+          />
         </div>
       </motion.div>
 
