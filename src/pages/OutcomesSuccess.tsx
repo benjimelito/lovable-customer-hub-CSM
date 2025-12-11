@@ -1,11 +1,11 @@
-import { Trophy, Star, Quote, MessageSquare, Users, ArrowLeft } from "lucide-react";
+import { Trophy, Star, Quote, Users, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
 import AchievementCard from "@/components/hub/AchievementCard";
 import QuoteCard from "@/components/hub/QuoteCard";
 import SuccessStoryCard from "@/components/hub/SuccessStoryCard";
-import FeedbackForm from "@/components/hub/FeedbackForm";
+import FeedbackModal from "@/components/hub/FeedbackModal";
 import {
   mockAchievements,
   mockCustomerQuotes,
@@ -16,15 +16,18 @@ const OutcomesSuccess = () => {
   return (
     <HubLayout sectionId="outcomes-success">
       <div className="space-y-16">
-        {/* Back Button */}
+        {/* Back Button + Feedback */}
         <BlurFade delay={0.05}>
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Hub
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Hub
+            </Link>
+            <FeedbackModal />
+          </div>
         </BlurFade>
 
         {/* Header */}
@@ -146,31 +149,6 @@ const OutcomesSuccess = () => {
               </BlurFade>
             ))}
           </div>
-        </section>
-
-        {/* Stakeholder Feedback Collection */}
-        <section>
-          <BlurFade delay={1.0}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-xl bg-purple-500/10">
-                <MessageSquare className="w-5 h-5 text-purple-500" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-semibold text-foreground">
-                  Share Your Feedback
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Help us improve by sharing your thoughts and suggestions
-                </p>
-              </div>
-            </div>
-          </BlurFade>
-
-          <BlurFade delay={1.05}>
-            <div className="max-w-2xl">
-              <FeedbackForm />
-            </div>
-          </BlurFade>
         </section>
       </div>
     </HubLayout>
