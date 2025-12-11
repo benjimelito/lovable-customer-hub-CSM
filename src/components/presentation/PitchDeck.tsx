@@ -398,10 +398,10 @@ const Slide6WhyDifferent = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 1, type: 'spring' }}
-          className="absolute top-1/2 left-1/2 w-24 h-24 rounded-full bg-background flex items-center justify-center z-10 shadow-lg border border-border/30"
-          style={{ transform: 'translate(-50%, -50%)' }}
+          className="absolute w-12 h-12 rounded-full bg-background flex items-center justify-center z-10 shadow-lg border border-border/30"
+          style={{ top: '35%', left: '30%', transform: 'translate(-50%, -50%)' }}
         >
-          <img src={lovableIcon} alt="Lovable" className="w-16 h-16 object-contain" />
+          <img src={lovableIcon} alt="Lovable" className="w-8 h-8 object-contain" />
         </motion.div>
 
         {capabilities.map((cap, index) => {
