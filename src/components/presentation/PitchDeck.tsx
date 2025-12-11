@@ -110,7 +110,7 @@ const Slide1Title = () => {
           <motion.img
             src={acmeLogo}
             alt={profile.companyName}
-            className="h-16 md:h-20 w-auto object-contain"
+            className="h-8 md:h-11 w-auto object-contain"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
