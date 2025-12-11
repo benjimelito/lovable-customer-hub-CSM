@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BackgroundGradient } from "@/components/BackgroundGradient";
 import { BackgroundGrain } from "@/components/BackgroundGrain";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import HeroVideoPlayer from "@/components/HeroVideoPlayer";
 import HubCard from "@/components/hub/HubCard";
@@ -138,17 +137,7 @@ const CustomerHubHome: React.FC = () => {
               </div>
 
               <BlurFade delay={0.4} inView>
-                <div className="flex items-center gap-4">
-                  <ProgressBadge />
-                  <Button 
-                    onClick={() => setShowPitchDeck(true)}
-                    variant="outline"
-                    className="gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white"
-                  >
-                    <Presentation className="w-4 h-4" />
-                    View Pitch Deck
-                  </Button>
-                </div>
+                <ProgressBadge />
               </BlurFade>
 
             </div>
@@ -181,7 +170,15 @@ const CustomerHubHome: React.FC = () => {
               {/* Cards Grid */}
               <BlurFade delay={0.4} inView>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {hubSections.map((section, index) => (
+                  {/* Pitch Deck Card - First */}
+                  <HubCard
+                    title="Pitch Deck"
+                    description="View our interactive presentation tailored for your team"
+                    icon={Presentation}
+                    onClick={() => setShowPitchDeck(true)}
+                    accentColor="bg-violet-500/10 border-violet-500/20"
+                  />
+                  {hubSections.map((section) => (
                     <HubCard
                       key={section.route}
                       title={section.title}
