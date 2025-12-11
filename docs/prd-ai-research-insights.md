@@ -73,6 +73,43 @@ Features:
 - Copy to clipboard button
 - Expand for context
 
+### 4. Research Transparency Section
+
+**NEW FEATURE:** Show how the AI research was generated
+
+```typescript
+interface ResearchMetadata {
+  generatedAt: string;
+  sources: ResearchSource[];
+  methodology: string;
+  confidenceScore: number; // 0-100
+}
+
+interface ResearchSource {
+  type: 'earnings_call' | 'job_posting' | 'press_release' | 'news' | 'linkedin' | 'website';
+  title: string;
+  url?: string;
+  date: string;
+  excerpt?: string;
+}
+```
+
+Display:
+- "How this research was generated" expandable section
+- List of sources with links
+- Methodology explanation
+- Confidence score indicator
+- Last updated timestamp
+- "Regenerate with latest data" button
+
+Source types to cite:
+- Recent earnings calls (with quarter/year)
+- Job postings (role types being hired)
+- Press releases
+- News articles
+- LinkedIn company page
+- Company website/blog
+
 ### 4. AI Generation Integration
 
 **Using Lovable AI (Lovable Cloud):**
@@ -157,7 +194,33 @@ export const mockResearch = {
       category: 'technical'
     },
     // ...
-  ]
+  ],
+  metadata: {
+    generatedAt: '2024-01-20T10:30:00Z',
+    sources: [
+      {
+        type: 'earnings_call',
+        title: 'Q3 2024 Earnings Call Transcript',
+        url: 'https://example.com/earnings',
+        date: '2024-10-15',
+        excerpt: 'CEO mentioned engineering velocity as top priority...'
+      },
+      {
+        type: 'job_posting',
+        title: 'Senior Frontend Engineer posting',
+        url: 'https://careers.acmecorp.com/job-123',
+        date: '2024-01-10'
+      },
+      {
+        type: 'press_release',
+        title: 'Acme Corp Announces AI Strategy',
+        url: 'https://acmecorp.com/news/ai-strategy',
+        date: '2024-09-20'
+      }
+    ],
+    methodology: 'AI analysis of public company data, job postings, and news sources',
+    confidenceScore: 82
+  }
 };
 ```
 

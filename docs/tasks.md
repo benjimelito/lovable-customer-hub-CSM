@@ -34,11 +34,22 @@
 - [x] Add progress indicator to hero section (ProgressBadge component)
 - [x] Test responsive layout (4-col → 2-col → 1-col)
 
+### Phase 1.5: Landing Page Enhancements (NEW)
+**PRD Reference:** `prd-landing-page.md` (updated)
+
+- [ ] Create `src/components/hub/WelcomeVideo.tsx` (HeyGen placeholder)
+- [ ] Create `src/components/hub/AEInfoCard.tsx` (Account Executive card)
+- [ ] Add HeyGen video player with personalization badge
+- [ ] Add AE information section with contact buttons
+- [ ] Add mock data for AE and welcome video
+- [ ] Add "Book a call" Calendly integration (link)
+
 ---
 
 ## Phase 2: Usage Dashboard (/usage)
 **PRD Reference:** `prd-usage-dashboard.md`
 
+### Core Features
 - [ ] Create `src/pages/UsageDashboard.tsx`
 - [ ] Create `src/components/hub/AnimatedCounter.tsx`
 - [ ] Create `src/components/hub/StatCard.tsx`
@@ -48,6 +59,17 @@
 - [ ] Add loading skeleton states
 - [ ] Wrap with HubLayout
 - [ ] Test responsive behavior
+
+### Internal Usage Discovery (NEW)
+- [ ] Create `src/components/hub/OrganizationUsage.tsx`
+- [ ] Create `src/components/hub/DepartmentBreakdown.tsx`
+- [ ] Create `src/components/hub/TopProjectsGrid.tsx`
+- [ ] Create `src/components/hub/ProjectPreviewCard.tsx`
+- [ ] Add organization usage summary card (workspaces, users, ARR)
+- [ ] Add department breakdown visualization
+- [ ] Add top projects by department grid
+- [ ] Add "Remix this project" functionality
+- [ ] Add mock data for organization usage
 
 ---
 
@@ -70,6 +92,7 @@
 ## Phase 4: AI Research Insights (/research)
 **PRD Reference:** `prd-ai-research-insights.md`
 
+### Core Features
 - [ ] Enable Lovable Cloud (if not already enabled)
 - [ ] Create `supabase/functions/generate-research/index.ts`
 - [ ] Create `src/pages/ResearchInsights.tsx`
@@ -82,11 +105,22 @@
 - [ ] Add mock data fallback
 - [ ] Test responsive behavior
 
+### Research Transparency (NEW)
+- [ ] Create `src/components/hub/ResearchSourcesList.tsx`
+- [ ] Create `src/components/hub/ConfidenceIndicator.tsx`
+- [ ] Add "How this was generated" expandable section
+- [ ] Add source citations with links (earnings calls, job postings, etc.)
+- [ ] Add methodology explanation
+- [ ] Add confidence score display
+- [ ] Add "last generated" timestamp
+- [ ] Add mock data for research metadata
+
 ---
 
 ## Phase 5: Social Proof (/social)
 **PRD Reference:** `prd-social-proof.md`
 
+### Core Features
 - [ ] Create `src/pages/SocialProof.tsx`
 - [ ] Create `src/components/hub/CompanyCard.tsx`
 - [ ] Create `src/components/hub/AIMatchedBadge.tsx`
@@ -97,11 +131,18 @@
 - [ ] Add case study previews
 - [ ] Test responsive behavior
 
+### FOMO Messaging (NEW)
+- [ ] Add AI-generated transparency callout
+- [ ] Add dynamic FOMO messaging ("X similar companies chose Lovable this quarter")
+- [ ] Add personalized badge with company name
+- [ ] Add pulsing animation on AI-matched badge
+
 ---
 
 ## Phase 6: Action Items (/actions)
 **PRD Reference:** `prd-action-items.md`
 
+### Core Features
 - [ ] Create `src/pages/ActionItems.tsx`
 - [ ] Create `src/components/hub/TaskItem.tsx`
 - [ ] Create `src/components/hub/TaskList.tsx`
@@ -113,6 +154,14 @@
 - [ ] Add category filtering
 - [ ] Add completion animations
 - [ ] Test responsive behavior
+
+### High-Value Enterprise Tasks (NEW)
+- [ ] Add "Upload Design System" task with Figma link
+- [ ] Add "Connect Data Sources" task with upload flow
+- [ ] Add "Configure SSO" task
+- [ ] Add "Submit Demo Ideas" task (links to /demo-ideas)
+- [ ] Add time estimates to task cards
+- [ ] Add external URL support for tasks
 
 ---
 
@@ -137,6 +186,7 @@
 ## Phase 8: Swag Redemption (/swag)
 **PRD Reference:** `prd-swag-redemption.md`
 
+### Core Features
 - [ ] Create `src/pages/SwagRedemption.tsx`
 - [ ] Create `src/components/hub/SwagCard.tsx`
 - [ ] Create `src/components/hub/SwagGrid.tsx`
@@ -149,6 +199,33 @@
 - [ ] Add confirmation animation
 - [ ] Integrate with RewardsContext
 - [ ] Add insufficient points states
+- [ ] Test responsive behavior
+
+### Proactive Reward Notifications (NEW)
+- [ ] Create `src/components/hub/RewardToast.tsx`
+- [ ] Add first-login reward notification ("Welcome! Claim your free gift")
+- [ ] Add milestone notifications (100 points, etc.)
+- [ ] Add task completion reward notifications
+- [ ] Add notification persistence (localStorage)
+- [ ] Integrate with Sonner toast system
+
+---
+
+## Phase 8.5: AI Demo Ideas (/demo-ideas) (NEW)
+**PRD Reference:** `prd-demo-ideas.md`
+
+- [ ] Create `src/pages/DemoIdeas.tsx`
+- [ ] Create `src/components/hub/UseCaseSuggestionCard.tsx`
+- [ ] Create `src/components/hub/DemoIdeaForm.tsx`
+- [ ] Create `src/components/hub/IdeasSummary.tsx`
+- [ ] Create `supabase/functions/generate-use-cases/index.ts`
+- [ ] Build AI-generated suggestions grid
+- [ ] Build custom idea submission form (1-3 ideas)
+- [ ] Add idea validation (min 1, max 3)
+- [ ] Add AI enhancement for submitted ideas
+- [ ] Add submission confirmation flow
+- [ ] Integrate with RewardsContext for points
+- [ ] Add mock data for use case suggestions
 - [ ] Test responsive behavior
 
 ---
@@ -199,13 +276,15 @@ Animations:
 
 | Phase | Reuse from `/showcase` | Reuse from `/ui` |
 |-------|------------------------|------------------|
+| **Phase 1.5: Landing Enhancements** | `FeatureShowcaseCard` | `Avatar`, `Button`, `BlurFade` |
 | **Phase 2: Usage Dashboard** | `StatCard`, `FeatureShowcaseCard`, `SectionHeader` | `BlurFade`, `Skeleton` |
 | **Phase 3: Sales Process** | `ExpandingCardsSection` pattern, `UseCaseCard` icon box pattern | `BlurFade`, `Collapsible` |
-| **Phase 4: AI Research** | `UseCaseCard`, `FeatureShowcaseCard` | `BlurFade`, `Skeleton`, `Button` |
-| **Phase 5: Social Proof** | `TestimonialCard` ✅, `UseCaseCard`, `ContentCarousel` pattern | `BlurFade`, `Avatar` |
-| **Phase 6: Action Items** | `UseCaseCard` pattern | `Checkbox`, `Progress`, `Tabs` |
+| **Phase 4: AI Research** | `UseCaseCard`, `FeatureShowcaseCard` | `BlurFade`, `Skeleton`, `Button`, `Collapsible` |
+| **Phase 5: Social Proof** | `TestimonialCard` ✅, `UseCaseCard`, `ContentCarousel` pattern | `BlurFade`, `Avatar`, `Badge` |
+| **Phase 6: Action Items** | `UseCaseCard` pattern | `Checkbox`, `Progress`, `Tabs`, `Badge` |
 | **Phase 7: FAQ & Chatbot** | `FAQSection` ✅ (direct reuse) | `Accordion`, `ScrollArea`, `Input` |
 | **Phase 8: Swag Redemption** | `FeatureShowcaseCard` | `Dialog`, `Form`, `Button`, `Badge` |
+| **Phase 8.5: Demo Ideas** | `UseCaseCard`, `FeatureShowcaseCard` | `Form`, `Checkbox`, `Badge`, `Textarea` |
 
 ### Showcase Components Reference
 Located in `src/components/showcase/`:

@@ -41,11 +41,64 @@ Replace current feature cards with 8 hub section cards:
 | 7 | FAQ & Chat | MessageCircle | /faq | Questions answered |
 | 8 | Earn Swag | Gift | /swag | Redeem your rewards |
 
-### 3. Video Player Integration
+### 3. HeyGen Personalized Welcome Video
 
-Keep existing video player component, update to use demo video content.
+**NEW FEATURE:** AI-generated personalized welcome video using HeyGen
 
-### 4. Progress Indicator
+```typescript
+interface WelcomeVideo {
+  videoUrl: string;
+  presenter: 'gtm' | 'anton'; // GTM team member or Anton
+  personalizationPoints: {
+    prospectName: string;
+    companyName: string;
+    industry: string;
+    customMessages?: string[];
+  };
+  thumbnailUrl: string;
+  duration: string;
+}
+```
+
+Personalization points to include in video:
+- Prospect's name and company
+- Industry-specific messaging
+- Current Lovable usage across their organization (if any)
+- Tailored value proposition
+
+Display:
+- Video thumbnail with play button
+- "Personalized for {companyName}" badge
+- Presenter info (name, role)
+- Video duration indicator
+
+### 4. Account Executive (AE) Information Section
+
+Display assigned AE details prominently:
+
+```typescript
+interface AccountExecutive {
+  id: string;
+  name: string;
+  title: string;
+  photoUrl: string;
+  email: string;
+  phone?: string;
+  calendlyUrl: string;
+  linkedInUrl?: string;
+  bio: string;
+}
+```
+
+Card displays:
+- AE photo (avatar)
+- Name and title
+- "Your dedicated account executive" label
+- Quick contact buttons (Email, Call, Book meeting)
+- LinkedIn link
+- Brief bio/intro
+
+### 5. Progress Indicator
 
 Show overall engagement progress in hero section:
 - Sections visited
@@ -75,6 +128,33 @@ export const mockCustomer = {
   industry: "Technology",
   dealStage: "evaluation",
   // ...
+};
+
+// src/data/ae.ts
+export const mockAccountExecutive = {
+  id: 'ae-1',
+  name: 'Sarah Chen',
+  title: 'Enterprise Account Executive',
+  photoUrl: '/images/ae/sarah.jpg',
+  email: 'sarah@lovable.dev',
+  phone: '+1 (555) 123-4567',
+  calendlyUrl: 'https://calendly.com/sarah-lovable',
+  linkedInUrl: 'https://linkedin.com/in/sarahchen',
+  bio: 'Sarah has 8+ years helping enterprise teams transform their development workflows.'
+};
+
+// src/data/welcomeVideo.ts
+export const mockWelcomeVideo = {
+  videoUrl: '/videos/welcome-personalized.mp4',
+  presenter: 'gtm',
+  personalizationPoints: {
+    prospectName: 'John',
+    companyName: 'Acme Corp',
+    industry: 'Technology',
+    customMessages: ['Tailored for your engineering team']
+  },
+  thumbnailUrl: '/images/video-thumbnail.jpg',
+  duration: '2:30'
 };
 ```
 
