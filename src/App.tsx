@@ -18,6 +18,8 @@ import DemoIdeas from "./pages/DemoIdeas";
 import Instructions from "./pages/Instructions";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
+import EnablementSupport from "./pages/EnablementSupport";
+import OutcomesSuccess from "./pages/OutcomesSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +47,8 @@ const App = () => (
                 <Route path="/swag" element={<SwagRedemption />} />
                 <Route path="/demo-ideas" element={<DemoIdeas />} />
                 <Route path="/instructions" element={<Instructions />} />
+                <Route path="/enablement-support" element={<EnablementSupport />} />
+                <Route path="/outcomes-success" element={<OutcomesSuccess />} />
                 
                 {/* Utility Routes */}
                 <Route path="/original" element={<Home />} />
