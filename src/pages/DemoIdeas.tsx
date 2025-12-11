@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Plus, Sparkles, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Plus, Sparkles, Loader2, RefreshCw, ArrowLeft, Wand2 } from "lucide-react";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
@@ -95,36 +96,41 @@ const DemoIdeas: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [hasAwardedPagePoints, setHasAwardedPagePoints] = useState(false);
 
+  const loadSuggestions = async () => {
+    setIsLoadingSuggestions(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("generate-use-cases", {
+        body: {
+          companyName: profile.companyName,
+          industry: profile.industry,
+          roles: [profile.contactRole],
+        },
+      });
+
+      if (error) throw error;
+      
+      if (data?.suggestions) {
+        setSuggestions(data.suggestions);
+      } else {
+        setSuggestions(mockSuggestions);
+      }
+    } catch (error) {
+      console.error("Failed to load AI suggestions:", error);
+      setSuggestions(mockSuggestions);
+    } finally {
+      setIsLoadingSuggestions(false);
+    }
+  };
+
   // Load suggestions on mount
   useEffect(() => {
-    const loadSuggestions = async () => {
-      setIsLoadingSuggestions(true);
-      try {
-        const { data, error } = await supabase.functions.invoke("generate-use-cases", {
-          body: {
-            companyName: profile.companyName,
-            industry: profile.industry,
-            roles: [profile.contactRole],
-          },
-        });
-
-        if (error) throw error;
-        
-        if (data?.suggestions) {
-          setSuggestions(data.suggestions);
-        } else {
-          setSuggestions(mockSuggestions);
-        }
-      } catch (error) {
-        console.error("Failed to load AI suggestions:", error);
-        setSuggestions(mockSuggestions);
-      } finally {
-        setIsLoadingSuggestions(false);
-      }
-    };
-
     loadSuggestions();
   }, [profile]);
+
+  const handleRefreshSuggestions = async () => {
+    await loadSuggestions();
+    toast.success("Generated new suggestions!");
+  };
 
   // Award points for visiting page
   useEffect(() => {
@@ -214,9 +220,24 @@ const DemoIdeas: React.FC = () => {
     <HubLayout sectionId="demo-ideas" showBackground={false}>
       <section className="bg-background rounded-3xl pt-24 md:pt-32 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          {/* Page Header */}
+          {/* Back Link */}
           <BlurFade delay={0}>
+            <Link 
+              to="/demo" 
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Quote Generator
+            </Link>
+          </BlurFade>
+
+          {/* Page Header */}
+          <BlurFade delay={0.05}>
             <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+                <Wand2 className="w-4 h-4" />
+                AI-Powered Suggestions
+              </div>
               <h1 className="text-[40px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground mb-4">
                 What should we build for you?
               </h1>
@@ -232,17 +253,30 @@ const DemoIdeas: React.FC = () => {
             <div className="lg:col-span-2 space-y-8">
               {/* AI Suggestions Section */}
               <BlurFade delay={0.1}>
-                <div>
-                  <div className="flex items-center gap-2 mb-6">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <h2 className="text-xl font-semibold text-foreground">
-                      Suggested for {profile.industry}
-                    </h2>
+                <div className="bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border rounded-3xl p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                      <h2 className="text-xl font-semibold text-foreground">
+                        Suggested for {profile.industry}
+                      </h2>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleRefreshSuggestions}
+                      disabled={isLoadingSuggestions}
+                      className="gap-2"
+                    >
+                      <RefreshCw className={`w-4 h-4 ${isLoadingSuggestions ? 'animate-spin' : ''}`} />
+                      Regenerate
+                    </Button>
                   </div>
 
                   {isLoadingSuggestions ? (
-                    <div className="flex items-center justify-center py-12">
+                    <div className="flex flex-col items-center justify-center py-12 gap-3">
                       <Loader2 className="w-8 h-8 text-primary animate-spin" />
+                      <p className="text-sm text-muted-foreground">Generating personalized suggestions...</p>
                     </div>
                   ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

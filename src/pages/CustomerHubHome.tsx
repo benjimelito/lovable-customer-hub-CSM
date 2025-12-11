@@ -17,7 +17,8 @@ import {
   Users, 
   CheckSquare, 
   MessageCircle, 
-  Gift 
+  Gift,
+  Lightbulb
 } from "lucide-react";
 
 const hubSections = [
@@ -27,6 +28,13 @@ const hubSections = [
     icon: Play,
     route: "/demo",
     accentColor: "bg-blue-500/10 border-blue-500/20",
+  },
+  {
+    title: "Demo Ideas",
+    description: "Submit custom ideas and get AI-powered suggestions",
+    icon: Lightbulb,
+    route: "/demo-ideas",
+    accentColor: "bg-amber-500/10 border-amber-500/20",
   },
   {
     title: "Usage Dashboard",
