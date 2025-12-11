@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactDOM from "react-dom";
-import { X, Package, Check, Loader2, Sparkles } from "lucide-react";
+import { X, Package, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -151,10 +151,9 @@ const RedemptionModal: React.FC<RedemptionModalProps> = ({
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-foreground">{item.name}</h3>
-                  <div className="flex items-center gap-1 text-primary text-sm font-medium mt-1">
-                    <Sparkles className="w-4 h-4" />
+                  <p className="text-primary text-sm font-medium mt-1">
                     {item.pointsCost} points
-                  </div>
+                  </p>
                 </div>
               </div>
               <Button variant="ghost" size="icon" onClick={handleClose}>

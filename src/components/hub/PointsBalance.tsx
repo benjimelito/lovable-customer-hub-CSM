@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, TrendingUp, Gift } from "lucide-react";
+import { TrendingUp, Gift, Coins } from "lucide-react";
 import { useRewards } from "@/contexts/RewardsContext";
 
 interface PointsBalanceProps {
@@ -22,7 +22,7 @@ const PointsBalance: React.FC<PointsBalanceProps> = ({
         {/* Points Display */}
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-            <Sparkles className="w-8 h-8 text-primary" />
+            <Coins className="w-8 h-8 text-primary" />
           </div>
           <div>
             <p className="text-sm text-muted-foreground mb-1">Your Balance</p>

@@ -7,7 +7,7 @@ import AIMatchedBadge from "@/components/hub/AIMatchedBadge";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { mockMatchedCompanies, mockCaseStudies, mockTestimonials } from "@/data/mockData";
-import { Sparkles, TrendingUp, Building2 } from "lucide-react";
+import { Brain, TrendingUp, Building2 } from "lucide-react";
 
 const SocialProof: React.FC = () => {
   const { profile } = useCustomer();
@@ -54,7 +54,7 @@ const SocialProof: React.FC = () => {
           <BlurFade delay={0.15}>
             <div className="p-4 bg-[#D4E0F9]/30 rounded-2xl border border-[#4A7AE8]/20 flex items-start gap-3">
               <div className="w-8 h-8 rounded-lg bg-[#D4E0F9] flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4 text-[#4A7AE8]" />
+                <Brain className="w-4 h-4 text-[#4A7AE8]" />
               </div>
               <div>
                 <p className="text-sm text-foreground">

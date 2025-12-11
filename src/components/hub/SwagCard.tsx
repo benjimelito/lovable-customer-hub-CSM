@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Lock, Sparkles, Package, ShoppingBag } from "lucide-react";
+import { Lock, Package, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -81,9 +81,8 @@ const SwagCard: React.FC<SwagCardProps> = ({
 
         {/* Points Badge */}
         <div className="absolute top-3 right-3">
-          <div className="flex items-center gap-1 px-2.5 py-1 bg-primary text-primary-foreground rounded-full text-sm font-medium">
-            <Sparkles className="w-3.5 h-3.5" />
-            {item.pointsCost}
+          <div className="px-2.5 py-1 bg-primary text-primary-foreground rounded-full text-sm font-medium">
+            {item.pointsCost} pts
           </div>
         </div>
 

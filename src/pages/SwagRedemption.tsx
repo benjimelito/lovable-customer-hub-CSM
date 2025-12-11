@@ -7,7 +7,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { useRewards } from "@/contexts/RewardsContext";
 import { toast } from "sonner";
-import { Gift, Sparkles } from "lucide-react";
+import { Gift } from "lucide-react";
 
 // Import swag images
 import stickersImage from "@/assets/swag/stickers.png";
