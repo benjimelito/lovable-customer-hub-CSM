@@ -119,7 +119,7 @@ const DemoPage: React.FC = () => {
   return (
     <HubLayout sectionId="demo" showBackground={false}>
       <section className="bg-background rounded-3xl pt-24 md:pt-32 pb-16 md:pb-24">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="mx-auto w-full px-4 md:px-8 lg:px-16">
           {/* Page Header */}
           <BlurFade delay={0}>
             <div className="text-center mb-12">
