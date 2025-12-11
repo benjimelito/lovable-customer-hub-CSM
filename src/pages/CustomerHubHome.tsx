@@ -98,8 +98,8 @@ const hubSections = [
     accentColor: "bg-teal-500/10 border-teal-500/20",
   },
   {
-    title: "Outcomes & Success",
-    description: "Real impact, testimonials, and wins from your teams",
+    title: "Lovable Hall of Fame",
+    description: "Celebrating the champions and wins from your teams",
     icon: Trophy,
     route: "/outcomes-success",
     accentColor: "bg-yellow-500/10 border-yellow-500/20",
