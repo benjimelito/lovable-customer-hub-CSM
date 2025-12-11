@@ -1,6 +1,6 @@
 import React from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { ArrowRight, FileText } from "lucide-react";
+import { CheckCircle2, Clock, FileText, Users } from "lucide-react";
 
 interface StageContentProps {
   stage: {
@@ -15,37 +15,60 @@ interface StageContentProps {
 }
 
 const StageContent: React.FC<StageContentProps> = ({ stage }) => {
+  const getStageIcon = () => {
+    switch (stage.id) {
+      case "discovery":
+        return Users;
+      case "demo":
+        return FileText;
+      case "evaluation":
+        return Clock;
+      default:
+        return CheckCircle2;
+    }
+  };
+
+  const Icon = getStageIcon();
+
   return (
     <BlurFade delay={0.1}>
-      <div className="p-6 border border-border rounded-2xl bg-card h-full">
+      <div className="p-6 bg-[#F7F4ED] rounded-3xl h-full">
         {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center gap-3 mb-2">
-            <h3 className="text-lg font-medium text-foreground">{stage.name}</h3>
-            {stage.status === "current" && (
-              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-foreground text-background rounded font-medium">
-                Active
-              </span>
-            )}
-            {stage.status === "completed" && (
-              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-muted text-muted-foreground rounded font-medium">
-                Done
-              </span>
-            )}
+        <div className="flex items-start gap-4 mb-6">
+          <div 
+            className="w-12 h-12 rounded-[9.6px] flex items-center justify-center border"
+            style={{ backgroundColor: "#D4E0F9", borderColor: "#4A7AE8" }}
+          >
+            <Icon className="w-6 h-6" style={{ color: "#4A7AE8" }} />
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">{stage.description}</p>
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="text-xl font-medium text-foreground">{stage.name}</h3>
+              {stage.status === "current" && (
+                <span className="text-xs px-2 py-0.5 bg-[#D4E0F9] text-[#4A7AE8] rounded-full font-medium">
+                  Current Stage
+                </span>
+              )}
+              {stage.status === "completed" && (
+                <span className="text-xs px-2 py-0.5 bg-[#D4F9E4] text-[#4AE88A] rounded-full font-medium">
+                  Completed
+                </span>
+              )}
+            </div>
+            <p className="text-muted-foreground mt-1">{stage.description}</p>
+          </div>
         </div>
 
         {/* What to Expect */}
-        <div className="space-y-3">
-          <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-            What to Expect
-          </h4>
-          <ul className="space-y-2">
+        <div className="space-y-4">
+          <h4 className="text-base font-medium text-foreground">What to Expect</h4>
+          <ul className="space-y-3">
             {stage.agendaItems.map((item, index) => (
-              <li key={index} className="flex items-start gap-3 group">
-                <ArrowRight className="w-3.5 h-3.5 text-muted-foreground/50 mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground/80">{item}</span>
+              <li key={index} className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-background/50 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-xs font-medium text-muted-foreground">{index + 1}</span>
+                </div>
+                <span className="text-sm text-muted-foreground">{item}</span>
               </li>
             ))}
           </ul>
@@ -53,15 +76,13 @@ const StageContent: React.FC<StageContentProps> = ({ stage }) => {
 
         {/* Key Milestones */}
         {stage.milestones && stage.milestones.length > 0 && (
-          <div className="mt-6 pt-6 border-t border-border">
-            <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
-              Key Milestones
-            </h4>
+          <div className="mt-6 pt-6 border-t border-[#ECEAE4]">
+            <h4 className="text-base font-medium text-foreground mb-3">Key Milestones</h4>
             <div className="flex flex-wrap gap-2">
               {stage.milestones.map((milestone, index) => (
                 <span
                   key={index}
-                  className="text-xs px-3 py-1.5 bg-muted rounded-full text-muted-foreground"
+                  className="text-xs px-3 py-1.5 bg-background/50 rounded-full text-muted-foreground"
                 >
                   {milestone}
                 </span>
@@ -72,10 +93,8 @@ const StageContent: React.FC<StageContentProps> = ({ stage }) => {
 
         {/* Resources */}
         {stage.resources && stage.resources.length > 0 && (
-          <div className="mt-6 pt-6 border-t border-border">
-            <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">
-              Resources
-            </h4>
+          <div className="mt-6 pt-6 border-t border-[#ECEAE4]">
+            <h4 className="text-base font-medium text-foreground mb-3">Resources</h4>
             <div className="space-y-2">
               {stage.resources.map((resource, index) => (
                 <a
@@ -83,9 +102,9 @@ const StageContent: React.FC<StageContentProps> = ({ stage }) => {
                   href={resource.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-foreground hover:text-foreground/70 transition-colors"
+                  className="flex items-center gap-2 text-sm text-[#4A7AE8] hover:underline"
                 >
-                  <FileText className="w-3.5 h-3.5" />
+                  <FileText className="w-4 h-4" />
                   {resource.title}
                 </a>
               ))}
