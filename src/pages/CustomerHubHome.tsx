@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BackgroundGradient } from "@/components/BackgroundGradient";
 import { BackgroundGrain } from "@/components/BackgroundGrain";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import HeroVideoPlayer from "@/components/HeroVideoPlayer";
 import HubCard from "@/components/hub/HubCard";
 import ProgressBadge from "@/components/hub/ProgressBadge";
 import AEInfoCard from "@/components/hub/AEInfoCard";
+import { PitchDeck } from "@/components/presentation";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { mockAccountExecutive } from "@/data/mockData";
 import { 
@@ -18,7 +20,8 @@ import {
   CheckSquare, 
   MessageCircle, 
   Gift,
-  Lightbulb
+  Lightbulb,
+  Presentation
 } from "lucide-react";
 
 const hubSections = [
@@ -90,12 +93,16 @@ const hubSections = [
 const CustomerHubHome: React.FC = () => {
   const { profile } = useCustomer();
   const { companyName, contactName } = profile;
+  const [showPitchDeck, setShowPitchDeck] = useState(false);
 
   return (
     <div className="relative min-h-screen w-full bg-background transition-none">
       <Navigation />
       <BackgroundGradient />
       <BackgroundGrain />
+      
+      {/* Pitch Deck Modal */}
+      <PitchDeck isOpen={showPitchDeck} onClose={() => setShowPitchDeck(false)} />
       
       <div className="container-home">
         <div className="flex flex-col z-10">
@@ -127,7 +134,17 @@ const CustomerHubHome: React.FC = () => {
               </div>
 
               <BlurFade delay={0.4} inView>
-                <ProgressBadge />
+                <div className="flex items-center gap-4">
+                  <ProgressBadge />
+                  <Button 
+                    onClick={() => setShowPitchDeck(true)}
+                    variant="outline"
+                    className="gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white"
+                  >
+                    <Presentation className="w-4 h-4" />
+                    View Pitch Deck
+                  </Button>
+                </div>
               </BlurFade>
 
             </div>
