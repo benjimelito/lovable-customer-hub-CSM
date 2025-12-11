@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
@@ -260,21 +261,15 @@ const ChatBot: React.FC = () => {
     </>
   );
 
-  return (
-    <>
-      {/* Normal inline view */}
-      <div className={`flex flex-col h-[500px] bg-card border border-border rounded-3xl overflow-hidden ${isExpanded ? "hidden" : ""}`}>
-        {chatContent}
-      </div>
-
-      {/* Fullscreen overlay */}
-      <AnimatePresence>
-        {isExpanded && (
+  // Fullscreen modal rendered via portal
+  const fullscreenModal = isExpanded
+    ? ReactDOM.createPortal(
+        <AnimatePresence>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[9999] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
             onClick={() => setIsExpanded(false)}
           >
             <motion.div
@@ -283,13 +278,25 @@ const ChatBot: React.FC = () => {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="fixed inset-4 md:inset-8 lg:inset-16 bg-card border border-border rounded-3xl overflow-hidden flex flex-col shadow-2xl"
+              className="w-full h-full max-w-4xl max-h-[90vh] bg-card border border-border rounded-3xl overflow-hidden flex flex-col shadow-2xl"
             >
               {chatContent}
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )
+    : null;
+
+  return (
+    <>
+      {/* Normal inline view */}
+      <div className={`flex flex-col h-[500px] bg-card border border-border rounded-3xl overflow-hidden ${isExpanded ? "invisible" : ""}`}>
+        {chatContent}
+      </div>
+
+      {/* Fullscreen overlay via portal */}
+      {fullscreenModal}
     </>
   );
 };

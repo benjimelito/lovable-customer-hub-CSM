@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import HubLayout from "@/components/hub/HubLayout";
 import FAQAccordion from "@/components/hub/FAQAccordion";
 import ChatBot from "@/components/hub/ChatBot";
+import AEInfoCard from "@/components/hub/AEInfoCard";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useCustomer } from "@/contexts/CustomerContext";
+import { mockAccountExecutive } from "@/data/mockData";
 import { MessageCircle, HelpCircle } from "lucide-react";
 
 // Enhanced FAQ data based on Lovable docs and app context
@@ -246,14 +248,22 @@ const FAQPage: React.FC = () => {
             </BlurFade>
           </div>
 
-          {/* CTA */}
-          <BlurFade delay={0.4}>
-            <div className="mt-12 text-center">
-              <p className="text-sm text-muted-foreground">
-                Still have questions? Your Account Executive is just a click away.
-              </p>
-            </div>
-          </BlurFade>
+          {/* Account Executive Section */}
+          <div>
+            <BlurFade delay={0.4}>
+              <div className="mb-6">
+                <h2 className="text-2xl font-medium text-foreground">
+                  Still Have Questions?
+                </h2>
+                <p className="text-muted-foreground mt-2">
+                  Your Account Executive is ready to help with anything you need.
+                </p>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.45}>
+              <AEInfoCard ae={mockAccountExecutive} />
+            </BlurFade>
+          </div>
         </div>
       </section>
     </HubLayout>
