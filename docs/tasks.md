@@ -250,7 +250,52 @@
 
 ---
 
-## Phase 8.5: AI Demo Ideas (/demo-ideas) (NEW)
+## Phase 8.5: Demo Page - Enterprise Quote Generator (/demo)
+
+**PRD Reference:** `prd-demo-page.md`
+**Pricing Logic:** `src/lib/pricing.ts`
+
+### Purpose
+Dual-purpose demo page that:
+1. Showcases what can be built with Lovable (meta-demo)
+2. Provides interactive enterprise pricing calculator
+
+### Phase 8.5.1: Core Calculator
+- [ ] Create `src/pages/DemoPage.tsx`
+- [ ] Create `src/components/demo/DemoIntro.tsx` (video + "built with Lovable" badge)
+- [ ] Create `src/components/demo/UsageEstimator.tsx` (simple mode slider)
+- [ ] Create `src/components/demo/CommitmentSelector.tsx` (tier radio group)
+- [ ] Create `src/components/demo/QuoteSummary.tsx` (results card with AnimatedCounter)
+- [ ] Wire up pricing calculations from `src/lib/pricing.ts`
+- [ ] Add CustomerContext integration for company name
+
+### Phase 8.5.2: Advanced Features
+- [ ] Add advanced mode with user breakdown sliders
+- [ ] Create `src/components/demo/PlatformFeeSlider.tsx`
+- [ ] Add per-user pricing toggle
+- [ ] Create `src/components/demo/CostBreakdown.tsx` (expandable details)
+- [ ] Add optimal tier recommendation indicator
+- [ ] Add savings display
+
+### Phase 8.5.3: Polish & Actions
+- [ ] Create `src/components/demo/ROICalculator.tsx` (3 scenarios)
+- [ ] Create `src/components/demo/QuoteActions.tsx` (copy link, share, book call)
+- [ ] Implement URL param encoding/decoding for shareable quotes
+- [ ] Add animations (number transitions, tier selection)
+- [ ] Integrate with RewardsContext (points for generating quote)
+- [ ] Test responsive behavior (two-column → stacked)
+
+### Test Cases
+| Scenario | Expected |
+|----------|----------|
+| 100 users, no commitment | $48,000 credits |
+| 100 users, $100K commitment | $100,000 (floor) |
+| Advanced: 10 power + 50 normal + 40 casual | 48,000 credits/year |
+| Per-user with 20 users | $43,200 (30 min) |
+
+---
+
+## Phase 8.6: AI Demo Ideas (/demo-ideas)
 
 **PRD Reference:** `prd-demo-ideas.md`
 
