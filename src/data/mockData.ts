@@ -275,6 +275,101 @@ export const faqItems = [
   },
 ];
 
+// Organization Usage Data
+export const mockOrganizationUsage = {
+  corporateDomain: "acmecorp.com",
+  workspaces: {
+    free: 8,
+    paid: 4,
+    total: 12,
+  },
+  totalUsers: 89,
+  estimatedARR: 4800,
+  departments: [
+    {
+      name: "Engineering",
+      workspaceCount: 5,
+      userCount: 45,
+    },
+    {
+      name: "Product",
+      workspaceCount: 3,
+      userCount: 22,
+    },
+    {
+      name: "Marketing",
+      workspaceCount: 2,
+      userCount: 12,
+    },
+    {
+      name: "Operations",
+      workspaceCount: 2,
+      userCount: 10,
+    },
+  ],
+  topProjects: [
+    {
+      id: "proj-1",
+      name: "Internal Dashboard",
+      description: "Team metrics and OKR tracking dashboard for the engineering team",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Mike S.",
+      department: "Engineering",
+      remixable: true,
+      remixUrl: "https://lovable.dev/remix/proj-1",
+    },
+    {
+      id: "proj-2",
+      name: "Customer Portal",
+      description: "Self-service portal for enterprise customers",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Sarah L.",
+      department: "Product",
+      remixable: true,
+      remixUrl: "https://lovable.dev/remix/proj-2",
+    },
+    {
+      id: "proj-3",
+      name: "Campaign Builder",
+      description: "Marketing automation and campaign management tool",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Alex T.",
+      department: "Marketing",
+      remixable: true,
+      remixUrl: "https://lovable.dev/remix/proj-3",
+    },
+    {
+      id: "proj-4",
+      name: "Inventory Tracker",
+      description: "Real-time inventory management system",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Jamie R.",
+      department: "Operations",
+      remixable: false,
+    },
+    {
+      id: "proj-5",
+      name: "API Documentation",
+      description: "Interactive API docs for internal services",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Chris K.",
+      department: "Engineering",
+      remixable: true,
+      remixUrl: "https://lovable.dev/remix/proj-5",
+    },
+    {
+      id: "proj-6",
+      name: "Feedback Hub",
+      description: "Customer feedback collection and analysis tool",
+      thumbnailUrl: "/placeholder.svg",
+      createdBy: "Jordan M.",
+      department: "Product",
+      remixable: true,
+      remixUrl: "https://lovable.dev/remix/proj-6",
+    },
+  ],
+};
+
 // Swag Catalog Data
 export const swagCatalog = [
   {
