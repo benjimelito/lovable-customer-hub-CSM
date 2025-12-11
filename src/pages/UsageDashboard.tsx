@@ -71,121 +71,123 @@ const UsageDashboard: React.FC = () => {
   ];
 
   return (
-    <HubLayout sectionId="usage">
-      <div className="pt-24 md:pt-32 pb-16 md:pb-24 space-y-12">
-        {/* Page Header */}
-        <BlurFade delay={0.05}>
-          <div className="max-w-2xl">
-            <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
-              Usage Dashboard
-            </h1>
-            <p className="text-lg text-muted-foreground mt-4">
-              {profile.companyName} is already building with Lovable. Here's what's happening across your organization.
-            </p>
-          </div>
-        </BlurFade>
-
-        {/* Organization Usage Discovery */}
-        <OrganizationUsage
-          corporateDomain={mockOrganizationUsage.corporateDomain}
-          workspaces={mockOrganizationUsage.workspaces}
-          totalUsers={mockOrganizationUsage.totalUsers}
-          estimatedARR={mockOrganizationUsage.estimatedARR}
-          companyName={profile.companyName}
-        />
-
-        {/* Stats Grid */}
-        <div>
-          <BlurFade delay={0.1}>
-            <h2 className="text-2xl font-medium text-foreground mb-6">
-              Your Lovable Metrics at a Glance
-            </h2>
-          </BlurFade>
-          
-          {isLoading ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {[...Array(5)].map((_, i) => (
-                <Skeleton key={i} className="h-[200px] rounded-3xl" />
-              ))}
+    <HubLayout sectionId="usage" showBackground={false}>
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-background rounded-3xl">
+        <div className="mx-auto w-full px-4 md:px-8 lg:px-16 space-y-12">
+          {/* Page Header */}
+          <BlurFade delay={0.05}>
+            <div className="max-w-2xl">
+              <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
+                Usage Dashboard
+              </h1>
+              <p className="text-lg text-muted-foreground mt-4">
+                {profile.companyName} is already building with Lovable. Here's what's happening across your organization.
+              </p>
             </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {statCards.map((card, index) => (
-                <BlurFade key={card.label} delay={0.1 + index * 0.05}>
-                  <UsageStatCard {...card} />
-                </BlurFade>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Department Breakdown */}
-        <DepartmentBreakdown departments={mockOrganizationUsage.departments} />
-
-        {/* Trend Charts */}
-        <div>
-          <BlurFade delay={0.15}>
-            <h2 className="text-2xl font-medium text-foreground mb-6">
-              Growth Trends
-            </h2>
           </BlurFade>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <BlurFade delay={0.2}>
-              <TrendChart
-                data={usageTrends}
-                type="line"
-                dataKey="projects"
-                xAxisKey="month"
-                title="Projects Over Time"
-                color="hsl(var(--chart-1))"
-              />
+
+          {/* Organization Usage Discovery */}
+          <OrganizationUsage
+            corporateDomain={mockOrganizationUsage.corporateDomain}
+            workspaces={mockOrganizationUsage.workspaces}
+            totalUsers={mockOrganizationUsage.totalUsers}
+            estimatedARR={mockOrganizationUsage.estimatedARR}
+            companyName={profile.companyName}
+          />
+
+          {/* Stats Grid */}
+          <div>
+            <BlurFade delay={0.1}>
+              <h2 className="text-2xl font-medium text-foreground mb-6">
+                Your Lovable Metrics at a Glance
+              </h2>
             </BlurFade>
-            <BlurFade delay={0.25}>
-              <TrendChart
-                data={usageTrends}
-                type="bar"
-                dataKey="deployments"
-                xAxisKey="month"
-                title="Deployment Frequency"
-                color="hsl(var(--chart-2))"
-              />
-            </BlurFade>
-            <BlurFade delay={0.3}>
-              <TrendChart
-                data={usageTrends}
-                type="area"
-                dataKey="users"
-                xAxisKey="month"
-                title="User Adoption"
-                color="hsl(var(--chart-3))"
-              />
-            </BlurFade>
+            
+            {isLoading ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {[...Array(5)].map((_, i) => (
+                  <Skeleton key={i} className="h-[200px] rounded-3xl" />
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {statCards.map((card, index) => (
+                  <BlurFade key={card.label} delay={0.1 + index * 0.05}>
+                    <UsageStatCard {...card} />
+                  </BlurFade>
+                ))}
+              </div>
+            )}
           </div>
+
+          {/* Department Breakdown */}
+          <DepartmentBreakdown departments={mockOrganizationUsage.departments} />
+
+          {/* Trend Charts */}
+          <div>
+            <BlurFade delay={0.15}>
+              <h2 className="text-2xl font-medium text-foreground mb-6">
+                Growth Trends
+              </h2>
+            </BlurFade>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <BlurFade delay={0.2}>
+                <TrendChart
+                  data={usageTrends}
+                  type="line"
+                  dataKey="projects"
+                  xAxisKey="month"
+                  title="Projects Over Time"
+                  color="hsl(var(--chart-1))"
+                />
+              </BlurFade>
+              <BlurFade delay={0.25}>
+                <TrendChart
+                  data={usageTrends}
+                  type="bar"
+                  dataKey="deployments"
+                  xAxisKey="month"
+                  title="Deployment Frequency"
+                  color="hsl(var(--chart-2))"
+                />
+              </BlurFade>
+              <BlurFade delay={0.3}>
+                <TrendChart
+                  data={usageTrends}
+                  type="area"
+                  dataKey="users"
+                  xAxisKey="month"
+                  title="User Adoption"
+                  color="hsl(var(--chart-3))"
+                />
+              </BlurFade>
+            </div>
+          </div>
+
+          {/* Top Projects */}
+          <TopProjectsGrid projects={mockOrganizationUsage.topProjects} />
+
+          {/* CTA Section */}
+          <BlurFade delay={0.35}>
+            <div className="p-8 bg-primary text-primary-foreground rounded-3xl text-center">
+              <h3 className="text-2xl font-medium mb-3">
+                Unify Your Lovable Usage
+              </h3>
+              <p className="text-primary-foreground/80 mb-6 max-w-lg mx-auto">
+                Consolidate {mockOrganizationUsage.workspaces.total} workspaces under enterprise governance. 
+                Get visibility, security compliance, and strategic control.
+              </p>
+              <a 
+                href="/process" 
+                className="inline-flex items-center justify-center px-6 py-3 bg-primary-foreground text-primary rounded-full font-medium hover:opacity-90 transition-opacity"
+              >
+                See How It Works
+              </a>
+            </div>
+          </BlurFade>
         </div>
-
-        {/* Top Projects */}
-        <TopProjectsGrid projects={mockOrganizationUsage.topProjects} />
-
-        {/* CTA Section */}
-        <BlurFade delay={0.35}>
-          <div className="p-8 bg-primary text-primary-foreground rounded-3xl text-center">
-            <h3 className="text-2xl font-medium mb-3">
-              Unify Your Lovable Usage
-            </h3>
-            <p className="text-primary-foreground/80 mb-6 max-w-lg mx-auto">
-              Consolidate {mockOrganizationUsage.workspaces.total} workspaces under enterprise governance. 
-              Get visibility, security compliance, and strategic control.
-            </p>
-            <a 
-              href="/process" 
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary-foreground text-primary rounded-full font-medium hover:opacity-90 transition-opacity"
-            >
-              See How It Works
-            </a>
-          </div>
-        </BlurFade>
-      </div>
+      </section>
     </HubLayout>
   );
 };
