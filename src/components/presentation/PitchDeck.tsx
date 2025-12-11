@@ -1,22 +1,48 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, Zap, Users, Shield, Rocket, Brain, Target, Clock, Check, Sparkles, Bot, Wrench, LineChart, Building2, ArrowRight, Coins, Database, Key, FileText, HardDrive, AlertCircle, Lightbulb, GitBranch } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { TypewriterText, ParticleEffect, AnimatedGradientBackground, SlotMachineCounter, TiltCard } from './effects';
-import { useCustomer } from '@/contexts/CustomerContext';
-import lovableIcon from '@/assets/lovable-icon.png';
-import lovableLogoFull from '@/assets/lovable-logo-full.png';
-import acmeLogo from '@/assets/acme-logo.png';
-import lovableLight from '@/assets/lovable-light.png';
+import React, { useState, useEffect, useCallback } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Zap,
+  Users,
+  Shield,
+  Rocket,
+  Brain,
+  Target,
+  Clock,
+  Check,
+  Sparkles,
+  Bot,
+  Wrench,
+  LineChart,
+  Building2,
+  ArrowRight,
+  Coins,
+  Database,
+  Key,
+  FileText,
+  HardDrive,
+  AlertCircle,
+  Lightbulb,
+  GitBranch,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { TypewriterText, ParticleEffect, AnimatedGradientBackground, SlotMachineCounter, TiltCard } from "./effects";
+import { useCustomer } from "@/contexts/CustomerContext";
+import lovableIcon from "@/assets/lovable-icon.png";
+import lovableLogoFull from "@/assets/lovable-logo-full.png";
+import acmeLogo from "@/assets/acme-logo.png";
+import lovableLight from "@/assets/lovable-light.png";
 
 // Slide Layout Component
-const SlideLayout = ({ 
-  children, 
-  currentSlide, 
-  totalSlides 
-}: { 
-  children: React.ReactNode; 
-  currentSlide: number; 
+const SlideLayout = ({
+  children,
+  currentSlide,
+  totalSlides,
+}: {
+  children: React.ReactNode;
+  currentSlide: number;
   totalSlides: number;
 }) => {
   return (
@@ -28,20 +54,18 @@ const SlideLayout = ({
       transition={{ duration: 0.4 }}
     >
       <AnimatedGradientBackground />
-      
+
       {/* Dot pattern overlay */}
-      <div 
+      <div
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--muted-foreground) / 0.15) 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
+          backgroundImage: "radial-gradient(circle, hsl(var(--muted-foreground) / 0.15) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
         }}
       />
-      
+
       {/* Main content */}
-      <div className="flex-1 flex items-center justify-center relative z-10 p-8 md:p-12 pb-20">
-        {children}
-      </div>
+      <div className="flex-1 flex items-center justify-center relative z-10 p-8 md:p-12 pb-20">{children}</div>
 
       {/* Progress bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-border/30">
@@ -75,7 +99,7 @@ const Slide1Title = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
       <ParticleEffect count={40} />
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -83,8 +107,8 @@ const Slide1Title = () => {
         className="mb-8"
       >
         <div className="flex items-center justify-center gap-6">
-          <motion.img 
-            src={acmeLogo} 
+          <motion.img
+            src={acmeLogo}
             alt={profile.companyName}
             className="h-16 md:h-20 w-auto object-contain"
             initial={{ opacity: 0, x: -20 }}
@@ -92,8 +116,8 @@ const Slide1Title = () => {
             transition={{ delay: 0.5 }}
           />
           <span className="text-3xl md:text-4xl text-muted-foreground font-light">×</span>
-          <motion.img 
-            src={lovableLight} 
+          <motion.img
+            src={lovableLight}
             alt="Lovable"
             className="h-12 md:h-16 w-auto object-contain"
             initial={{ opacity: 0, x: 20 }}
@@ -103,7 +127,7 @@ const Slide1Title = () => {
         </div>
       </motion.div>
 
-      <motion.h1 
+      <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -158,7 +182,7 @@ const Slide2Constraints = () => {
             key={index}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 4 + constraint.delay, duration: 0.5, type: 'spring' }}
+            transition={{ delay: 4 + constraint.delay, duration: 0.5, type: "spring" }}
             className="bg-[#F7F4ED] dark:bg-card rounded-2xl p-5 border border-[#D8D6CF] dark:border-border flex items-center gap-4 text-left"
           >
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -178,7 +202,7 @@ const Slide3BigIdea = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, type: 'spring' }}
+        transition={{ duration: 0.5, type: "spring" }}
         className="mb-6"
       >
         <span className="inline-block px-6 py-2 rounded-full bg-primary/15 text-primary font-semibold text-sm uppercase tracking-wider">
@@ -186,7 +210,7 @@ const Slide3BigIdea = () => {
         </span>
       </motion.div>
 
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -196,7 +220,7 @@ const Slide3BigIdea = () => {
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}
+          transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
           className="text-primary inline-block"
         >
           <SlotMachineCounter value={99} delay={1} suffix="%" />
@@ -209,8 +233,8 @@ const Slide3BigIdea = () => {
         transition={{ delay: 2.5, duration: 0.6 }}
         className="text-xl text-muted-foreground max-w-4xl leading-relaxed"
       >
-        Imagine if your <strong className="text-foreground">subject-matter experts</strong>, analysts, 
-        ops teams, and domain experts could build anything — an app, a workflow, an agent — 
+        Imagine if your <strong className="text-foreground">subject-matter experts</strong>, analysts, ops teams, and
+        domain experts could build anything — an app, a workflow, an agent —
         <span className="text-primary font-semibold"> with the same ease they build a spreadsheet.</span>
       </motion.p>
 
@@ -234,9 +258,24 @@ const Slide3BigIdea = () => {
 
 const Slide4Pillars = () => {
   const pillars = [
-    { icon: Bot, title: 'AI Transformation', desc: 'AI agents doing real work, automated workflows', color: 'bg-blue-100 border-blue-200 dark:bg-blue-900/30 dark:border-blue-700' },
-    { icon: Wrench, title: 'Internal Tools', desc: 'Business teams build their own tools with IT control', color: 'bg-purple-100 border-purple-200 dark:bg-purple-900/30 dark:border-purple-700' },
-    { icon: Rocket, title: 'Rapid Prototyping', desc: 'Validate ideas quickly, iterate in real time', color: 'bg-amber-100 border-amber-200 dark:bg-amber-900/30 dark:border-amber-700' },
+    {
+      icon: Bot,
+      title: "AI Transformation",
+      desc: "AI agents doing real work, automated workflows",
+      color: "bg-blue-100 border-blue-200 dark:bg-blue-900/30 dark:border-blue-700",
+    },
+    {
+      icon: Wrench,
+      title: "Internal Tools",
+      desc: "Business teams build their own tools with IT control",
+      color: "bg-purple-100 border-purple-200 dark:bg-purple-900/30 dark:border-purple-700",
+    },
+    {
+      icon: Rocket,
+      title: "Rapid Prototyping",
+      desc: "Validate ideas quickly, iterate in real time",
+      color: "bg-amber-100 border-amber-200 dark:bg-amber-900/30 dark:border-amber-700",
+    },
   ];
 
   return (
@@ -255,7 +294,7 @@ const Slide4Pillars = () => {
             key={pillar.title}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + index * 0.2, type: 'spring' }}
+            transition={{ delay: 0.3 + index * 0.2, type: "spring" }}
             className="bg-[#F7F4ED] dark:bg-card rounded-3xl p-6 border border-[#D8D6CF] dark:border-border text-center"
           >
             <div className={`w-14 h-14 rounded-2xl ${pillar.color} flex items-center justify-center mx-auto mb-4`}>
@@ -272,12 +311,12 @@ const Slide4Pillars = () => {
 
 const Slide5CreditsCloud = () => {
   const cloudFeatures = [
-    { icon: Database, title: 'Database' },
-    { icon: Users, title: 'Users & Auth' },
-    { icon: HardDrive, title: 'Storage' },
-    { icon: Zap, title: 'Edge Functions' },
-    { icon: Brain, title: 'AI' },
-    { icon: Key, title: 'Secrets' },
+    { icon: Database, title: "Database" },
+    { icon: Users, title: "Users & Auth" },
+    { icon: HardDrive, title: "Storage" },
+    { icon: Zap, title: "Edge Functions" },
+    { icon: Brain, title: "AI" },
+    { icon: Key, title: "Secrets" },
   ];
 
   return (
@@ -304,11 +343,11 @@ const Slide5CreditsCloud = () => {
             <h3 className="text-xl font-semibold text-foreground">Lovable Credits</h3>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-            Credits power your AI-assisted development. Each prompt consumes credits, 
-            enabling your team to build at unprecedented speed.
+            Credits power your AI-assisted development. Each prompt consumes credits, enabling your team to build at
+            unprecedented speed.
           </p>
           <ul className="space-y-2 text-sm">
-            {['Pooled across organization', 'Flexible commitment tiers', 'Top-up available anytime'].map((item, i) => (
+            {["Pooled across organization", "Flexible commitment tiers", "Top-up available anytime"].map((item, i) => (
               <motion.li
                 key={item}
                 initial={{ opacity: 0, x: -20 }}
@@ -336,10 +375,10 @@ const Slide5CreditsCloud = () => {
             <h3 className="text-xl font-semibold text-foreground">Lovable Cloud</h3>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-            Full-stack cloud platform from prototype to millions of users. 
-            Secure by default with enterprise-grade architecture.
+            Full-stack cloud platform from prototype to millions of users. Secure by default with enterprise-grade
+            architecture.
           </p>
-          
+
           <div className="grid grid-cols-3 gap-2">
             {cloudFeatures.map((feature, index) => (
               <motion.div
@@ -362,12 +401,12 @@ const Slide5CreditsCloud = () => {
 
 const Slide6WhyDifferent = () => {
   const capabilities = [
-    { icon: Wrench, label: 'App Building' },
-    { icon: Zap, label: 'Automation' },
-    { icon: Database, label: 'Data' },
-    { icon: Bot, label: 'AI Agents' },
-    { icon: Shield, label: 'Governance' },
-    { icon: GitBranch, label: 'Version Control' },
+    { icon: Wrench, label: "App Building" },
+    { icon: Zap, label: "Automation" },
+    { icon: Database, label: "Data" },
+    { icon: Bot, label: "AI Agents" },
+    { icon: Shield, label: "Governance" },
+    { icon: GitBranch, label: "Version Control" },
   ];
 
   return (
@@ -397,9 +436,9 @@ const Slide6WhyDifferent = () => {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 1, type: 'spring' }}
+          transition={{ delay: 1, type: "spring" }}
           className="absolute w-12 h-12 rounded-full bg-background flex items-center justify-center z-10 shadow-lg border border-border/30"
-          style={{ top: '45%', left: '40%', transform: 'translate(-50%, -50%)' }}
+          style={{ top: "50%", left: "45%", transform: "translate(-50%, -50%)" }}
         >
           <img src={lovableIcon} alt="Lovable" className="w-8 h-8 object-contain" />
         </motion.div>
@@ -415,7 +454,7 @@ const Slide6WhyDifferent = () => {
               key={cap.label}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1, x, y }}
-              transition={{ delay: 1.2 + index * 0.1, type: 'spring' }}
+              transition={{ delay: 1.2 + index * 0.1, type: "spring" }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
             >
               <div className="w-12 h-12 rounded-xl bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border shadow-md flex items-center justify-center">
@@ -427,11 +466,7 @@ const Slide6WhyDifferent = () => {
         })}
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.5 }}
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.5 }}>
         <TiltCard className="bg-[#F7F4ED] dark:bg-card rounded-2xl p-5 border border-[#D8D6CF] dark:border-border text-center max-w-xl">
           <p className="text-foreground font-medium">Go from idea → demo → internal tool → production</p>
           <p className="text-sm text-muted-foreground mt-1">in a single environment.</p>
@@ -443,9 +478,9 @@ const Slide6WhyDifferent = () => {
 
 const Slide7Speed = () => {
   const comparisons = [
-    { before: 'Quarters', after: 'Days', label: 'System development' },
-    { before: 'Sprints', after: 'Minutes', label: 'Minor changes' },
-    { before: 'Weeks', after: 'Hours', label: 'Prototypes' },
+    { before: "Quarters", after: "Days", label: "System development" },
+    { before: "Sprints", after: "Minutes", label: "Minor changes" },
+    { before: "Weeks", after: "Hours", label: "Prototypes" },
   ];
 
   return (
@@ -487,10 +522,10 @@ const Slide7Speed = () => {
 
 const Slide8Enterprise = () => {
   const features = [
-    { icon: Shield, title: 'SSO & SAML', desc: 'Enterprise identity management' },
-    { icon: GitBranch, title: 'Version Control', desc: 'Full Git integration' },
-    { icon: Users, title: 'Role-Based Access', desc: 'Granular permissions' },
-    { icon: FileText, title: 'Audit Logs', desc: 'Complete activity tracking' },
+    { icon: Shield, title: "SSO & SAML", desc: "Enterprise identity management" },
+    { icon: GitBranch, title: "Version Control", desc: "Full Git integration" },
+    { icon: Users, title: "Role-Based Access", desc: "Granular permissions" },
+    { icon: FileText, title: "Audit Logs", desc: "Complete activity tracking" },
   ];
 
   return (
@@ -529,9 +564,9 @@ const Slide8Enterprise = () => {
 const Slide9NextSteps = () => {
   const { profile } = useCustomer();
   const steps = [
-    { icon: Target, title: 'Pilot Program', desc: 'Start with 20-50 seats' },
-    { icon: Lightbulb, title: 'Use Case Workshop', desc: 'Identify high-impact opportunities' },
-    { icon: Rocket, title: 'Launch & Scale', desc: 'Expand across organization' },
+    { icon: Target, title: "Pilot Program", desc: "Start with 20-50 seats" },
+    { icon: Lightbulb, title: "Use Case Workshop", desc: "Identify high-impact opportunities" },
+    { icon: Rocket, title: "Launch & Scale", desc: "Expand across organization" },
   ];
 
   return (
@@ -580,11 +615,11 @@ const Slide10Closing = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
       <ParticleEffect count={30} />
-      
+
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
         className="mb-8"
       >
         <img src={lovableIcon} alt="Lovable" className="w-24 h-24" />
@@ -649,12 +684,15 @@ export const PitchDeck = ({ isOpen, onClose }: PitchDeckProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const goToSlide = useCallback((index: number) => {
-    if (index >= 0 && index < slides.length) {
-      setDirection(index > currentSlide ? 1 : -1);
-      setCurrentSlide(index);
-    }
-  }, [currentSlide]);
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (index >= 0 && index < slides.length) {
+        setDirection(index > currentSlide ? 1 : -1);
+        setCurrentSlide(index);
+      }
+    },
+    [currentSlide],
+  );
 
   const nextSlide = useCallback(() => goToSlide(currentSlide + 1), [currentSlide, goToSlide]);
   const prevSlide = useCallback(() => goToSlide(currentSlide - 1), [currentSlide, goToSlide]);
@@ -666,20 +704,20 @@ export const PitchDeck = ({ isOpen, onClose }: PitchDeckProps) => {
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
         e.preventDefault();
         nextSlide();
-      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+      } else if (e.key === "ArrowLeft" || e.key === "Backspace") {
         e.preventDefault();
         prevSlide();
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         e.preventDefault();
         onClose();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, nextSlide, prevSlide, onClose]);
 
   const slideVariants = {
@@ -700,12 +738,7 @@ export const PitchDeck = ({ isOpen, onClose }: PitchDeckProps) => {
       className="fixed inset-0 z-[100] bg-background"
     >
       {/* Close button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={onClose}
-        className="absolute top-4 right-4 z-50"
-      >
+      <Button variant="ghost" size="icon" onClick={onClose} className="absolute top-4 right-4 z-50">
         <X className="w-6 h-6" />
       </Button>
 
@@ -718,7 +751,7 @@ export const PitchDeck = ({ isOpen, onClose }: PitchDeckProps) => {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
+            x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
           className="absolute inset-0"
@@ -747,9 +780,7 @@ export const PitchDeck = ({ isOpen, onClose }: PitchDeckProps) => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'bg-primary w-6' 
-                  : 'bg-border hover:bg-primary/50'
+                index === currentSlide ? "bg-primary w-6" : "bg-border hover:bg-primary/50"
               }`}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
