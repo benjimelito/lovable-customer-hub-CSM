@@ -36,10 +36,33 @@ interface Task {
 
 | Category | Label | Tasks |
 |----------|-------|-------|
-| setup | Getting Started | Design system setup, Account configuration |
+| setup | Getting Started | Design system upload, Account configuration |
 | integration | Integrations | Data integrations, API connections |
 | team | Team Setup | Enterprise account, Team invitations |
 | content | Content | Review documentation, Watch demo |
+| preparation | Call Preparation | Pre-call checklist, Demo ideas |
+
+### 3. High-Value Action Items (Specific)
+
+**NEW:** Critical pre-call actions for enterprise prospects:
+
+| Task | Category | Priority | Points | Description |
+|------|----------|----------|--------|-------------|
+| Upload Design System | setup | required | 50 | Import your Figma/design tokens into Lovable |
+| Connect Data Sources | integration | required | 40 | Set up integrations with your existing databases |
+| Configure SSO | team | required | 30 | Set up Single Sign-On for your organization |
+| Invite Technical Lead | team | recommended | 20 | Add your tech lead for the call |
+| Submit Demo Ideas | preparation | recommended | 25 | Share 1-3 use cases for the AI demo |
+| Review Security Docs | content | required | 15 | Review enterprise security & compliance info |
+
+```typescript
+interface HighValueTask extends Task {
+  requiresUpload?: boolean;
+  uploadType?: 'design-system' | 'data-schema' | 'api-spec';
+  externalUrl?: string; // Link to external tool (e.g., Figma)
+  estimatedTime?: string; // "5 min", "15 min"
+}
+```
 
 ### 3. Task List Component
 
@@ -114,53 +137,88 @@ src/pages/ActionItems.tsx
 ```typescript
 // src/data/tasks.ts
 export const mockTasks: Task[] = [
+  // HIGH-VALUE ENTERPRISE TASKS
   {
     id: '1',
     category: 'setup',
-    title: 'Review the Design System',
-    description: 'Explore Lovable\'s design tokens and component library',
-    points: 10,
+    title: 'Upload Your Design System',
+    description: 'Import your Figma tokens or design system into your Enterprise Lovable account',
+    points: 50,
     completed: false,
     priority: 'required',
-    link: '/design-system'
+    link: '/settings/design-system',
+    requiresUpload: true,
+    uploadType: 'design-system',
+    externalUrl: 'https://figma.com',
+    estimatedTime: '15 min'
   },
   {
     id: '2',
     category: 'integration',
-    title: 'Connect Data Sources',
-    description: 'Set up integrations with your existing data systems',
-    points: 20,
+    title: 'Connect Your Data Sources',
+    description: 'Set up integrations with your existing databases and APIs for the demo',
+    points: 40,
     completed: false,
-    priority: 'recommended',
-    link: '/integrations'
+    priority: 'required',
+    link: '/settings/integrations',
+    requiresUpload: true,
+    uploadType: 'data-schema',
+    estimatedTime: '20 min'
   },
   {
     id: '3',
     category: 'team',
-    title: 'Set Up Enterprise Account',
-    description: 'Configure your enterprise workspace settings',
-    points: 15,
+    title: 'Configure Enterprise SSO',
+    description: 'Set up Single Sign-On for secure team access',
+    points: 30,
     completed: false,
-    priority: 'required'
+    priority: 'required',
+    link: '/settings/sso',
+    estimatedTime: '10 min'
   },
   {
     id: '4',
     category: 'team',
-    title: 'Invite Team Members',
-    description: 'Add colleagues who will be joining the call',
-    points: 10,
+    title: 'Invite Your Technical Lead',
+    description: 'Add your tech lead or architect to participate in the demo call',
+    points: 20,
     completed: false,
-    priority: 'recommended'
+    priority: 'recommended',
+    link: '/settings/team',
+    estimatedTime: '2 min'
   },
   {
     id: '5',
+    category: 'preparation',
+    title: 'Submit Demo Ideas',
+    description: 'Share 1-3 use cases you\'d like us to demo with AI',
+    points: 25,
+    completed: false,
+    priority: 'recommended',
+    link: '/demo-ideas',
+    estimatedTime: '10 min'
+  },
+  {
+    id: '6',
     category: 'content',
-    title: 'Watch Product Demo',
-    description: 'See Lovable in action with a guided demo',
+    title: 'Review Security & Compliance',
+    description: 'Review our enterprise security documentation and compliance certifications',
     points: 15,
     completed: false,
     priority: 'required',
-    link: '/demo'
+    link: '/security',
+    estimatedTime: '5 min'
+  },
+  {
+    id: '7',
+    category: 'content',
+    title: 'Watch Product Demo Video',
+    description: 'See Lovable in action with a personalized demo',
+    points: 15,
+    completed: false,
+    priority: 'required',
+    link: '/demo',
+    estimatedTime: '3 min'
   },
   // ... more tasks
 ];

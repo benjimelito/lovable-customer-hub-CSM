@@ -102,6 +102,45 @@ After submission:
 - Track redeemed items in RewardsContext
 - Prevent duplicate redemptions (if limited)
 
+### 7. Proactive Reward Notifications
+
+**NEW FEATURE:** Toast notifications for reward unlocks
+
+```typescript
+interface RewardNotification {
+  id: string;
+  type: 'unlock' | 'milestone' | 'bonus';
+  title: string;
+  message: string;
+  rewardType?: 'swag' | 'points' | 'achievement';
+  actionUrl?: string;
+  actionLabel?: string;
+}
+```
+
+Trigger points:
+- **First Login:** "🎉 Welcome! You've unlocked a free Lovable gift. Claim it now!"
+- **Section Complete:** "You've earned 50 points! You can now redeem the Sticker Pack."
+- **All Tasks Done:** "Overachiever! You've unlocked the Limited Edition Hoodie."
+- **Milestone:** "100 points reached! New swag items are now available."
+
+Notification component:
+```tsx
+<RewardToast
+  icon={<Gift className="h-5 w-5" />}
+  title="You've unlocked a reward!"
+  message="Congratulations on your first login. Claim your free Lovable sticker pack."
+  actionLabel="Claim Now"
+  actionUrl="/swag"
+/>
+```
+
+Display behavior:
+- Auto-show on trigger event
+- Persist until dismissed or claimed
+- Stack multiple notifications
+- Store claimed/dismissed state in localStorage
+
 ## Component Structure
 
 ```

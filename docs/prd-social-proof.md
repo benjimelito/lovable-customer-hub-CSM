@@ -60,12 +60,14 @@ Prominent section highlighting similarities:
 
 Visual: Side-by-side comparison layout
 
-### 4. AI-Matched Badge
+### 4. AI-Matched Badge & FOMO Messaging
+
+**ENHANCED:** Make it obvious this was AI-generated to create FOMO
 
 ```tsx
 <Badge variant="ai-matched">
   <Sparkles className="h-3 w-3" />
-  AI-matched for you
+  AI-matched for {companyName}
 </Badge>
 ```
 
@@ -73,6 +75,22 @@ Styling:
 - Gradient background
 - Sparkle icon
 - Subtle glow effect
+- Pulsing animation
+
+FOMO messaging elements:
+- "Curated specifically for {companyName}'s AI strategy"
+- "These companies share your challenges"
+- "{X} similar companies chose Lovable this quarter"
+- "Based on your profile, you're most similar to [top match]"
+- Dynamic match percentage: "94% similar to TechFlow Inc"
+
+Transparency callout:
+```tsx
+<div className="ai-generated-callout">
+  <Brain className="h-4 w-4" />
+  <span>This social proof was AI-matched based on your company profile, industry, and tech stack</span>
+</div>
+```
 
 ### 5. Case Study Previews
 

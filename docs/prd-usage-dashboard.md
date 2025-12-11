@@ -54,7 +54,65 @@ Each stat displayed in a card with:
 
 Layout: 5 cards in responsive grid
 
-### 4. Trend Charts Section
+### 4. Internal Usage Discovery Section
+
+**NEW FEATURE:** Show Lovable usage across the prospect's organization
+
+```typescript
+interface OrganizationUsage {
+  corporateDomain: string;
+  workspaces: {
+    free: number;
+    paid: number;
+    total: number;
+  };
+  totalUsers: number;
+  estimatedARR: number;
+  departments: DepartmentUsage[];
+}
+
+interface DepartmentUsage {
+  name: string; // "Engineering", "Product", "Marketing", etc.
+  workspaceCount: number;
+  userCount: number;
+  topProjects: ProjectPreview[];
+}
+
+interface ProjectPreview {
+  id: string;
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  createdBy: string;
+  department: string;
+  remixable: boolean;
+  remixUrl?: string;
+}
+```
+
+Display:
+- Summary card: "X workspaces | Y users | $Z ARR" from your organization
+- Free vs paid workspace breakdown
+- Department breakdown with user counts
+- "Lovable usage across {companyName} happens in silos, without support" messaging
+
+### 5. Top Projects by Department
+
+Grid of top projects being created across the organization:
+
+Features:
+- Project thumbnail/preview
+- Project name and creator
+- Department badge
+- "Remix this project" button
+- Category tags
+
+Interaction:
+- Click to preview project details
+- Remix button opens Lovable with project template
+- Filter by department
+
+### 6. Trend Charts Section
 
 Using Recharts (already installed):
 
@@ -105,6 +163,56 @@ export const mockMetrics = {
     deployments: [/* weekly data */],
     users: [/* daily data */],
   }
+};
+
+// src/data/organizationUsage.ts
+export const mockOrganizationUsage = {
+  corporateDomain: 'acmecorp.com',
+  workspaces: {
+    free: 8,
+    paid: 4,
+    total: 12
+  },
+  totalUsers: 89,
+  estimatedARR: 4800,
+  departments: [
+    {
+      name: 'Engineering',
+      workspaceCount: 5,
+      userCount: 45,
+      topProjects: [
+        {
+          id: 'proj-1',
+          name: 'Internal Dashboard',
+          description: 'Team metrics and OKR tracking',
+          thumbnailUrl: '/projects/dashboard.png',
+          createdBy: 'Mike S.',
+          department: 'Engineering',
+          remixable: true,
+          remixUrl: 'https://lovable.dev/remix/proj-1'
+        },
+        // ... more projects
+      ]
+    },
+    {
+      name: 'Product',
+      workspaceCount: 3,
+      userCount: 22,
+      topProjects: [/* ... */]
+    },
+    {
+      name: 'Marketing',
+      workspaceCount: 2,
+      userCount: 12,
+      topProjects: [/* ... */]
+    },
+    {
+      name: 'Operations',
+      workspaceCount: 2,
+      userCount: 10,
+      topProjects: [/* ... */]
+    }
+  ]
 };
 ```
 
