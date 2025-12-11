@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { CustomerProvider, RewardsProvider, ProgressProvider } from "./contexts";
 import CustomerHubHome from "./pages/CustomerHubHome";
 import UsageDashboard from "./pages/UsageDashboard";
+import SalesProcess from "./pages/SalesProcess";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
@@ -38,7 +39,7 @@ const App = () => (
                 <Route path="/" element={<CustomerHubHome />} />
                 <Route path="/demo" element={<PlaceholderPage title="Watch Demo" />} />
                 <Route path="/usage" element={<UsageDashboard />} />
-                <Route path="/process" element={<PlaceholderPage title="Sales Process" />} />
+                <Route path="/process" element={<SalesProcess />} />
                 <Route path="/research" element={<PlaceholderPage title="AI Research" />} />
                 <Route path="/social" element={<PlaceholderPage title="Social Proof" />} />
                 <Route path="/actions" element={<PlaceholderPage title="Action Items" />} />
