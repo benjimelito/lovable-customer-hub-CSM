@@ -6,10 +6,12 @@ import AchievementCard from "@/components/hub/AchievementCard";
 import QuoteCard from "@/components/hub/QuoteCard";
 import SuccessStoryCard from "@/components/hub/SuccessStoryCard";
 import FeedbackModal from "@/components/hub/FeedbackModal";
+import LeaderboardCard from "@/components/hub/LeaderboardCard";
 import {
   mockAchievements,
   mockCustomerQuotes,
   mockInternalSuccessStories,
+  mockLeaderboard,
 } from "@/data/mockData";
 
 const OutcomesSuccess = () => {
@@ -62,21 +64,29 @@ const OutcomesSuccess = () => {
             </div>
           </BlurFade>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mockAchievements.map((achievement, index) => (
-              <BlurFade key={achievement.id} delay={0.25 + index * 0.05}>
-                <AchievementCard
-                  title={achievement.title}
-                  description={achievement.description}
-                  user={achievement.user}
-                  userPhotoUrl={achievement.userPhotoUrl}
-                  team={achievement.team}
-                  date={achievement.date}
-                  badge={achievement.badge}
-                  color={achievement.color}
-                />
-              </BlurFade>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Leaderboard */}
+            <BlurFade delay={0.25}>
+              <LeaderboardCard entries={mockLeaderboard} />
+            </BlurFade>
+
+            {/* Achievement Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {mockAchievements.slice(0, 4).map((achievement, index) => (
+                <BlurFade key={achievement.id} delay={0.3 + index * 0.05}>
+                  <AchievementCard
+                    title={achievement.title}
+                    description={achievement.description}
+                    user={achievement.user}
+                    userPhotoUrl={achievement.userPhotoUrl}
+                    team={achievement.team}
+                    date={achievement.date}
+                    badge={achievement.badge}
+                    color={achievement.color}
+                  />
+                </BlurFade>
+              ))}
+            </div>
           </div>
         </section>
 
