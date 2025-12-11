@@ -2,6 +2,12 @@ import React from "react";
 import { ExternalLink, Lock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface ProjectPreviewCardProps {
   id: string;
@@ -60,15 +66,24 @@ const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
             <ExternalLink className="w-3 h-3" />
           </Button>
         ) : (
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full mt-2 gap-2 opacity-50 cursor-not-allowed"
-            disabled
-          >
-            <Lock className="w-3 h-3" />
-            Private Project
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full mt-2 gap-2 opacity-50 cursor-not-allowed"
+                  disabled
+                >
+                  <Lock className="w-3 h-3" />
+                  Private Project
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>This project is private and cannot be remixed</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         )}
       </div>
     </div>
