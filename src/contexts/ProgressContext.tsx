@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useCallback } from "react";
 
 interface FeatureProgress {
   id: string;
@@ -52,7 +52,7 @@ export const ProgressProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [features, setFeatures] = useState<FeatureProgress[]>(defaultFeatures);
   const [sections, setSections] = useState<HubSection[]>(defaultSections);
 
-  const completeFeature = (featureId: string) => {
+  const completeFeature = useCallback((featureId: string) => {
     setFeatures((prev) =>
       prev.map((f) =>
         f.id === featureId && !f.completed
@@ -60,17 +60,20 @@ export const ProgressProvider: React.FC<{ children: ReactNode }> = ({ children }
           : f
       )
     );
-  };
+  }, []);
 
-  const visitSection = (sectionId: string) => {
-    setSections((prev) =>
-      prev.map((s) =>
-        s.id === sectionId && !s.visited
-          ? { ...s, visited: true, visitedAt: new Date() }
-          : s
-      )
-    );
-  };
+  const visitSection = useCallback((sectionId: string) => {
+    setSections((prev) => {
+      const section = prev.find(s => s.id === sectionId);
+      // Only update if section exists and hasn't been visited
+      if (section && !section.visited) {
+        return prev.map((s) =>
+          s.id === sectionId ? { ...s, visited: true, visitedAt: new Date() } : s
+        );
+      }
+      return prev;
+    });
+  }, []);
 
   const getCompletionPercentage = () => {
     const completed = features.filter((f) => f.completed).length;
