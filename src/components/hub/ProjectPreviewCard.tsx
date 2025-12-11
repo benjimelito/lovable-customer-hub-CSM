@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Lock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -48,8 +48,8 @@ const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
         <p className="text-xs text-muted-foreground line-clamp-2">{description}</p>
         <p className="text-xs text-muted-foreground">by {createdBy}</p>
 
-        {/* Remix Button */}
-        {remixable && remixUrl && (
+        {/* Remix Button or Private Label */}
+        {remixable && remixUrl ? (
           <Button
             variant="outline"
             size="sm"
@@ -58,6 +58,16 @@ const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({
           >
             Remix this project
             <ExternalLink className="w-3 h-3" />
+          </Button>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full mt-2 gap-2 opacity-50 cursor-not-allowed"
+            disabled
+          >
+            <Lock className="w-3 h-3" />
+            Private Project
           </Button>
         )}
       </div>
