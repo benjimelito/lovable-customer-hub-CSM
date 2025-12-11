@@ -38,10 +38,10 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
   return (
     <div
       className={cn(
-        "relative bg-[#F7F4ED] dark:bg-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col",
+        "relative bg-white dark:bg-card rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col",
         suggestion.selected
           ? "ring-2 ring-primary shadow-lg"
-          : "border border-[#ECEAE4] dark:border-border hover:shadow-md"
+          : "border border-[#E5E5E5] dark:border-border hover:shadow-md"
       )}
     >
       {/* Top Row: Icon + Checkbox */}
@@ -109,7 +109,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
       <div className="mt-auto">
         <button
           onClick={() => onCustomize(suggestion)}
-          className="w-full py-2.5 text-center text-sm text-primary hover:bg-primary/5 font-medium transition-all rounded-xl border border-primary/20"
+          className="w-full py-2.5 text-center text-sm bg-foreground text-background hover:bg-foreground/90 font-medium transition-all rounded-xl"
         >
           Customize this idea →
         </button>
