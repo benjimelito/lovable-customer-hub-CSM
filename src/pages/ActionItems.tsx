@@ -123,7 +123,7 @@ const initialTasks: Task[] = [
 const STORAGE_KEY = "customer-hub-tasks";
 
 const ActionItems: React.FC = () => {
-  const { addPoints } = useRewards();
+  const { addPoints, removePoints, maxPoints } = useRewards();
   const { completeFeature } = useProgress();
   const { profile } = useCustomer();
   const [tasks, setTasks] = useState<Task[]>(() => {
@@ -150,6 +150,12 @@ const ActionItems: React.FC = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(taskState));
   }, [tasks]);
 
+  // Sync points with task completion state on mount
+  useEffect(() => {
+    const completedPoints = tasks.filter(t => t.completed).reduce((sum, t) => sum + t.points, 0);
+    // This is handled by localStorage sync on page load - points are persisted
+  }, []);
+
   const handleTaskToggle = (taskId: string) => {
     setTasks((prev) =>
       prev.map((task) => {
@@ -160,6 +166,11 @@ const ActionItems: React.FC = () => {
             completeFeature(taskId);
             toast.success(`+${task.points} points!`, {
               description: `Completed: ${task.title}`,
+            });
+          } else {
+            removePoints(task.points);
+            toast.info(`-${task.points} points`, {
+              description: `Uncompleted: ${task.title}`,
             });
           }
           return {
@@ -202,7 +213,7 @@ const ActionItems: React.FC = () => {
   return (
     <HubLayout sectionId="actions" showBackground={false}>
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-background rounded-3xl">
-        <div className="mx-auto w-full max-w-4xl px-4 md:px-8 lg:px-16 space-y-8">
+        <div className="mx-auto w-full px-4 md:px-8 lg:px-16 space-y-12">
           {/* Header */}
           <BlurFade delay={0.1}>
             <div className="max-w-2xl">
