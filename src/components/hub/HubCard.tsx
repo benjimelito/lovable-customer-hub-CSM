@@ -21,8 +21,8 @@ const HubCard: React.FC<HubCardProps> = ({
   const { sections } = useProgress();
   const isVisited = sections.some((s) => s.path === route && s.visited);
   return (
-    <Link to={route} className="group block">
-      <div className="relative flex flex-col gap-6 p-6 bg-card border border-border rounded-3xl transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+    <Link to={route} className="group block h-full">
+      <div className="relative flex flex-col gap-6 p-6 bg-card border border-border rounded-3xl transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 h-full">
         {/* Visited indicator */}
         {isVisited && (
           <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-green-500" />
@@ -34,7 +34,7 @@ const HubCard: React.FC<HubCardProps> = ({
         </div>
         
         {/* Content */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 flex-1">
           <h3 className="text-xl font-medium leading-tight tracking-tight text-foreground group-hover:text-primary transition-colors">
             {title}
           </h3>
