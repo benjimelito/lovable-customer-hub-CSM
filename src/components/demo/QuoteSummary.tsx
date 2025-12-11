@@ -97,30 +97,32 @@ const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             </div>
 
             {/* Savings Indicators */}
-            <div className="mt-6 space-y-3">
-              {savings > 0 && (
-                <div className="flex items-center gap-2 p-3 bg-[#D4F9E4] border border-[#4AE88A]/30 rounded-xl">
-                  <TrendingDown className="w-5 h-5 text-[#2B8A4B]" />
-                  <span className="text-sm font-medium text-[#2B8A4B]">
-                    Saving {formatCurrency(savings)} vs pay-as-you-go
-                  </span>
-                </div>
-              )}
-
-              {optimalSavings && optimalSavings > 0 && optimalTierLabel && (
-                <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl">
-                  <Lightbulb className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-sm font-medium text-amber-700 dark:text-amber-300 block">
-                      Switch to {optimalTierLabel} to save {formatCurrency(optimalSavings)}
+            {(savings > 0 || (optimalSavings !== undefined && optimalSavings > 0)) && (
+              <div className="mt-6 space-y-3">
+                {savings > 0 && (
+                  <div className="flex items-center gap-2 p-3 bg-[#D4F9E4] border border-[#4AE88A]/30 rounded-xl">
+                    <TrendingDown className="w-5 h-5 text-[#2B8A4B]" />
+                    <span className="text-sm font-medium text-[#2B8A4B]">
+                      Saving {formatCurrency(savings)} vs pay-as-you-go
                     </span>
-                    <button className="text-xs text-amber-600 dark:text-amber-400 hover:underline mt-1 inline-flex items-center gap-1">
-                      View recommendation <ArrowRight className="w-3 h-3" />
-                    </button>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+
+                {optimalSavings !== undefined && optimalSavings > 0 && optimalTierLabel && (
+                  <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl">
+                    <Lightbulb className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-sm font-medium text-amber-700 dark:text-amber-300 block">
+                        Switch to {optimalTierLabel} to save {formatCurrency(optimalSavings)}
+                      </span>
+                      <button className="text-xs text-amber-600 dark:text-amber-400 hover:underline mt-1 inline-flex items-center gap-1">
+                        View recommendation <ArrowRight className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </>
         )}
       </div>
