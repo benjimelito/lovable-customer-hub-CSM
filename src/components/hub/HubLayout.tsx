@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { BackgroundGradient } from "@/components/BackgroundGradient";
 import { BackgroundGrain } from "@/components/BackgroundGrain";
 import Navigation from "@/components/Navigation";
-import HubNavigation from "@/components/hub/HubNavigation";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { useProgress } from "@/contexts/ProgressContext";
 
@@ -27,7 +26,7 @@ const HubLayout: React.FC<HubLayoutProps> = ({
   }, [sectionId, visitSection]);
 
   return (
-    <div className="relative min-h-screen w-full bg-background pb-24">
+    <div className="relative min-h-screen w-full bg-background">
       <Navigation />
       {showBackground && (
         <>
@@ -40,7 +39,6 @@ const HubLayout: React.FC<HubLayoutProps> = ({
           {children}
         </div>
       </div>
-      <HubNavigation />
     </div>
   );
 };

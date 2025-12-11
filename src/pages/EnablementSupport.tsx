@@ -5,6 +5,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import TeamMemberCard from "@/components/hub/TeamMemberCard";
 import ResourceCard from "@/components/hub/ResourceCard";
 import TrainingCard from "@/components/hub/TrainingCard";
+import FeedbackModal from "@/components/hub/FeedbackModal";
 import { Button } from "@/components/ui/button";
 import { mockLovableTeam, mockResources, mockTrainingPrograms } from "@/data/mockData";
 
@@ -12,15 +13,18 @@ const EnablementSupport = () => {
   return (
     <HubLayout sectionId="enablement-support">
       <div className="space-y-16">
-        {/* Back Button */}
+        {/* Back Button + Feedback */}
         <BlurFade delay={0.05}>
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Hub
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Hub
+            </Link>
+            <FeedbackModal />
+          </div>
         </BlurFade>
 
         {/* Header */}
