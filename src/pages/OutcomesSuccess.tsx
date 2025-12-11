@@ -35,13 +35,13 @@ const OutcomesSuccess = () => {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
               <Trophy className="w-4 h-4 text-yellow-500" />
-              <span className="text-sm font-medium text-yellow-500">Outcomes & Success</span>
+              <span className="text-sm font-medium text-yellow-500">Lovable Hall of Fame</span>
             </div>
             <h1 className="text-[48px] font-semibold tracking-[-0.03em] text-foreground mb-4">
-              Outcomes & Success Stories
+              Lovable Hall of Fame
             </h1>
             <p className="text-xl text-muted-foreground">
-              Real impact, testimonials, and wins from your teams using Lovable.
+              Celebrating the champions and wins from your teams using Lovable.
             </p>
           </div>
         </BlurFade>
@@ -54,9 +54,9 @@ const OutcomesSuccess = () => {
                 <Star className="w-5 h-5 text-yellow-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold text-foreground">Lovable Hall of Fame</h2>
+                <h2 className="text-2xl font-semibold text-foreground">Lovable Champions</h2>
                 <p className="text-sm text-muted-foreground">
-                  Recognizing outstanding achievements from your teams
+                  Recognizing outstanding individual achievements from your teams
                 </p>
               </div>
             </div>

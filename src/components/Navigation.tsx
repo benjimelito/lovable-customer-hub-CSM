@@ -15,7 +15,7 @@ const hubPages = [
   { path: "/faq", title: "FAQ" },
   { path: "/swag", title: "Swag" },
   { path: "/enablement-support", title: "Enablement" },
-  { path: "/outcomes-success", title: "Outcomes" },
+  { path: "/outcomes-success", title: "Hall of Fame" },
 ];
 
 const Navigation = ({ className }: { className?: string }) => {
