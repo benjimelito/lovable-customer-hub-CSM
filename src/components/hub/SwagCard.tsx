@@ -46,7 +46,7 @@ const SwagCard: React.FC<SwagCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -4 }}
-      className={`relative bg-card border border-border rounded-3xl overflow-hidden transition-all duration-300 ${
+      className={`relative bg-card border border-border rounded-3xl overflow-hidden transition-all duration-300 h-full flex flex-col ${
         !isAvailable ? "opacity-60" : "hover:shadow-lg hover:border-border/80"
       }`}
     >
@@ -106,41 +106,45 @@ const SwagCard: React.FC<SwagCardProps> = ({
         )}
       </div>
 
-      {/* Content */}
-      <div className="p-4">
+      {/* Content - flex-grow to push button to bottom */}
+      <div className="p-4 flex flex-col flex-grow">
         <h3 className="text-lg font-medium text-foreground mb-1">{item.name}</h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.description}</p>
 
-        {/* Sizes if applicable */}
-        {item.sizes && item.sizes.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-4">
-            {item.sizes.map((size) => (
-              <span 
-                key={size}
-                className="px-2 py-0.5 text-xs bg-muted/50 rounded text-muted-foreground"
-              >
-                {size}
-              </span>
-            ))}
-          </div>
-        )}
+        {/* Sizes if applicable - fixed height area */}
+        <div className="min-h-[28px] mb-4">
+          {item.sizes && item.sizes.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {item.sizes.map((size) => (
+                <span 
+                  key={size}
+                  className="px-2 py-0.5 text-xs bg-muted/50 rounded text-muted-foreground"
+                >
+                  {size}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
 
-        {/* Action Button */}
-        <Button 
-          onClick={() => onRedeem(item)}
-          disabled={!canRedeem}
-          className="w-full"
-          variant={canRedeem ? "default" : "outline"}
-        >
-          {isRedeemed 
-            ? "Already Redeemed" 
-            : !item.available 
-              ? "Out of Stock" 
-              : !canAfford 
-                ? `Need ${pointsNeeded} more pts`
-                : "Redeem Now"
-          }
-        </Button>
+        {/* Action Button - always at bottom */}
+        <div className="mt-auto">
+          <Button 
+            onClick={() => onRedeem(item)}
+            disabled={!canRedeem}
+            className="w-full"
+            variant={canRedeem ? "default" : "outline"}
+          >
+            {isRedeemed 
+              ? "Already Redeemed" 
+              : !item.available 
+                ? "Out of Stock" 
+                : !canAfford 
+                  ? `Need ${pointsNeeded} more pts`
+                  : "Redeem Now"
+            }
+          </Button>
+        </div>
       </div>
     </motion.div>
   );
