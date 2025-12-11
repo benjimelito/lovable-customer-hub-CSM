@@ -145,36 +145,73 @@ const FAQPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"faq" | "chat">("faq");
 
   return (
-    <HubLayout>
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <BlurFade delay={0.1}>
-          <div className="mb-8">
-            <h1 className="text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground mb-4">
-              FAQ & Support
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Get answers to common questions or chat with our AI assistant for personalized help.
-              We're here to ensure {profile.companyName} has all the information needed.
-            </p>
-          </div>
-        </BlurFade>
+    <HubLayout sectionId="faq" showBackground={false}>
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-background rounded-3xl">
+        <div className="mx-auto w-full max-w-6xl px-4 md:px-8 lg:px-16 space-y-8">
+          {/* Header */}
+          <BlurFade delay={0.1}>
+            <div className="max-w-2xl">
+              <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
+                FAQ & Support
+              </h1>
+              <p className="text-lg text-muted-foreground mt-4">
+                Get answers to common questions or chat with our AI assistant for personalized help.
+                We're here to ensure {profile.companyName} has all the information needed.
+              </p>
+            </div>
+          </BlurFade>
 
-        {/* Mobile Tabs */}
-        <BlurFade delay={0.2}>
-          <div className="lg:hidden mb-6">
-            <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "faq" | "chat")}>
-              <TabsList className="w-full">
-                <TabsTrigger value="faq" className="flex-1 gap-2">
-                  <HelpCircle className="w-4 h-4" />
-                  FAQ
-                </TabsTrigger>
-                <TabsTrigger value="chat" className="flex-1 gap-2">
-                  <MessageCircle className="w-4 h-4" />
-                  AI Chat
-                </TabsTrigger>
-              </TabsList>
-              <TabsContent value="faq" className="mt-6">
+          {/* Mobile Tabs */}
+          <BlurFade delay={0.2}>
+            <div className="lg:hidden">
+              <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "faq" | "chat")}>
+                <TabsList className="w-full">
+                  <TabsTrigger value="faq" className="flex-1 gap-2">
+                    <HelpCircle className="w-4 h-4" />
+                    FAQ
+                  </TabsTrigger>
+                  <TabsTrigger value="chat" className="flex-1 gap-2">
+                    <MessageCircle className="w-4 h-4" />
+                    AI Chat
+                  </TabsTrigger>
+                </TabsList>
+                <TabsContent value="faq" className="mt-6">
+                  {/* Category Filter */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`px-3 py-1.5 text-xs rounded-full transition-all ${
+                          selectedCategory === category
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border text-foreground hover:bg-[#ECEAE4] dark:hover:bg-muted"
+                        }`}
+                      >
+                        {category === "all" ? "All" : category}
+                      </button>
+                    ))}
+                  </div>
+                  <FAQAccordion items={faqItems} selectedCategory={selectedCategory} />
+                </TabsContent>
+                <TabsContent value="chat" className="mt-6">
+                  <ChatBot />
+                </TabsContent>
+              </Tabs>
+            </div>
+          </BlurFade>
+
+          {/* Desktop Side-by-Side */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-8">
+            {/* FAQ Section */}
+            <BlurFade delay={0.2}>
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <HelpCircle className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl font-medium text-foreground">
+                    Common Questions
+                  </h2>
+                </div>
                 {/* Category Filter */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {categories.map((category) => (
@@ -184,7 +221,7 @@ const FAQPage: React.FC = () => {
                       className={`px-3 py-1.5 text-xs rounded-full transition-all ${
                         selectedCategory === category
                           ? "bg-primary text-primary-foreground"
-                          : "bg-[#F7F4ED] border border-[#D8D6CF] text-foreground hover:bg-[#ECEAE4]"
+                          : "bg-[#F7F4ED] dark:bg-card border border-[#D8D6CF] dark:border-border text-foreground hover:bg-[#ECEAE4] dark:hover:bg-muted"
                       }`}
                     >
                       {category === "all" ? "All" : category}
@@ -192,68 +229,33 @@ const FAQPage: React.FC = () => {
                   ))}
                 </div>
                 <FAQAccordion items={faqItems} selectedCategory={selectedCategory} />
-              </TabsContent>
-              <TabsContent value="chat" className="mt-6">
+              </div>
+            </BlurFade>
+
+            {/* Chat Section */}
+            <BlurFade delay={0.3}>
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <MessageCircle className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl font-medium text-foreground">
+                    AI Assistant
+                  </h2>
+                </div>
                 <ChatBot />
-              </TabsContent>
-            </Tabs>
+              </div>
+            </BlurFade>
           </div>
-        </BlurFade>
 
-        {/* Desktop Side-by-Side */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8">
-          {/* FAQ Section */}
-          <BlurFade delay={0.2}>
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <HelpCircle className="w-5 h-5 text-primary" />
-                <h2 className="text-xl font-medium text-foreground">
-                  Common Questions
-                </h2>
-              </div>
-              {/* Category Filter */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-3 py-1.5 text-xs rounded-full transition-all ${
-                      selectedCategory === category
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-[#F7F4ED] border border-[#D8D6CF] text-foreground hover:bg-[#ECEAE4]"
-                    }`}
-                  >
-                    {category === "all" ? "All" : category}
-                  </button>
-                ))}
-              </div>
-              <FAQAccordion items={faqItems} selectedCategory={selectedCategory} />
-            </div>
-          </BlurFade>
-
-          {/* Chat Section */}
-          <BlurFade delay={0.3}>
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <MessageCircle className="w-5 h-5 text-primary" />
-                <h2 className="text-xl font-medium text-foreground">
-                  AI Assistant
-                </h2>
-              </div>
-              <ChatBot />
+          {/* CTA */}
+          <BlurFade delay={0.4}>
+            <div className="mt-12 text-center">
+              <p className="text-sm text-muted-foreground">
+                Still have questions? Your Account Executive is just a click away.
+              </p>
             </div>
           </BlurFade>
         </div>
-
-        {/* CTA */}
-        <BlurFade delay={0.4}>
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground">
-              Still have questions? Your Account Executive is just a click away.
-            </p>
-          </div>
-        </BlurFade>
-      </div>
+      </section>
     </HubLayout>
   );
 };
