@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const hubPages = [
   { path: "/demo", title: "Watch Demo" },
   { path: "/demo-ideas", title: "Demo Ideas" },
-  { path: "/usage", title: "Usage Dashboard" },
+  { path: "/usage", title: "Dashboard" },
   { path: "/process", title: "Sales Process" },
   { path: "/research", title: "AI Research" },
   { path: "/social", title: "Social Proof" },
