@@ -46,7 +46,7 @@ const PointsBalance: React.FC<PointsBalanceProps> = ({
             <span className="text-sm text-muted-foreground">Progress to max</span>
             <span className="text-sm font-medium text-foreground">{Math.round(progress)}%</span>
           </div>
-          <div className="h-3 bg-muted/30 rounded-full overflow-hidden">
+          <div className="h-3 bg-[#D8D6CF]/60 dark:bg-muted/50 rounded-full overflow-hidden border border-[#D8D6CF] dark:border-border">
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
