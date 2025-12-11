@@ -169,6 +169,57 @@
 
 ---
 
+## Design System & Component Mapping
+
+### Critical Design Tokens (DO NOT CHANGE)
+```
+Cards:
+  - Background: bg-[#F7F4ED] or bg-[#FCFBF8]
+  - Border: border-[#D8D6CF] or border-[#ECEAE4]
+  - Radius: rounded-3xl (24px)
+  - Padding: p-6
+  
+Typography:
+  - Page heading: text-[48px] font-semibold leading-[110%] tracking-[-0.03em]
+  - Card heading: text-2xl font-medium leading-[110%] tracking-[-0.01em]
+  - Body text: text-base leading-[22px] tracking-[-0.01em]
+  - Muted text: text-muted-foreground
+  
+Icons:
+  - Container: w-12 h-12 rounded-[9.6px]
+  - With colored bg + border (e.g., bg-[#D4E0F9] border-[#9CAEFF])
+  
+Animations:
+  - BlurFade for scroll reveal
+  - transition-all duration-500 for state changes
+  - hover:-translate-y-1 for card hover
+```
+
+### Component Mapping by Phase
+
+| Phase | Reuse from `/showcase` | Reuse from `/ui` |
+|-------|------------------------|------------------|
+| **Phase 2: Usage Dashboard** | `StatCard`, `FeatureShowcaseCard`, `SectionHeader` | `BlurFade`, `Skeleton` |
+| **Phase 3: Sales Process** | `ExpandingCardsSection` pattern, `UseCaseCard` icon box pattern | `BlurFade`, `Collapsible` |
+| **Phase 4: AI Research** | `UseCaseCard`, `FeatureShowcaseCard` | `BlurFade`, `Skeleton`, `Button` |
+| **Phase 5: Social Proof** | `TestimonialCard` ✅, `UseCaseCard`, `ContentCarousel` pattern | `BlurFade`, `Avatar` |
+| **Phase 6: Action Items** | `UseCaseCard` pattern | `Checkbox`, `Progress`, `Tabs` |
+| **Phase 7: FAQ & Chatbot** | `FAQSection` ✅ (direct reuse) | `Accordion`, `ScrollArea`, `Input` |
+| **Phase 8: Swag Redemption** | `FeatureShowcaseCard` | `Dialog`, `Form`, `Button`, `Badge` |
+
+### Showcase Components Reference
+Located in `src/components/showcase/`:
+- **StatCard** - Large number display with description
+- **UseCaseCard** - Icon box + title + description pattern
+- **TestimonialCard** - Quote with avatar and attribution
+- **FAQSection** - Split layout with accordion
+- **FeatureShowcaseCard** - Image/gradient header + content + link
+- **ContentCarousel** - Auto-rotating slides with navigation
+- **ExpandingCardsSection** - Horizontal expanding cards with pagination
+- **SectionHeader** - Page section title + subtitle
+
+---
+
 ## Notes
 
 ### Implementation Order Rationale
