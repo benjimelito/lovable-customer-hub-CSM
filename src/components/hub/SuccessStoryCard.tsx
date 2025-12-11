@@ -13,6 +13,7 @@ interface SuccessStoryCardProps {
   leader: {
     name: string;
     title: string;
+    photoUrl?: string;
   };
   estimatedActiveUsers: number;
   userType: string;
@@ -49,9 +50,17 @@ const SuccessStoryCard = ({
         
         <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary">
-              {leader.name.charAt(0)}
-            </div>
+            {leader.photoUrl ? (
+              <img 
+                src={leader.photoUrl} 
+                alt={leader.name} 
+                className="w-8 h-8 rounded-full object-cover"
+              />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-primary">
+                {leader.name.charAt(0)}
+              </div>
+            )}
             <span>{leader.name}</span>
           </div>
           <span>•</span>

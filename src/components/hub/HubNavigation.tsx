@@ -13,6 +13,8 @@ const hubPages = [
   { path: "/actions", title: "Action Items" },
   { path: "/faq", title: "FAQ & Chat" },
   { path: "/swag", title: "Earn Swag" },
+  { path: "/enablement-support", title: "Enablement" },
+  { path: "/outcomes-success", title: "Outcomes" },
 ];
 
 const HubNavigation: React.FC = () => {

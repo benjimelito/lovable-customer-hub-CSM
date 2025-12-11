@@ -1,4 +1,5 @@
-import { Trophy, Star, Quote, MessageSquare, Users } from "lucide-react";
+import { Trophy, Star, Quote, MessageSquare, Users, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import HubLayout from "@/components/hub/HubLayout";
 import { BlurFade } from "@/components/ui/blur-fade";
 import AchievementCard from "@/components/hub/AchievementCard";
@@ -15,6 +16,17 @@ const OutcomesSuccess = () => {
   return (
     <HubLayout sectionId="outcomes-success">
       <div className="space-y-16">
+        {/* Back Button */}
+        <BlurFade delay={0.05}>
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Hub
+          </Link>
+        </BlurFade>
+
         {/* Header */}
         <BlurFade delay={0.1}>
           <div className="text-center max-w-3xl mx-auto">
@@ -54,6 +66,7 @@ const OutcomesSuccess = () => {
                   title={achievement.title}
                   description={achievement.description}
                   user={achievement.user}
+                  userPhotoUrl={achievement.userPhotoUrl}
                   team={achievement.team}
                   date={achievement.date}
                   badge={achievement.badge}
@@ -88,6 +101,7 @@ const OutcomesSuccess = () => {
                 <QuoteCard
                   quote={quote.quote}
                   author={quote.author}
+                  authorPhotoUrl={quote.authorPhotoUrl}
                   role={quote.role}
                   source={quote.source}
                   impactArea={quote.impactArea}
