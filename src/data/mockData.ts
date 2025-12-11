@@ -680,3 +680,370 @@ export const swagCatalog = [
     available: false,
   },
 ];
+
+// ============================================
+// ENABLEMENT & SUPPORT MODULE DATA
+// ============================================
+
+import { 
+  Lightbulb, 
+  FileText, 
+  BookOpen, 
+  Video, 
+  Target, 
+  Users, 
+  Award,
+  Trophy,
+  Sparkles,
+  Zap,
+  TrendingUp,
+  LucideIcon
+} from "lucide-react";
+
+// Lovable Team Members
+export const mockLovableTeam = {
+  csm: {
+    name: "David Kim",
+    title: "Customer Success Manager",
+    email: "david.kim@lovable.dev",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    calendlyUrl: "https://calendly.com/david-kim-lovable",
+    linkedInUrl: "https://linkedin.com/in/davidkim",
+    bio: "Helping enterprise teams unlock their full potential with Lovable. 8+ years in customer success.",
+  },
+  solutionsArchitect: {
+    name: "Rachel Martinez",
+    title: "Solutions Architect",
+    email: "rachel.martinez@lovable.dev",
+    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+    calendlyUrl: "https://calendly.com/rachel-martinez-lovable",
+    linkedInUrl: "https://linkedin.com/in/rachelmartinez",
+    bio: "Technical expert focused on enterprise integrations and custom architectures.",
+  },
+  accountExecutive: mockAccountExecutive,
+};
+
+// Resources
+export const mockResources: Array<{
+  id: string;
+  title: string;
+  description: string;
+  type: "tips" | "prompt-guide" | "changelog";
+  icon: LucideIcon;
+  link: string;
+  items: string[];
+}> = [
+  {
+    id: "res-1",
+    title: "Tips & Best Practices",
+    description: "Curated collection of proven strategies for getting the most out of Lovable across your organization.",
+    type: "tips",
+    icon: Lightbulb,
+    link: "https://docs.lovable.dev/best-practices",
+    items: [
+      "Start with clear project requirements",
+      "Use descriptive prompts for better AI output",
+      "Leverage templates for common use cases",
+      "Collaborate with stakeholders early",
+    ],
+  },
+  {
+    id: "res-2",
+    title: "Prompt Engineering Guide",
+    description: "Master the art of communicating with Lovable's AI to build exactly what you envision.",
+    type: "prompt-guide",
+    icon: FileText,
+    link: "https://docs.lovable.dev/prompt-engineering",
+    items: [
+      "Structuring effective prompts",
+      "Iterating on AI responses",
+      "Advanced techniques for complex UIs",
+      "Common patterns and anti-patterns",
+    ],
+  },
+  {
+    id: "res-3",
+    title: "Recent Releases & Change Logs",
+    description: "Stay up-to-date with the latest features, improvements, and platform updates.",
+    type: "changelog",
+    icon: BookOpen,
+    link: "https://lovable.dev/changelog",
+    items: [
+      "v2.5: Enhanced AI reasoning capabilities",
+      "v2.4: New component library additions",
+      "v2.3: Performance improvements",
+      "v2.2: Enterprise SSO enhancements",
+    ],
+  },
+];
+
+// Training Programs
+export const mockTrainingPrograms: Array<{
+  id: string;
+  title: string;
+  description: string;
+  type: "office-hours" | "learning-path" | "community" | "ambassador";
+  icon: LucideIcon;
+  link: string;
+  schedule?: string;
+  nextSession?: string;
+  paths?: Array<{ name: string; duration: string; modules: number }>;
+  stats?: { members: string; posts: string; templates: string };
+  benefits?: string[];
+}> = [
+  {
+    id: "train-1",
+    title: "Office Hours",
+    description: "Weekly live sessions with Lovable experts. Ask questions, get tips, and see live demos.",
+    type: "office-hours",
+    icon: Video,
+    schedule: "Every Thursday, 2:00 PM EST",
+    link: "https://lovable.dev/office-hours",
+    nextSession: "2024-12-12T14:00:00",
+  },
+  {
+    id: "train-2",
+    title: "User Persona Learning Paths",
+    description: "Tailored training tracks for different roles: Product Managers, Designers, Marketers, and more.",
+    type: "learning-path",
+    icon: Target,
+    paths: [
+      { name: "Product Manager Track", duration: "4 hours", modules: 6 },
+      { name: "Designer Track", duration: "3 hours", modules: 5 },
+      { name: "Marketer Track", duration: "2.5 hours", modules: 4 },
+      { name: "Operations Track", duration: "3 hours", modules: 5 },
+    ],
+    link: "https://learn.lovable.dev",
+  },
+  {
+    id: "train-3",
+    title: "Lovable Community",
+    description: "Join thousands of builders sharing ideas, templates, and best practices.",
+    type: "community",
+    icon: Users,
+    stats: {
+      members: "15,000+",
+      posts: "5,000+",
+      templates: "500+",
+    },
+    link: "https://community.lovable.dev",
+  },
+  {
+    id: "train-4",
+    title: "Lovable Ambassador Program",
+    description: "Become an internal champion. Get early access, exclusive training, and recognition.",
+    type: "ambassador",
+    icon: Award,
+    benefits: [
+      "Early access to new features",
+      "Direct line to product team",
+      "Exclusive ambassador swag",
+      "Recognition in Lovable community",
+    ],
+    link: "https://lovable.dev/ambassadors",
+  },
+];
+
+// ============================================
+// OUTCOMES & SUCCESS MODULE DATA
+// ============================================
+
+// Achievements / Hall of Fame
+export const mockAchievements: Array<{
+  id: string;
+  title: string;
+  description: string;
+  user: string;
+  team: string;
+  date: string;
+  badge: LucideIcon;
+  color: string;
+}> = [
+  {
+    id: "ach-1",
+    title: "Power Builder",
+    description: "Created 10+ projects in the first month",
+    user: "Emily Rodriguez",
+    team: "Marketing",
+    date: "2024-11-15",
+    badge: Trophy,
+    color: "text-yellow-500",
+  },
+  {
+    id: "ach-2",
+    title: "Innovation Champion",
+    description: "Built a tool that saved 40+ hours per week for the team",
+    user: "Marcus Johnson",
+    team: "Product",
+    date: "2024-11-22",
+    badge: Sparkles,
+    color: "text-purple-500",
+  },
+  {
+    id: "ach-3",
+    title: "Community Catalyst",
+    description: "Onboarded 15 team members to the platform",
+    user: "David Kim",
+    team: "Customer Success",
+    date: "2024-11-28",
+    badge: Users,
+    color: "text-blue-500",
+  },
+  {
+    id: "ach-4",
+    title: "Speed Demon",
+    description: "Shipped a production-ready tool in under 2 hours",
+    user: "Alex Chen",
+    team: "Engineering",
+    date: "2024-12-01",
+    badge: Zap,
+    color: "text-orange-500",
+  },
+  {
+    id: "ach-5",
+    title: "Impact Driver",
+    description: "Tool achieved 95% adoption rate across department",
+    user: "Jennifer Walsh",
+    team: "Sales Ops",
+    date: "2024-12-05",
+    badge: TrendingUp,
+    color: "text-green-500",
+  },
+];
+
+// Customer Quotes (from calls, interviews, feedback)
+export const mockCustomerQuotes: Array<{
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  source: "call" | "interview" | "feedback";
+  impactArea: string;
+  date: string;
+}> = [
+  {
+    id: "quote-1",
+    quote: "We went from a 6-week alpha cycle to just 5 days. That's not incremental improvement—that's a fundamental shift in how we work.",
+    author: "Marcus Johnson",
+    role: "VP of Product",
+    source: "call",
+    impactArea: "Speed to Market",
+    date: "2024-11-20",
+  },
+  {
+    id: "quote-2",
+    quote: "For the first time, my team doesn't have to wait in the engineering queue. We can validate ideas the same day we have them.",
+    author: "Emily Rodriguez",
+    role: "Director of Marketing Ops",
+    source: "interview",
+    impactArea: "Team Autonomy",
+    date: "2024-11-18",
+  },
+  {
+    id: "quote-3",
+    quote: "The security review was surprisingly smooth. SOC 2 compliance out of the box removed our biggest blocker.",
+    author: "Robert Chen",
+    role: "Head of IT Security",
+    source: "feedback",
+    impactArea: "Enterprise Readiness",
+    date: "2024-11-25",
+  },
+  {
+    id: "quote-4",
+    quote: "We're now building internal tools that would have taken months, in a matter of days. The ROI is undeniable.",
+    author: "Jennifer Walsh",
+    role: "VP of Sales Operations",
+    source: "call",
+    impactArea: "Cost Savings",
+    date: "2024-12-02",
+  },
+  {
+    id: "quote-5",
+    quote: "Lovable isn't just a tool—it's changed how we think about what's possible for non-technical teams.",
+    author: "Sarah Thompson",
+    role: "Chief of Staff",
+    source: "interview",
+    impactArea: "Digital Transformation",
+    date: "2024-12-05",
+  },
+];
+
+// Internal Success Stories
+export const mockInternalSuccessStories: Array<{
+  id: string;
+  projectName: string;
+  leader: { name: string; title: string };
+  estimatedActiveUsers: number;
+  userType: string;
+  primaryUseCases: string[];
+  keyMetrics: Array<{ label: string; before?: string; after?: string; value?: string; improvement?: string }>;
+  nextUp: string;
+  image?: string;
+}> = [
+  {
+    id: "story-1",
+    projectName: "Flywheel Product (Internal GTM Tooling)",
+    leader: {
+      name: "Marcus Johnson",
+      title: "VP of Product",
+    },
+    estimatedActiveUsers: 18,
+    userType: "Product Managers",
+    primaryUseCases: [
+      "Dashboard prototyping for internal stakeholders",
+      "Sales & CS ops tooling for go-to-market",
+      "Rapid validation of product concepts",
+    ],
+    keyMetrics: [
+      { label: "Alpha Cycle Time", before: "6 weeks", after: "5 days" },
+      { label: "Prototypes Created", value: "23" },
+      { label: "Engineering Hours Saved", value: "400+" },
+    ],
+    nextUp: "MCP/CRM sandbox data integration for realistic prototype testing",
+    image: "/src/assets/projects/internal-dashboard.png",
+  },
+  {
+    id: "story-2",
+    projectName: "Marketing Campaign Automation Hub",
+    leader: {
+      name: "Emily Rodriguez",
+      title: "Director of Marketing Ops",
+    },
+    estimatedActiveUsers: 24,
+    userType: "Marketing Team Members",
+    primaryUseCases: [
+      "Campaign performance dashboards",
+      "Content calendar management",
+      "A/B test result visualization",
+    ],
+    keyMetrics: [
+      { label: "Tool Build Time", before: "3 weeks", after: "2 days" },
+      { label: "Campaigns Managed", value: "45+" },
+      { label: "Team Productivity", improvement: "+35%" },
+    ],
+    nextUp: "Integration with HubSpot CRM for unified customer view",
+    image: "/src/assets/projects/campaign-builder.png",
+  },
+  {
+    id: "story-3",
+    projectName: "Customer Success Command Center",
+    leader: {
+      name: "David Kim",
+      title: "Head of Customer Success",
+    },
+    estimatedActiveUsers: 15,
+    userType: "CS Representatives",
+    primaryUseCases: [
+      "Customer health score tracking",
+      "Renewal pipeline management",
+      "Escalation workflow automation",
+    ],
+    keyMetrics: [
+      { label: "Response Time", before: "4 hours", after: "45 min" },
+      { label: "Customer Tickets Managed", value: "500+/month" },
+      { label: "CSAT Score", improvement: "+12 points" },
+    ],
+    nextUp: "AI-powered churn prediction dashboard",
+    image: "/src/assets/projects/customer-portal.png",
+  },
+];

@@ -79,7 +79,13 @@ const EnablementSupport = () => {
             </BlurFade>
             <BlurFade delay={0.55}>
               <TeamMemberCard
-                {...mockLovableTeam.accountExecutive}
+                name={mockLovableTeam.accountExecutive.name}
+                title={mockLovableTeam.accountExecutive.title}
+                email={mockLovableTeam.accountExecutive.email}
+                photo={mockLovableTeam.accountExecutive.photoUrl}
+                calendlyUrl={mockLovableTeam.accountExecutive.calendlyUrl}
+                linkedInUrl={mockLovableTeam.accountExecutive.linkedInUrl}
+                bio={mockLovableTeam.accountExecutive.bio}
               />
             </BlurFade>
           </div>

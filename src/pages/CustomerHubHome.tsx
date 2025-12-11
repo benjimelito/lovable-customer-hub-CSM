@@ -21,7 +21,9 @@ import {
   MessageCircle, 
   Gift,
   Lightbulb,
-  Presentation
+  Presentation,
+  LifeBuoy,
+  Trophy
 } from "lucide-react";
 
 const hubSections = [
@@ -87,6 +89,20 @@ const hubSections = [
     icon: Gift,
     route: "/swag",
     accentColor: "bg-rose-500/10 border-rose-500/20",
+  },
+  {
+    title: "Enablement & Support",
+    description: "Resources, training, and your dedicated Lovable team",
+    icon: LifeBuoy,
+    route: "/enablement-support",
+    accentColor: "bg-teal-500/10 border-teal-500/20",
+  },
+  {
+    title: "Outcomes & Success",
+    description: "Real impact, testimonials, and wins from your teams",
+    icon: Trophy,
+    route: "/outcomes-success",
+    accentColor: "bg-yellow-500/10 border-yellow-500/20",
   },
 ];
 
