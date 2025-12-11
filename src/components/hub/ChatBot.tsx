@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Send, MessageCircle } from "lucide-react";
+import { Send, MessageCircle, Maximize2, Minimize2, X } from "lucide-react";
 import MessageBubble from "./MessageBubble";
 import TypingIndicator from "./TypingIndicator";
 import SuggestedQuestions from "./SuggestedQuestions";
@@ -39,6 +39,7 @@ const ChatBot: React.FC = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState(initialSuggestions);
+  const [isExpanded, setIsExpanded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -47,6 +48,18 @@ const ChatBot: React.FC = () => {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, isLoading]);
+
+  // Lock body scroll when expanded
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isExpanded]);
 
   const streamChat = useCallback(
     async (userMessage: string) => {
@@ -180,10 +193,10 @@ const ChatBot: React.FC = () => {
     streamChat(question);
   };
 
-  return (
-    <div className="flex flex-col h-[500px] bg-card border border-border rounded-3xl overflow-hidden">
+  const chatContent = (
+    <>
       {/* Header */}
-      <div className="px-4 py-3 border-b border-border bg-[#F7F4ED]">
+      <div className="px-4 py-3 border-b border-border bg-[#F7F4ED] dark:bg-muted flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
             <MessageCircle className="w-4 h-4 text-primary" />
@@ -193,6 +206,18 @@ const ChatBot: React.FC = () => {
             <p className="text-xs text-muted-foreground">Powered by Lovable docs</p>
           </div>
         </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="h-8 w-8"
+        >
+          {isExpanded ? (
+            <Minimize2 className="h-4 w-4" />
+          ) : (
+            <Maximize2 className="h-4 w-4" />
+          )}
+        </Button>
       </div>
 
       {/* Messages */}
@@ -217,7 +242,7 @@ const ChatBot: React.FC = () => {
       )}
 
       {/* Input */}
-      <form onSubmit={handleSubmit} className="p-4 border-t border-border bg-[#FCFBF8]">
+      <form onSubmit={handleSubmit} className="p-4 border-t border-border bg-[#FCFBF8] dark:bg-card">
         <div className="flex gap-2">
           <Input
             ref={inputRef}
@@ -225,14 +250,47 @@ const ChatBot: React.FC = () => {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask me anything about Lovable..."
             disabled={isLoading}
-            className="flex-1 bg-background border-[#D8D6CF]"
+            className="flex-1 bg-background border-[#D8D6CF] dark:border-border"
           />
           <Button type="submit" disabled={!input.trim() || isLoading} size="icon">
             <Send className="h-4 w-4" />
           </Button>
         </div>
       </form>
-    </div>
+    </>
+  );
+
+  return (
+    <>
+      {/* Normal inline view */}
+      <div className={`flex flex-col h-[500px] bg-card border border-border rounded-3xl overflow-hidden ${isExpanded ? "hidden" : ""}`}>
+        {chatContent}
+      </div>
+
+      {/* Fullscreen overlay */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
+            onClick={() => setIsExpanded(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-4 md:inset-8 lg:inset-16 bg-card border border-border rounded-3xl overflow-hidden flex flex-col shadow-2xl"
+            >
+              {chatContent}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
