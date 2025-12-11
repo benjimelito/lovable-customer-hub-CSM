@@ -123,7 +123,7 @@ const initialTasks: Task[] = [
 const STORAGE_KEY = "customer-hub-tasks";
 
 const ActionItems: React.FC = () => {
-  const { addPoints, removePoints, maxPoints } = useRewards();
+  const { addPoints, removePoints, setPoints, maxPoints } = useRewards();
   const { completeFeature } = useProgress();
   const { profile } = useCustomer();
   const [tasks, setTasks] = useState<Task[]>(() => {
@@ -153,7 +153,7 @@ const ActionItems: React.FC = () => {
   // Sync points with task completion state on mount
   useEffect(() => {
     const completedPoints = tasks.filter(t => t.completed).reduce((sum, t) => sum + t.points, 0);
-    // This is handled by localStorage sync on page load - points are persisted
+    setPoints(completedPoints);
   }, []);
 
   const handleTaskToggle = (taskId: string) => {
