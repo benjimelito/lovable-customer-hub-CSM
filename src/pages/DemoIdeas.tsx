@@ -196,7 +196,12 @@ const DemoIdeas: React.FC = () => {
   const selectedSuggestions = suggestions.filter(s => s.selected);
   const validCustomIdeas = customIdeas.filter(i => i.title.trim() && i.description.trim());
   const totalIdeas = selectedSuggestions.length + validCustomIdeas.length;
-  const pointsToEarn = validCustomIdeas.length * 25 + (totalIdeas >= 3 ? 50 : 0);
+  
+  // Calculate potential points: 25 per custom idea + 50 bonus for 3+ total ideas
+  // Note: Selected suggestions already award 15 points instantly, so we show what's left to earn on submit
+  const customIdeaPoints = validCustomIdeas.length * 25;
+  const bonusPoints = totalIdeas >= 3 ? 50 : 0;
+  const pointsToEarn = customIdeaPoints + bonusPoints;
   return <HubLayout sectionId="demo-ideas" showBackground={false}>
       <section className="bg-background rounded-3xl pt-24 md:pt-32 pb-16 md:pb-24">
         <div className="mx-auto w-full px-4 md:px-8 lg:px-16">

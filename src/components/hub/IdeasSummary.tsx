@@ -12,6 +12,10 @@ interface IdeasSummaryProps {
   isSubmitted: boolean;
   pointsToEarn: number;
 }
+
+const POINTS_PER_CUSTOM_IDEA = 25;
+const BONUS_THRESHOLD = 3;
+const BONUS_POINTS = 50;
 const IdeasSummary: React.FC<IdeasSummaryProps> = ({
   selectedSuggestions,
   customIdeas,
@@ -63,13 +67,20 @@ const IdeasSummary: React.FC<IdeasSummaryProps> = ({
       {/* Points Preview */}
       <div className="p-3 bg-primary/5 rounded-xl border border-primary/20 mb-6">
         <div className="flex items-center gap-2">
-          
           <span className="text-sm font-medium text-foreground">
-            Earn up to {pointsToEarn} points
+            {pointsToEarn > 0 ? (
+              <>+{pointsToEarn} points on submit</>
+            ) : (
+              <>Add ideas to earn points</>
+            )}
           </span>
         </div>
         <p className="text-xs text-muted-foreground mt-1">
-          Submit 3 ideas for a 50-point bonus!
+          {totalIdeas >= 3 ? (
+            <span className="text-green-600 dark:text-green-400">✓ 50-point bonus unlocked!</span>
+          ) : (
+            <>Submit {3 - totalIdeas} more idea{3 - totalIdeas !== 1 ? 's' : ''} for 50-point bonus</>
+          )}
         </p>
       </div>
 
