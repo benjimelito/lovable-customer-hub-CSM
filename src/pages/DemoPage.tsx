@@ -122,15 +122,15 @@ const DemoPage: React.FC = () => {
         <div className="mx-auto w-full px-4 md:px-8 lg:px-16">
           {/* Page Header */}
           <BlurFade delay={0}>
-            <div className="text-center mb-12">
-              <h1 className="text-[40px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground mb-4">
+            <div className="max-w-2xl mb-12">
+              <h1 className="text-[36px] md:text-[48px] font-semibold leading-[110%] tracking-[-0.03em] text-foreground">
                 Enterprise Quote Generator
               </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore pricing options and generate a custom quote for {profile.companyName}
-            </p>
-          </div>
-        </BlurFade>
+              <p className="text-lg text-muted-foreground mt-4">
+                Explore pricing options and generate a custom quote for {profile.companyName}
+              </p>
+            </div>
+          </BlurFade>
 
           {/* Demo Intro */}
           <div className="mb-8">
