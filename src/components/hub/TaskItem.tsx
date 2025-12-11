@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Clock, Sparkles } from "lucide-react";
+import { ExternalLink, Clock, Gift } from "lucide-react";
 
 interface Task {
   id: string;
@@ -84,7 +84,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, index }) => {
           {/* Unlock message */}
           {task.unlockMessage && !task.completed && (
             <div className="flex items-center gap-2 text-xs text-primary mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Gift className="w-3.5 h-3.5" />
               <span>{task.unlockMessage}</span>
             </div>
           )}

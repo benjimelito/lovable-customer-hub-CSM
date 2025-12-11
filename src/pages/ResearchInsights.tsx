@@ -7,7 +7,7 @@ import ResearchSourcesList from "@/components/hub/ResearchSourcesList";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { mockResearch } from "@/data/mockData";
-import { Brain, Sparkles } from "lucide-react";
+import { Brain } from "lucide-react";
 import { toast } from "sonner";
 
 const ResearchInsights: React.FC = () => {
@@ -43,9 +43,9 @@ const ResearchInsights: React.FC = () => {
 
           {/* AI Transparency Callout */}
           <BlurFade delay={0.1}>
-            <div className="p-4 bg-[#D4E0F9]/30 rounded-2xl border border-[#4A7AE8]/20 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#D4E0F9] flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4 text-[#4A7AE8]" />
+            <div className="p-4 bg-[#D4E0F9]/30 dark:bg-primary/10 rounded-2xl border border-[#4A7AE8]/20 dark:border-primary/20 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-[#D4E0F9] dark:bg-primary/20 flex items-center justify-center shrink-0">
+                <Brain className="w-4 h-4 text-[#4A7AE8] dark:text-primary" />
               </div>
               <div>
                 <p className="text-sm text-foreground">

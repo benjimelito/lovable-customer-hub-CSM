@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles } from "lucide-react";
+import { Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AIMatchedBadgeProps {
@@ -24,7 +24,7 @@ const AIMatchedBadge: React.FC<AIMatchedBadgeProps> = ({
         className
       )}
     >
-      <Sparkles 
+      <Brain 
         className={cn(
           "text-[#4A7AE8]",
           variant === "default" ? "w-3.5 h-3.5" : "w-3 h-3"

@@ -8,7 +8,7 @@ import { useRewards } from "@/contexts/RewardsContext";
 import { useProgress } from "@/contexts/ProgressContext";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { toast } from "sonner";
-import { Target, Clock, Sparkles, CheckCircle2 } from "lucide-react";
+import { Target, Clock, CheckCircle2, Coins } from "lucide-react";
 
 interface Task {
   id: string;
@@ -247,7 +247,7 @@ const ActionItems: React.FC = () => {
 
                   <div className="text-center md:text-left">
                     <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                      <Sparkles className="w-4 h-4 text-primary" />
+                      <Coins className="w-4 h-4 text-primary" />
                       <span className="text-sm text-muted-foreground">Points</span>
                     </div>
                     <p className="text-2xl font-semibold text-foreground">
