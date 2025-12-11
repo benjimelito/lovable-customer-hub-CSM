@@ -15,6 +15,7 @@ import FAQPage from "./pages/FAQPage";
 import SwagRedemption from "./pages/SwagRedemption";
 import DemoPage from "./pages/DemoPage";
 import DemoIdeas from "./pages/DemoIdeas";
+import Instructions from "./pages/Instructions";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
@@ -43,6 +44,7 @@ const App = () => (
                 <Route path="/faq" element={<FAQPage />} />
                 <Route path="/swag" element={<SwagRedemption />} />
                 <Route path="/demo-ideas" element={<DemoIdeas />} />
+                <Route path="/instructions" element={<Instructions />} />
                 
                 {/* Utility Routes */}
                 <Route path="/original" element={<Home />} />
