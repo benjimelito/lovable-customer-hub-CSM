@@ -8,6 +8,7 @@ import HeroVideoPlayer from "@/components/HeroVideoPlayer";
 import HubCard from "@/components/hub/HubCard";
 import ProgressBadge from "@/components/hub/ProgressBadge";
 import AEInfoCard from "@/components/hub/AEInfoCard";
+import WelcomeModal from "@/components/hub/WelcomeModal";
 import { PitchDeck } from "@/components/presentation";
 import { useCustomer } from "@/contexts/CustomerContext";
 import { mockAccountExecutive } from "@/data/mockData";
@@ -100,6 +101,9 @@ const CustomerHubHome: React.FC = () => {
       <Navigation />
       <BackgroundGradient />
       <BackgroundGrain />
+      
+      {/* Welcome Modal (first-time visitors) */}
+      <WelcomeModal />
       
       {/* Pitch Deck Modal */}
       <PitchDeck isOpen={showPitchDeck} onClose={() => setShowPitchDeck(false)} />
