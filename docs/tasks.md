@@ -93,20 +93,21 @@
 
 ---
 
-## Phase 3: GTM Sales Process (/process)
+## Phase 3: GTM Sales Process (/process) ✅ COMPLETED
 
 **PRD Reference:** `prd-gtm-sales-process.md`
 
-- [ ] Create `src/pages/SalesProcess.tsx`
-- [ ] Create `src/components/hub/Timeline.tsx`
-- [ ] Create `src/components/hub/TimelineStage.tsx`
-- [ ] Create `src/components/hub/StageContent.tsx`
-- [ ] Create `src/components/hub/AgendaItem.tsx`
-- [ ] Add current stage highlighting with pulse animation
-- [ ] Add expandable step details
-- [ ] Add pre-call agenda section
-- [ ] Connect to CustomerContext for deal stage
-- [ ] Test responsive behavior (horizontal → vertical)
+- [x] Create `src/pages/SalesProcess.tsx`
+- [x] Create `src/components/hub/Timeline.tsx`
+- [x] Create `src/components/hub/TimelineStage.tsx`
+- [x] Create `src/components/hub/StageContent.tsx`
+- [x] Create `src/components/hub/AgendaItem.tsx`
+- [x] Create `src/components/hub/PreCallAgenda.tsx`
+- [x] Add current stage highlighting with pulse animation
+- [x] Add expandable step details (Collapsible)
+- [x] Add pre-call agenda section
+- [x] Connect to CustomerContext for deal stage
+- [x] Test responsive behavior (vertical timeline on all sizes)
 
 ---
 

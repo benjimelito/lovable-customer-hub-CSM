@@ -52,41 +52,49 @@ export const dealStages = [
     id: "discovery",
     name: "Discovery",
     description: "Initial exploration and needs assessment",
-    status: "completed",
+    status: "completed" as const,
+    completedDate: "Dec 5, 2024",
     agendaItems: [
       "Understand current development workflow",
       "Identify pain points and bottlenecks",
       "Discuss team structure and capabilities",
+    ],
+    milestones: ["Initial call completed", "Requirements gathered", "Use cases identified"],
+    resources: [
+      { title: "Discovery Summary", url: "#" },
+      { title: "Requirements Doc", url: "#" },
     ],
   },
   {
     id: "demo",
     name: "Product Demo",
     description: "Live demonstration of Lovable capabilities",
-    status: "current",
+    status: "current" as const,
     agendaItems: [
       "Show end-to-end project creation",
       "Demonstrate AI-powered development",
       "Review enterprise security features",
       "Q&A session",
     ],
+    milestones: ["Live demo scheduled", "Custom demo prepared", "Team attendees confirmed"],
   },
   {
     id: "evaluation",
     name: "Technical Evaluation",
     description: "Hands-on trial and technical deep-dive",
-    status: "upcoming",
+    status: "upcoming" as const,
     agendaItems: [
       "Pilot project setup",
       "Integration assessment",
       "Security review",
     ],
+    milestones: ["POC environment", "Integration testing", "Security audit"],
   },
   {
     id: "negotiation",
     name: "Negotiation",
     description: "Pricing and contract discussions",
-    status: "upcoming",
+    status: "upcoming" as const,
     agendaItems: [
       "Pricing proposal",
       "Contract terms",
@@ -97,11 +105,77 @@ export const dealStages = [
     id: "closed",
     name: "Closed Won",
     description: "Deal closed and onboarding begins",
-    status: "upcoming",
+    status: "upcoming" as const,
     agendaItems: [
       "Kickoff meeting",
       "Team onboarding",
       "Success metrics",
+    ],
+  },
+];
+
+// Pre-Call Agenda Data
+export const mockAgenda = [
+  {
+    id: "1",
+    title: "Introductions",
+    duration: "5 min",
+    description: "Team introductions and role overview",
+    presenter: "both" as const,
+    details: [
+      "Brief introductions from both teams",
+      "Overview of attendee roles and responsibilities",
+      "Set expectations for the call",
+    ],
+  },
+  {
+    id: "2",
+    title: "Your Challenges",
+    duration: "10 min",
+    description: "Deep dive into your current pain points",
+    presenter: "prospect" as const,
+    details: [
+      "Walk us through your current development process",
+      "Where are the biggest bottlenecks?",
+      "What have you tried before?",
+    ],
+  },
+  {
+    id: "3",
+    title: "Live Demo",
+    duration: "20 min",
+    description: "See Lovable build a real application",
+    presenter: "lovable" as const,
+    details: [
+      "End-to-end project creation",
+      "AI-powered feature development",
+      "Real-time collaboration features",
+      "Deployment and hosting walkthrough",
+    ],
+  },
+  {
+    id: "4",
+    title: "Enterprise Features",
+    duration: "10 min",
+    description: "Security, compliance, and admin controls",
+    presenter: "lovable" as const,
+    details: [
+      "SSO and authentication options",
+      "Role-based access control",
+      "Audit logs and compliance",
+      "Data residency options",
+    ],
+  },
+  {
+    id: "5",
+    title: "Q&A",
+    duration: "10 min",
+    description: "Open discussion and next steps",
+    presenter: "both" as const,
+    details: [
+      "Address any questions or concerns",
+      "Discuss potential pilot project",
+      "Align on next steps and timeline",
     ],
   },
 ];
