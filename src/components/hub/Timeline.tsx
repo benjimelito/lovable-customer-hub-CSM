@@ -24,11 +24,13 @@ const Timeline: React.FC<TimelineProps> = ({
   selectedStageId,
 }) => {
   return (
-    <div className="p-6 bg-[#F7F4ED] rounded-3xl">
-      <h3 className="text-lg font-medium text-foreground mb-6">Your Partnership Journey</h3>
+    <div className="p-6 border border-border rounded-2xl bg-card">
+      <h3 className="text-sm font-medium text-foreground uppercase tracking-wide mb-6">
+        Deal Progress
+      </h3>
       <div className="space-y-0">
         {stages.map((stage, index) => (
-          <BlurFade key={stage.id} delay={0.1 + index * 0.05}>
+          <BlurFade key={stage.id} delay={0.1 + index * 0.03}>
             <TimelineStage
               id={stage.id}
               label={stage.name}
