@@ -200,22 +200,22 @@
 
 ---
 
-## Phase 7: FAQ with AI Chatbot (/faq)
+## Phase 7: FAQ with AI Chatbot (/faq) ✅ COMPLETED
 
 **PRD Reference:** `prd-faq-chatbot.md`
 
-- [ ] Create `src/pages/FAQPage.tsx`
-- [ ] Create `src/components/hub/FAQAccordion.tsx` (extract from existing)
-- [ ] Create `src/components/hub/ChatBot.tsx`
-- [ ] Create `src/components/hub/MessageBubble.tsx`
-- [ ] Create `src/components/hub/TypingIndicator.tsx`
-- [ ] Create `src/components/hub/SuggestedQuestions.tsx`
-- [ ] Create `supabase/functions/faq-chat/index.ts`
-- [ ] Build message list with scroll
-- [ ] Add typing indicator
-- [ ] Add suggested questions feature
-- [ ] Add error handling and fallbacks
-- [ ] Test responsive behavior (side-by-side → tabbed)
+- [x] Create `src/pages/FAQPage.tsx`
+- [x] Create `src/components/hub/FAQAccordion.tsx`
+- [x] Create `src/components/hub/ChatBot.tsx`
+- [x] Create `src/components/hub/MessageBubble.tsx`
+- [x] Create `src/components/hub/TypingIndicator.tsx`
+- [x] Create `src/components/hub/SuggestedQuestions.tsx`
+- [x] Create `supabase/functions/faq-chat/index.ts`
+- [x] Build message list with scroll
+- [x] Add typing indicator
+- [x] Add suggested questions feature
+- [x] Add error handling and fallbacks
+- [x] Test responsive behavior (side-by-side → tabbed)
 
 ---
 
