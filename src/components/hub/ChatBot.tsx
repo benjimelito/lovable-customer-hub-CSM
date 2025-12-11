@@ -39,6 +39,8 @@ const ChatBot: React.FC = () => {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isThinking, setIsThinking] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
   const [suggestions, setSuggestions] = useState(initialSuggestions);
   const [isExpanded, setIsExpanded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -48,7 +50,7 @@ const ChatBot: React.FC = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, isLoading]);
+  }, [messages, isLoading, isThinking, isStreaming]);
 
   // Lock body scroll when expanded
   useEffect(() => {
@@ -73,6 +75,8 @@ const ChatBot: React.FC = () => {
 
       setMessages((prev) => [...prev, userMsg]);
       setIsLoading(true);
+      setIsThinking(true);
+      setIsStreaming(false);
       setSuggestions([]);
 
       let assistantContent = "";
@@ -110,6 +114,12 @@ const ChatBot: React.FC = () => {
         let textBuffer = "";
 
         const upsertAssistant = (content: string) => {
+          // First token received - switch from thinking to streaming
+          if (isThinking) {
+            setIsThinking(false);
+            setIsStreaming(true);
+          }
+          
           assistantContent = content;
           setMessages((prev) => {
             const last = prev[prev.length - 1];
@@ -176,9 +186,11 @@ const ChatBot: React.FC = () => {
         setSuggestions(initialSuggestions);
       } finally {
         setIsLoading(false);
+        setIsThinking(false);
+        setIsStreaming(false);
       }
     },
-    [messages, profile, dealStage]
+    [messages, profile, dealStage, isThinking]
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -227,7 +239,8 @@ const ChatBot: React.FC = () => {
           {messages.map((message) => (
             <MessageBubble key={message.id} message={message} />
           ))}
-          {isLoading && <TypingIndicator />}
+          {isThinking && <TypingIndicator phase="thinking" />}
+          {isStreaming && <TypingIndicator phase="responding" />}
         </div>
       </ScrollArea>
 
