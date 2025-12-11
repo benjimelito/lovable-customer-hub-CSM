@@ -6,7 +6,9 @@ import Navigation from "@/components/Navigation";
 import HeroVideoPlayer from "@/components/HeroVideoPlayer";
 import HubCard from "@/components/hub/HubCard";
 import ProgressBadge from "@/components/hub/ProgressBadge";
+import AEInfoCard from "@/components/hub/AEInfoCard";
 import { useCustomer } from "@/contexts/CustomerContext";
+import { mockAccountExecutive } from "@/data/mockData";
 import { 
   Play, 
   BarChart3, 
@@ -125,6 +127,11 @@ const CustomerHubHome: React.FC = () => {
           
           {/* Video Player */}
           <HeroVideoPlayer />
+          
+          {/* Account Executive Section */}
+          <div className="relative z-30 mx-auto w-full max-w-5xl px-4 mt-8">
+            <AEInfoCard ae={mockAccountExecutive} />
+          </div>
         </div>
       </div>
 

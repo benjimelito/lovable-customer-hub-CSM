@@ -1,5 +1,32 @@
 // Mock data for Customer Hub
 
+// Account Executive Data
+export const mockAccountExecutive = {
+  id: "ae-1",
+  name: "Sarah Chen",
+  title: "Enterprise Account Executive",
+  photoUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face",
+  email: "sarah@lovable.dev",
+  phone: "+1 (555) 123-4567",
+  calendlyUrl: "https://calendly.com/sarah-lovable",
+  linkedInUrl: "https://linkedin.com/in/sarahchen",
+  bio: "Sarah has 8+ years helping enterprise teams transform their development workflows. She's passionate about enabling teams to ship faster with AI.",
+};
+
+// Welcome Video Data
+export const mockWelcomeVideo = {
+  videoUrl: "",
+  presenter: "gtm" as const,
+  personalizationPoints: {
+    prospectName: "John",
+    companyName: "Acme Corp",
+    industry: "Technology",
+    customMessages: ["Tailored for your engineering team"],
+  },
+  thumbnailUrl: "/images/video-thumbnail.jpg",
+  duration: "2:30",
+};
+
 // Usage Dashboard Data
 export const usageStats = {
   accounts: 12,
