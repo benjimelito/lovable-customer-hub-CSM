@@ -13,21 +13,12 @@ import SocialProof from "./pages/SocialProof";
 import ActionItems from "./pages/ActionItems";
 import FAQPage from "./pages/FAQPage";
 import SwagRedemption from "./pages/SwagRedemption";
+import DemoPage from "./pages/DemoPage";
 import Home from "./pages/Home";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-// Placeholder pages for hub sections (to be implemented in later phases)
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <h1 className="text-4xl font-bold text-foreground mb-4">{title}</h1>
-      <p className="text-muted-foreground">Coming soon in Phase 2+</p>
-    </div>
-  </div>
-);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -42,7 +33,7 @@ const App = () => (
               <Routes>
                 {/* Customer Hub Routes */}
                 <Route path="/" element={<CustomerHubHome />} />
-                <Route path="/demo" element={<PlaceholderPage title="Watch Demo" />} />
+                <Route path="/demo" element={<DemoPage />} />
                 <Route path="/usage" element={<UsageDashboard />} />
                 <Route path="/process" element={<SalesProcess />} />
                 <Route path="/research" element={<ResearchInsights />} />
