@@ -22,7 +22,7 @@ const AEInfoCard: React.FC<AEInfoCardProps> = ({
 }) => {
   const initials = ae.name.split(" ").map(n => n[0]).join("").toUpperCase();
   return <BlurFade delay={0.5} inView>
-      <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card p-6 transition-all duration-500 hover:border-border hover:shadow-lg">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
         {/* Trust Badge */}
         <div className="absolute right-4 top-4">
           
