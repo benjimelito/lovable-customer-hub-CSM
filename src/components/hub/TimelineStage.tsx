@@ -1,5 +1,5 @@
 import React from "react";
-import { Check } from "lucide-react";
+import { Check, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TimelineStageProps {
@@ -25,7 +25,7 @@ const TimelineStage: React.FC<TimelineStageProps> = ({
   return (
     <div 
       className={cn(
-        "flex items-start gap-4 cursor-pointer group transition-all duration-200",
+        "flex items-start gap-4 cursor-pointer group transition-all duration-300",
         onClick && "hover:opacity-80"
       )}
       onClick={onClick}
@@ -34,59 +34,59 @@ const TimelineStage: React.FC<TimelineStageProps> = ({
       <div className="flex flex-col items-center">
         <div
           className={cn(
-            "w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200",
-            status === "completed" && "bg-foreground border-foreground",
-            status === "current" && "bg-foreground border-foreground",
-            status === "upcoming" && "bg-transparent border-muted-foreground/30",
-            isSelected && "ring-2 ring-offset-2 ring-offset-background ring-foreground/20"
+            "w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300",
+            status === "completed" && "bg-[#D4F9E4] border-[#4AE88A]",
+            status === "current" && "bg-[#D4E0F9] border-[#4A7AE8]",
+            status === "upcoming" && "bg-background border-[#ECEAE4]",
+            isSelected && status !== "upcoming" && "ring-2 ring-offset-2 ring-offset-[#F7F4ED] ring-[#4A7AE8]/30"
           )}
         >
           {status === "completed" ? (
-            <Check className="w-4 h-4 text-background" />
+            <Check className="w-5 h-5 text-[#4AE88A]" />
           ) : status === "current" ? (
-            <div className="w-2 h-2 rounded-full bg-background" />
+            <Circle className="w-4 h-4 fill-[#4A7AE8] text-[#4A7AE8]" />
           ) : (
-            <div className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+            <Circle className="w-4 h-4 text-muted-foreground/30" />
           )}
         </div>
         {!isLast && (
           <div
             className={cn(
-              "w-px h-14 mt-2 transition-all duration-200",
-              status === "completed" ? "bg-foreground" : "bg-border"
+              "w-0.5 h-16 mt-2 transition-all duration-300",
+              status === "completed" ? "bg-[#4AE88A]" : "bg-[#ECEAE4]"
             )}
           />
         )}
       </div>
 
       {/* Content */}
-      <div className="flex-1 pb-6">
-        <div className="flex items-center gap-3">
+      <div className="flex-1 pb-8">
+        <div className="flex items-center gap-2">
           <h4
             className={cn(
-              "text-sm font-medium transition-colors",
+              "text-base font-medium transition-colors",
               status === "upcoming" ? "text-muted-foreground" : "text-foreground"
             )}
           >
             {label}
           </h4>
           {status === "current" && (
-            <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-foreground text-background rounded font-medium">
+            <span className="text-xs px-2 py-0.5 bg-[#D4E0F9] text-[#4A7AE8] rounded-full font-medium">
               Current
             </span>
           )}
         </div>
         <p
           className={cn(
-            "text-xs mt-1 leading-relaxed",
-            status === "upcoming" ? "text-muted-foreground/50" : "text-muted-foreground"
+            "text-sm mt-1",
+            status === "upcoming" ? "text-muted-foreground/60" : "text-muted-foreground"
           )}
         >
           {description}
         </p>
         {completedDate && status === "completed" && (
-          <p className="text-[10px] text-muted-foreground/60 mt-1.5 uppercase tracking-wide">
-            {completedDate}
+          <p className="text-xs text-muted-foreground mt-1">
+            Completed {completedDate}
           </p>
         )}
       </div>
