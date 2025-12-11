@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Gift, Sparkles } from "lucide-react";
 
 // Import swag images
+import stickersImage from "@/assets/swag/stickers.png";
 import capImage from "@/assets/swag/cap.png";
 import bottleImage from "@/assets/swag/bottle.png";
 import notebookImage from "@/assets/swag/notebook.png";
@@ -25,7 +26,7 @@ const swagItems: SwagItem[] = [
     name: "Sticker Pack",
     description: "Set of 5 high-quality holographic vinyl stickers featuring Lovable branding",
     pointsCost: 25,
-    image: "/placeholder.svg",
+    image: stickersImage,
     available: true,
     category: "accessories",
   },
