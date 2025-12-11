@@ -323,53 +323,141 @@ export const mockResearch = {
 };
 
 // Social Proof Data
-export const similarCompanies = [
+export const mockMatchedCompanies = [
   {
+    id: "tc-1",
     name: "TechFlow Inc",
-    industry: "Technology",
-    size: "500-1000",
-    matchScore: 94,
-    quote: "Reduced our prototyping time by 80%",
-    contactName: "Sarah Chen",
-    contactRole: "CTO",
-  },
-  {
-    name: "DataDriven Co",
-    industry: "Analytics",
-    size: "200-500",
-    matchScore: 89,
-    quote: "Our non-technical PMs now ship features independently",
-    contactName: "Mike Johnson",
-    contactRole: "VP Engineering",
-  },
-  {
-    name: "ScaleUp Labs",
+    logo: "/images/logos/stripe.svg",
     industry: "SaaS",
-    size: "100-200",
-    matchScore: 87,
-    quote: "10x faster from idea to MVP",
-    contactName: "Emily Davis",
-    contactRole: "Founder",
+    companySize: "500-1000",
+    matchScore: 94,
+    matchReasons: [
+      "Same industry vertical",
+      "Similar engineering team size",
+      "Shared tech stack (React, TypeScript)"
+    ],
+    testimonial: {
+      quote: "Lovable transformed how we build internal tools. What used to take our team weeks now takes days.",
+      author: "Sarah Chen",
+      role: "VP Engineering"
+    }
   },
+  {
+    id: "tc-2",
+    name: "DataDriven Co",
+    logo: "/images/logos/google.svg",
+    industry: "Analytics",
+    companySize: "200-500",
+    matchScore: 89,
+    matchReasons: [
+      "Data-focused organization",
+      "Similar growth stage",
+      "Enterprise security requirements"
+    ],
+    testimonial: {
+      quote: "Our non-technical PMs now ship features independently. It's been a game-changer for velocity.",
+      author: "Mike Johnson",
+      role: "VP Engineering"
+    }
+  },
+  {
+    id: "tc-3",
+    name: "ScaleUp Labs",
+    logo: "/images/logos/shopify.svg",
+    industry: "E-commerce",
+    companySize: "100-200",
+    matchScore: 87,
+    matchReasons: [
+      "Rapid scaling needs",
+      "Customer-facing applications",
+      "Multi-team collaboration"
+    ],
+    testimonial: {
+      quote: "10x faster from idea to MVP. We've shipped more in 3 months than the previous year.",
+      author: "Emily Davis",
+      role: "Founder & CEO"
+    }
+  },
+  {
+    id: "tc-4",
+    name: "Nexus Financial",
+    logo: "/images/logos/linkedin.svg",
+    industry: "FinTech",
+    companySize: "500-1000",
+    matchScore: 82,
+    matchReasons: [
+      "Compliance-focused",
+      "Enterprise governance needs",
+      "Internal tooling priorities"
+    ],
+    testimonial: {
+      quote: "The security and compliance features gave us confidence to move fast without sacrificing governance.",
+      author: "David Park",
+      role: "CTO"
+    }
+  }
 ];
 
-export const caseStudies = [
+export const mockCaseStudies = [
   {
     id: "thinkify",
     company: "Thinkify",
+    logo: "/images/logos/github.svg",
     title: "From Concept to Launch in 2 Weeks",
-    summary: "How Thinkify built their entire customer portal using Lovable.",
+    summary: "How Thinkify built their entire customer portal using Lovable, cutting development time by 80% and reducing costs by half.",
     industry: "EdTech",
-    results: ["2 weeks to launch", "50% cost reduction", "3x faster iterations"],
+    metrics: [
+      { label: "Time to Launch", value: "2 weeks", improvement: "vs 3 months planned" },
+      { label: "Cost Reduction", value: "50%", improvement: "development costs" },
+      { label: "Iteration Speed", value: "3x", improvement: "faster feature releases" }
+    ],
+    quote: "We went from a 6-person engineering backlog to shipping weekly releases with a 2-person team.",
+    author: "James Liu",
+    role: "Head of Product"
   },
   {
     id: "finova",
     company: "Finova",
+    logo: "/images/logos/stripe.svg",
     title: "Enterprise Dashboard Transformation",
-    summary: "Finova replaced their legacy dashboard with a modern, AI-powered solution.",
+    summary: "Finova replaced their legacy dashboard with a modern, AI-powered solution that increased user engagement by 40%.",
     industry: "FinTech",
-    results: ["90% faster development", "Zero downtime migration", "40% user engagement increase"],
+    metrics: [
+      { label: "Development Speed", value: "90%", improvement: "faster than legacy" },
+      { label: "Migration", value: "Zero", improvement: "downtime" },
+      { label: "User Engagement", value: "40%", improvement: "increase" }
+    ],
+    quote: "Our stakeholders can now make dashboard changes themselves. Engineering focuses on core product.",
+    author: "Rachel Torres",
+    role: "Director of Engineering"
+  }
+];
+
+export const mockTestimonials = [
+  {
+    id: "t-1",
+    quote: "The speed at which we can now iterate is incredible. What used to be a 2-week sprint is now a 2-day experiment.",
+    author: "Marcus Webb",
+    role: "VP Product",
+    company: "Velocity Systems",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
   },
+  {
+    id: "t-2",
+    quote: "Lovable bridged the gap between our technical and non-technical teams. Everyone can contribute now.",
+    author: "Jennifer Kim",
+    role: "CEO",
+    company: "Bright Analytics",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    id: "t-3",
+    quote: "We replaced 3 contractors with Lovable and shipped faster. The ROI was immediate and substantial.",
+    author: "Alex Thompson",
+    role: "CTO",
+    company: "CloudScale",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+  }
 ];
 
 // Action Items Data
